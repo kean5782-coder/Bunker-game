@@ -106,12 +106,22 @@ class BunkerBot:
             self.has_voted_this_round = False
             self.has_voted_this_revote = False
 
+        if phase != self.last_action_phase:
+            self.last_action_phase = phase
+            if phase == "VOTING":
+                self.has_voted_this_round = False
+            elif phase in ("JUSTIFICATION", "REVOTE"):
+                self.has_voted_this_revote = False
+
         players = state.get("players", [])
         me = next((p for p in players if p["id"] == self.player_id), None)
         if not me:
             return
 
         is_alive = me.get("is_alive", True)
+
+        if phase in ("PROLOGUE", "LOBBY"):
+            return
 
         # 1. SPEECH PHASE
         if phase == "SPEECH" and is_alive:
@@ -264,7 +274,7 @@ async def main():
     parser = argparse.ArgumentParser(description="Запуск ботов для игры «Бункер»")
     parser.add_argument("--room", type=str, default=None, help="Код комнаты")
     parser.add_argument("--count", type=int, default=None, help="Количество ботов")
-    parser.add_argument("--host", type=str, default="http://localhost:64738", help="URL сервера")
+    parser.add_argument("--host", type=str, default="http://localhost:8008", help="URL сервера")
     args = parser.parse_args()
 
     room = (args.room or "").strip().upper()

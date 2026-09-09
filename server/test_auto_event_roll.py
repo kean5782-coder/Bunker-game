@@ -65,6 +65,26 @@ class TestAutoEventRoll(unittest.TestCase):
         chance_used = room.last_resolved_event["chance_required"]
         self.assertGreater(chance_used, initial_chance)
 
+    def test_auto_roll_upon_no_elimination(self):
+        """Если по итогам голосования никто не изгнан, событие все равно автоматически разрешается"""
+        room = BunkerGameRoom("TEST_NO_ELIM", "host_1", "Host")
+        room.add_player("p1", "Alice")
+        room.add_player("p2", "Bob")
+        room.start_game(capacity=1, enable_events=True)
+
+        self.assertIsNotNone(room.active_event)
+
+        # Фаза результатов с пустым изгнанием
+        room.phase = PHASE_VOTE_RESULTS
+        room.vote_results = {"eliminated_id": None, "threshold_failed": True}
+
+        room.confirm_elimination()
+
+        # Событие 1-го раунда разрешилось автоматически
+        self.assertIsNotNone(room.last_resolved_event)
+        # Игра перешла во 2-й раунд и вытянула новое событие
+        self.assertEqual(room.round_number, 2)
+
 
 if __name__ == "__main__":
     unittest.main()

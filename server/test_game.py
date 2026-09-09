@@ -153,23 +153,21 @@ def test_tiebreaker():
     room.start_game(capacity=2)
 
     room.start_voting()
-    # 2 голоса против p2, 2 голоса против p3 -> ничья!
+    # 2 голоса против p2, 2 голоса против p3 -> ничья переводит в оправдание
     room.cast_vote("h1", "p2")
     room.cast_vote("p3", "p2")
     room.cast_vote("p2", "p3")
     room.cast_vote("p4", "p3")
 
-    assert room.phase == PHASE_VOTE_RESULTS
-    assert room.vote_results["is_tie"] == True
-    assert set(room.vote_results["top_candidates"]) == {"p2", "p3"}
-    print(f"   ✓ Зафиксирована ничья между: {room.vote_results['top_candidates']}")
+    assert room.phase == "JUSTIFICATION"
+    assert set(room.justification_candidates) == {"p2", "p3"}
+    print(f"   ✓ Зафиксирована ничья и оправдательная речь для: {room.justification_candidates}")
 
-    # Запуск тайбрейка ведущим
-    room.host_start_tiebreaker()
-    assert room.phase == PHASE_VOTING
-    assert room.is_tiebreaker_active == True
-    assert room.timer_seconds_left == 45
-    print("   ✓ Тайбрейк успешно активирован ведущим.")
+    # Переход к переголосованию
+    for _ in range(len(room.justification_candidates)):
+        room.next_justification_speaker()
+    assert room.phase == "REVOTE"
+    print("   ✓ Переголосование успешно активировано.")
 
 def test_events_flow():
     print("-> Тестирование системы событий и вылазок...")
@@ -209,11 +207,44 @@ def test_events_flow():
     assert len(room.resolved_events) == 1
     print(f"   ✓ Событие успешно решено! Дельта очков бункера: {room.events_score_delta}%")
 
+def test_prologue_and_enter_bunker():
+    print("-> Тестирование фазы пролога и входа в бункер...")
+    from server.game_engine import PHASE_PROLOGUE
+    room = BunkerGameRoom("TEST", "host_1", "Командир")
+    room.add_player("p_2", "Анна")
+    room.add_player("p_3", "Борис")
+
+    # 1. Запуск с прологом
+    room.start_game(capacity=2, skip_prologue=False)
+    assert room.phase == PHASE_PROLOGUE
+    assert room.timer_is_paused == True
+    init_time = room.timer_seconds_left
+
+    # 2. Таймер не должен тикать во время пролога
+    assert room.tick_timer() == False
+    assert room.timer_seconds_left == init_time
+
+    # 3. Обычный игрок жмет "В бункер" -> пока ведущий не нажал, игра не стартует
+    room.enter_bunker("p_2")
+    assert room.phase == PHASE_PROLOGUE
+
+    # 4. Ведущий жмет "В бункер" -> переход в фазу речи
+    room.enter_bunker("host_1")
+    assert room.phase == PHASE_SPEECH
+    assert room.timer_is_paused == False
+    assert room.timer_seconds_left == room.speech_duration_sec
+
+    # 5. Теперь в фазе речи таймер отсчитывает время
+    room.tick_timer()
+    assert room.timer_seconds_left == room.speech_duration_sec - 1
+    print("   ✓ Пролог и кнопка «В бункер» работают корректно.")
+
 if __name__ == "__main__":
     test_network()
     test_game_flow()
     test_traitor_mode()
     test_tiebreaker()
     test_events_flow()
+    test_prologue_and_enter_bunker()
     print("\n✅ ВСЕ ТЕСТЫ УСПЕШНО ПРОЙДЕНЫ!")
 

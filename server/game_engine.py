@@ -18,13 +18,15 @@ from .deck_data import (
     draw_random_event,
     calculate_event_odds,
     resolve_event_roll,
-    is_exile_alive_on_surface
+    is_exile_alive_on_surface,
+    get_hazard_health_condition
 )
 
 logger = logging.getLogger("bunker.engine")
 
 # Доступные фазы игры
 PHASE_LOBBY = "LOBBY"
+PHASE_PROLOGUE = "PROLOGUE"                             # Ознакомление с катастрофой перед закрытием шлюза
 PHASE_SPEECH = "SPEECH"                                 # Защитная речь активного игрока со вскрытием карт
 PHASE_COLLECTIVE_DISCUSSION = "COLLECTIVE_DISCUSSION"   # Этап 1 обсуждения: открытый микрофон 60 сек
 PHASE_ACCUSATION = "ACCUSATION"                         # Этап 2 обсуждения: раунд обвинений по 30 сек
@@ -152,6 +154,10 @@ class BunkerGameRoom:
         self.boosted_profession_tags: Dict[str, int] = {}
         self.last_resolved_event: Optional[dict] = None
         self.consecutive_event_failures: int = 0  # Для системы жалости (pity system)
+        self.is_sortie_skipped: bool = False  # Пропуск вылазки ведущим
+        self.event_special_bonus: int = 0
+        self.volunteer_is_safe: bool = False
+        self.sabotage_suppressed: bool = False
 
         # Механики изгнанных и спецкарт
         self.veto_used_round: Optional[int] = None
@@ -161,6 +167,7 @@ class BunkerGameRoom:
         # Состояние таймера
         self.timer_seconds_left = 0
         self.timer_is_paused = False
+        self.prologue_ready_players: set[str] = set()
 
         # Указатель на текущего говорящего игрока (фаза речи)
         self.active_speaker_idx = 0
@@ -275,6 +282,10 @@ class BunkerGameRoom:
         self.active_event = ev
         if ev["id"] not in self.used_event_ids:
             self.used_event_ids.append(ev["id"])
+        self.is_sortie_skipped = False
+        self.event_special_bonus = 0
+        self.volunteer_is_safe = False
+        self.sabotage_suppressed = False
 
         # Автоматический выбор первого добровольца для вылазки
         alive = self.get_alive_players()
@@ -291,6 +302,14 @@ class BunkerGameRoom:
             f"{ev['description']} Базовый шанс успеха: {ev['base_chance']}%. Вскрывайте карты для изменения шанса!",
             "warning"
         )
+
+    def skip_sortie(self, skip: bool = True):
+        """Пропуск вылазки на поверхность: шлюз запечатан, 0% бонусов/штрафов, без риска для здоровья"""
+        if not self.active_event or self.active_event.get("type") != "SURFACE_EVENT":
+            raise ValueError("Пропустить можно только вылазку на поверхность!")
+        self.is_sortie_skipped = skip
+        state_str = "ОТМЕНЕНА (гермошлюз запечатан) 🚫" if skip else "ВОЗОБНОВЛЕНА 🪂"
+        self.log_event("Вылазка на поверхность", f"Решение бункера: вылазка {state_str}!", "warning" if skip else "info")
 
     def recalculate_event_odds(self):
         """Пересчитывает текущие шансы на основе ТОЛЬКО ОТКРЫТЫХ характеристик"""
@@ -309,7 +328,9 @@ class BunkerGameRoom:
             eliminated,
             volunteer_id=self.assigned_volunteer_id,
             catastrophe=self.catastrophe,
-            pity_bonus=pity
+            pity_bonus=pity,
+            special_bonus=self.event_special_bonus,
+            sabotage_suppressed=self.sabotage_suppressed
         )
 
     def assign_volunteer(self, player_id: str):
@@ -326,6 +347,45 @@ class BunkerGameRoom:
         if not self.active_event or not self.current_event_odds:
             raise ValueError("Нет активного события для разрешения!")
 
+        # 1. Проверка пропуска вылазки на поверхность
+        if self.active_event.get("type") == "SURFACE_EVENT" and self.is_sortie_skipped:
+            ev = self.active_event
+            result = {
+                "event_id": ev["id"],
+                "event_title": ev["title"],
+                "title": f"🚫 Вылазка пропущена: {ev['title']}",
+                "is_success": True,
+                "is_skipped": True,
+                "roll": 0,
+                "chance_required": 0,
+                "is_crit_success": False,
+                "is_crit_failure": False,
+                "score_delta": 0,
+                "description": "Бункер запечатал гермошлюз. Никто не вышел наружу: выжившие в безопасности, припасы не добыты (0% к шансам бункера, риск здоровью исключен).",
+                "boosted_tags": [],
+                "boost_score": 0,
+                "boost_reason": "",
+                "health_degraded": None,
+                "resolved_at": time.time()
+            }
+            self.last_resolved_event = result
+            self.resolved_events.append({
+                "timestamp": time.strftime("%H:%M:%S"),
+                "round": self.round_number,
+                "event": self.active_event,
+                "result": result
+            })
+            self.log_event(
+                "🚫 ВЫЛАЗКА ОТМЕНЕНА",
+                f"Бункер остался запечатанным. Событие «{ev['title']}» пропущено (0% дельта, здоровье добровольца в безопасности).",
+                "info"
+            )
+            self.active_event = None
+            self.current_event_odds = None
+            self.is_sortie_skipped = False
+            return result
+
+        # 2. Обычный бросок кубика d100
         result = resolve_event_roll(self.active_event, self.current_event_odds, force_roll=force_roll)
         self.events_score_delta += result["score_delta"]
 
@@ -339,6 +399,105 @@ class BunkerGameRoom:
             boost_val = result.get("boost_score", 10)
             for tag in result["boosted_tags"]:
                 self.boosted_profession_tags[tag] = max(self.boosted_profession_tags.get(tag, 0), boost_val)
+
+        # 3. Механика риска ухудшения здоровья добровольца при вылазке на поверхность
+        result["health_degraded"] = None
+        if self.active_event.get("type") == "SURFACE_EVENT":
+            vol_id = self.assigned_volunteer_id
+            vol = self.players.get(vol_id) if vol_id else None
+            if not vol or not vol.is_alive:
+                alive = self.get_alive_players()
+                vol = alive[0] if alive else None
+
+            if vol and "health" in vol.cards:
+                if self.volunteer_is_safe:
+                    danger_chance = 0
+                else:
+                    danger_chance = 35  # Базовая опасность
+
+                    # Опасность катаклизма
+                    cat_id = self.catastrophe.get("id", "") if self.catastrophe else ""
+                    cat_title = self.catastrophe.get("title", "") if self.catastrophe else "Катаклизм"
+                    cat_text = ((self.catastrophe.get("title", "") if self.catastrophe else "") + " " + 
+                                (self.catastrophe.get("description", "") if self.catastrophe else "")).lower()
+
+                    extreme_cats = ["ice_age", "acid_rains", "nanite_swarm", "atmospheric_fire", "global_flood",
+                                    "cosmic_radiation", "nuclear_winter", "super_virus", "toxic_bloom", "zombie_outbreak"]
+                    if cat_id in extreme_cats or any(w in cat_text for w in ["радиаци", "вирус", "мороз", "кислот", "яд", "токсин", "инфекци", "мутаци", "пыль"]):
+                        danger_chance += 15
+
+                    # Исход вылазки
+                    if not result["is_success"]:
+                        danger_chance += 25
+                        if result.get("is_crit_failure"):
+                            danger_chance += 15
+                    else:
+                        danger_chance -= 15
+                        if result.get("is_crit_success"):
+                            danger_chance = 0  # При критическом успехе доброволец возвращается невредимым
+
+                    # Защитные карты и экипировка у добровольца
+                    prot_keywords = ["химзащит", "противогаз", "респиратор", "костюм", "аптечк", "дозиметр", "скафандр", "теплая", "иммунитет", "армейск"]
+                    has_prot = False
+                    for c_cat in ("backpack", "big_inventory", "baggage", "hobby", "health", "trait"):
+                        c = vol.cards.get(c_cat, {})
+                        if c.get("revealed", False):
+                            t_c = (str(c.get("value", "")) + " " + str(c.get("details", ""))).lower()
+                            if any(kw in t_c for kw in prot_keywords):
+                                has_prot = True
+                                break
+                    if has_prot:
+                        danger_chance -= 25
+
+                    # Корректировка на здоровый организм
+                    curr_sev = vol.cards["health"].get("severity", "good")
+                    if curr_sev == "good":
+                        danger_chance -= 10
+
+                    danger_chance = max(5, min(85, danger_chance))
+
+                # Бросок d100 на здоровье
+                health_roll = random.randint(1, 100)
+                if danger_chance > 0 and health_roll <= danger_chance:
+                    old_name = vol.cards["health"].get("value", "Здоров")
+                    old_desc = vol.cards["health"].get("details", "")
+
+                    if curr_sev == "good":
+                        # Если полностью здоров: убирается «Абсолютно здоров», появляется легкая стадия болезни
+                        new_cond = get_hazard_health_condition(cat_id, cat_text)
+                        new_name = new_cond["name"]
+                        new_desc = f"{new_cond['desc']} (Получено при вылазке на поверхность при катастрофе «{cat_title}»)."
+                        new_sev = new_cond.get("severity", "minor")
+                    elif curr_sev == "minor":
+                        # Обострение легкой стадии до средней
+                        new_name = f"{old_name} (Обострение средней тяжести)"
+                        new_desc = f"{old_desc} После воздействия среды на поверхности болезнь обострилась до средней тяжести."
+                        new_sev = "medium"
+                    elif curr_sev == "medium":
+                        # Обострение средней стадии до критической
+                        new_name = f"{old_name} (Критическое осложнение)"
+                        new_desc = f"{old_desc} Катастрофическое обострение после вылазки: требуется постоянная медпомощь, критическое состояние!"
+                        new_sev = "critical"
+                    else:
+                        # Критическая стадия обостряется до терминальной
+                        new_name = f"{old_name} (Терминальная стадия)"
+                        new_desc = f"{old_desc} Организм получил смертельную дозу поражения снаружи: состояние на грани гибели!"
+                        new_sev = "critical"
+
+                    vol.cards["health"]["value"] = new_name
+                    vol.cards["health"]["details"] = new_desc
+                    vol.cards["health"]["severity"] = new_sev
+                    # Здоровье ухудшается втихую: карта НЕ раскрывается автоматически (статус revealed не меняется)!
+
+                    result["health_degraded"] = {
+                        "player_id": vol.id,
+                        "player_name": vol.name,
+                        "old_condition": old_name,
+                        "new_condition": new_name,
+                        "severity": new_sev,
+                        "danger_chance": danger_chance,
+                        "roll": health_roll
+                    }
 
         result["resolved_at"] = time.time()
         self.last_resolved_event = result
@@ -369,6 +528,7 @@ class BunkerGameRoom:
         # Очищаем активное событие (оно разрешено)
         self.active_event = None
         self.current_event_odds = None
+        self.is_sortie_skipped = False
         return result
 
     def host_toggle_events(self, enabled: bool):
@@ -393,7 +553,8 @@ class BunkerGameRoom:
         speech_duration: Optional[int] = None,
         debate_duration: Optional[int] = None,
         voting_duration: Optional[int] = None,
-        last_word_duration: Optional[int] = None
+        last_word_duration: Optional[int] = None,
+        skip_prologue: bool = True
     ):
         """Запуск игры: раздача карт, определение катастрофы, режима и бункера"""
         alive = self.get_alive_players()
@@ -458,10 +619,17 @@ class BunkerGameRoom:
                     player.cards["health"]["revealed"] = True
 
         self.round_number = 1
-        self.start_round()
+        self.prologue_ready_players.clear()
 
-        # В режиме Метеорит сразу вытягиваем кризис
-        if self.game_mode == "METEORITE" and self.events_enabled:
+        if skip_prologue:
+            self.start_round()
+        else:
+            self.phase = PHASE_PROLOGUE
+            self.timer_seconds_left = self.speech_duration_sec
+            self.timer_is_paused = True
+
+        # Сразу вытягиваем испытание на 1-й раунд во всех режимах игры
+        if self.events_enabled:
             self.trigger_next_event()
 
         traitor_msg = " [РЕЖИМ ПРЕДАТЕЛЯ АКТИВИРОВАН ☣️]" if self.enable_traitor else ""
@@ -470,6 +638,32 @@ class BunkerGameRoom:
             f"АПОКАЛИПСИС: {self.catastrophe['title']}{mode_msg}{traitor_msg}",
             f"{self.catastrophe['description']} Мест в бункере: {self.bunker_capacity}.",
             "danger"
+        )
+
+    def enter_bunker(self, player_id: Optional[str] = None):
+        """Игрок нажимает кнопку 'В бункер' в прологе."""
+        if self.phase != PHASE_PROLOGUE:
+            return
+        if player_id:
+            self.prologue_ready_players.add(player_id)
+
+        is_host = (player_id == self.host_id or not player_id)
+        alive_ids = {p.id for p in self.get_alive_players()}
+        human_alive_ids = {pid for pid in alive_ids if not pid.startswith("bot_")}
+        all_humans_ready = human_alive_ids.issubset(self.prologue_ready_players)
+
+        if is_host or all_humans_ready:
+            self.finish_prologue()
+
+    def finish_prologue(self):
+        """Завершение пролога и запуск 1-го раунда защитных речей"""
+        if self.phase != PHASE_PROLOGUE:
+            return
+        self.start_round()
+        self.log_event(
+            "ГЕРМОШЛЮЗ ЗАПЕРТ 🚪",
+            "Выжившие вошли в бункер. Врата запечатаны, начинается 1-й раунд защитных речей!",
+            "primary"
         )
 
     def start_round(self):
@@ -499,6 +693,9 @@ class BunkerGameRoom:
         self.is_tiebreaker_active = False
         self.active_speaker_idx = 0
         self.turn_revealed_categories.clear()
+        self.event_special_bonus = 0
+        self.volunteer_is_safe = False
+        self.sabotage_suppressed = False
 
         self.phase = PHASE_SPEECH
         self.timer_seconds_left = self.speech_duration_sec
@@ -984,13 +1181,19 @@ class BunkerGameRoom:
         self.last_activity = time.time()
         self.phase = PHASE_VOTE_RESULTS
         alive = self.get_alive_players()
-        total_voters = len(alive)
 
-        # AFK авто-голос
+        # AFK авто-голос строго между кандидатами переголосования
         for p in alive:
-            if p.id not in self.votes or self.votes[p.id] is None:
-                p.vote_target = p.id
-                self.votes[p.id] = p.id
+            if p.id not in self.votes or self.votes[p.id] not in self.justification_candidates:
+                if p.id in self.justification_candidates:
+                    # Если кандидат сам не проголосовал, голосует за соперника
+                    other_cands = [cid for cid in self.justification_candidates if cid != p.id]
+                    p.vote_target = other_cands[0] if other_cands else p.id
+                else:
+                    # Не-кандидаты случайно выбирают одного из кандидатов
+                    p.vote_target = random.choice(self.justification_candidates) if self.justification_candidates else None
+                if p.vote_target:
+                    self.votes[p.id] = p.vote_target
 
         tally: Dict[str, int] = {}
         for voter_id, target_id in self.votes.items():
@@ -999,11 +1202,15 @@ class BunkerGameRoom:
                 weight = 2 if voter and voter.double_vote else 1
                 tally[target_id] = tally.get(target_id, 0) + weight
 
+        total_cand_votes = sum(tally.get(cid, 0) for cid in self.justification_candidates)
+        num_cands = len(self.justification_candidates) or 1
+        default_pct = round(100.0 / num_cands, 1)
+
         detailed_tally = []
         for cid in self.justification_candidates:
             v = tally.get(cid, 0)
             p = self.players.get(cid)
-            pct = round((v / total_voters) * 100, 1) if total_voters > 0 else 0
+            pct = round((v / total_cand_votes) * 100, 1) if total_cand_votes > 0 else default_pct
             detailed_tally.append({
                 "player_id": cid,
                 "player_name": p.name if p else "Неизвестно",
@@ -1012,6 +1219,7 @@ class BunkerGameRoom:
             })
 
         detailed_tally.sort(key=lambda x: x["votes"], reverse=True)
+
         if self.double_elimination_pending and len(detailed_tally) >= 2:
             elim_ids = [detailed_tally[0]["player_id"], detailed_tally[1]["player_id"]]
             elim_names = f"{self.players[elim_ids[0]].name} и {self.players[elim_ids[1]].name}"
@@ -1020,6 +1228,7 @@ class BunkerGameRoom:
                 "eliminated_ids": elim_ids,
                 "eliminated_name": elim_names,
                 "is_tie": False,
+                "tie_broken_by": None,
                 "threshold_failed": False,
                 "revote_completed": True,
                 "double_elimination": True,
@@ -1028,22 +1237,52 @@ class BunkerGameRoom:
                 "veto_possible": True
             }
             elim_name = elim_names
+            self.timer_seconds_left = 10
+            self.log_event("Итоги переголосования", f"По итогам переголосования изгоняются оба кандидата: {elim_names}.", "danger")
         else:
-            eliminated_id = detailed_tally[0]["player_id"] if detailed_tally and detailed_tally[0]["votes"] > 0 else random.choice(self.justification_candidates)
-            elim_name = self.players[eliminated_id].name if eliminated_id in self.players else "Кандидат"
-            self.vote_results = {
-                "eliminated_id": eliminated_id,
-                "eliminated_ids": [eliminated_id],
-                "eliminated_name": elim_name,
-                "is_tie": False,
-                "threshold_failed": False,
-                "revote_completed": True,
-                "detailed_tally": detailed_tally,
-                "top_candidates": [eliminated_id],
-                "veto_possible": True
-            }
-        self.timer_seconds_left = 10
-        self.log_event("Итоги переголосования", f"По итогам переголосования большинство голосов отдано за изгнание: {elim_name}.", "danger")
+            # Проверяем ничью при переголосовании
+            is_tie = len(detailed_tally) >= 2 and detailed_tally[0]["votes"] == detailed_tally[1]["votes"]
+            if is_tie:
+                max_votes = detailed_tally[0]["votes"]
+                tied_cands = [c for c in detailed_tally if c["votes"] == max_votes]
+                chosen = random.choice(tied_cands)
+                eliminated_id = chosen["player_id"]
+                elim_name = self.players[eliminated_id].name if eliminated_id in self.players else "Кандидат"
+                self.vote_results = {
+                    "eliminated_id": eliminated_id,
+                    "eliminated_ids": [eliminated_id],
+                    "eliminated_name": elim_name,
+                    "is_tie": True,
+                    "tie_broken_by": "dice",
+                    "threshold_failed": False,
+                    "revote_completed": True,
+                    "detailed_tally": detailed_tally,
+                    "top_candidates": [c["player_id"] for c in tied_cands],
+                    "veto_possible": True
+                }
+                self.timer_seconds_left = 10
+                self.log_event(
+                    "Ничья при переголосовании!",
+                    f"🎲 По итогам переголосования кандидаты набрали равное число голосов ({max_votes} голосов). Жребий судьбы определил: бункер покидает {elim_name}!",
+                    "danger"
+                )
+            else:
+                eliminated_id = detailed_tally[0]["player_id"] if detailed_tally else random.choice(self.justification_candidates)
+                elim_name = self.players[eliminated_id].name if eliminated_id in self.players else "Кандидат"
+                self.vote_results = {
+                    "eliminated_id": eliminated_id,
+                    "eliminated_ids": [eliminated_id],
+                    "eliminated_name": elim_name,
+                    "is_tie": False,
+                    "tie_broken_by": None,
+                    "threshold_failed": False,
+                    "revote_completed": True,
+                    "detailed_tally": detailed_tally,
+                    "top_candidates": [eliminated_id],
+                    "veto_possible": True
+                }
+                self.timer_seconds_left = 10
+                self.log_event("Итоги переголосования", f"По итогам переголосования большинство голосов отдано за изгнание: {elim_name}.", "danger")
 
     def host_start_tiebreaker(self):
         """Запуск тайбрейка ведущим при необходимости"""
@@ -1149,6 +1388,8 @@ class BunkerGameRoom:
         """Завершение фазы последнего слова и переход к следующему раунду или финалу"""
         self.last_activity = time.time()
         self.eliminated_in_last_word_id = None
+        if self.events_enabled and self.active_event:
+            self.resolve_active_event()
         alive = self.get_alive_players()
         if len(alive) <= self.bunker_capacity:
             self.trigger_final()
@@ -1359,9 +1600,112 @@ class BunkerGameRoom:
             }
             self.log_event("Тайный шпионаж 🔍", f"{player.name} изучил закрытые данные досье игрока {target.name}!", "info")
 
-        elif card_id == "steal_loot":
-            player.loot_stolen = True
-            self.log_event("Мародерство активировано", f"{player.name} подготовил мешок для багажа следующего изгнанного.", "warning")
+        elif card_id == "quarantine_lock":
+            target = self.players.get(target_player_id)
+            if target and target.is_alive:
+                target.is_silenced = True
+                self.log_event("КАРАНТИННЫЙ КАРЦЕР 🔒", f"{player.name} запер игрока {target.name} в изолятор на 1 раунд! Он не может говорить и голосовать.", "warning")
+
+        elif card_id == "truth_serum":
+            target = self.players.get(target_player_id)
+            if target and target.is_alive:
+                unrev = [k for k, v in target.cards.items() if not v.get("revealed", False) and k not in ["special", "traitor"]]
+                to_reveal = random.sample(unrev, min(2, len(unrev)))
+                for k in to_reveal:
+                    target.cards[k]["revealed"] = True
+                names = ", ".join(target.cards[k]["label"] for k in to_reveal)
+                self.log_event("СЫВОРДТКА ПРАВДЫ 💉", f"{player.name} ввел сыворотку правды {target.name}! Раскрыты карты: {names}.", "success")
+
+        elif card_id == "steal_item":
+            target = self.players.get(target_player_id)
+            if target and target.id != player.id and target.is_alive:
+                swap_cat = "backpack" if "backpack" in target.cards else ("baggage" if "baggage" in target.cards else None)
+                if swap_cat and swap_cat in player.cards:
+                    player.cards[swap_cat], target.cards[swap_cat] = target.cards[swap_cat], player.cards[swap_cat]
+                    player.cards[swap_cat]["revealed"] = True
+                    target.cards[swap_cat]["revealed"] = True
+                    self.log_event("МАРОДЕРСТВО 🥷", f"{player.name} силой обменял {swap_cat} с игроком {target.name}!", "warning")
+
+        elif card_id == "spy_dossier":
+            target = self.players.get(target_player_id)
+            if target and target.id != player.id:
+                unrev = [c for c in target.cards.values() if not c.get("revealed", False) and c.get("category") not in ["special", "traitor"]]
+                if unrev:
+                    peeked = random.choice(unrev)
+                    player.last_peeked = {
+                        "target_id": target.id,
+                        "target_name": target.name,
+                        "category": peeked.get("category", ""),
+                        "label": peeked.get("label", ""),
+                        "value": peeked.get("value", ""),
+                        "details": peeked.get("details", "")
+                    }
+                    self.log_event("Взлом досье 🕵️", f"{player.name} тайно изучил засекреченные данные {target.name}!", "info")
+
+        elif card_id == "immunity_round":
+            player.has_immunity = True
+            self.log_event("ИММУНИТЕТ 🛡️", f"{player.name} получил полный иммунитет от изгнания в текущем раунде!", "success")
+
+        elif card_id == "repair_bunker_threat":
+            if self.bunker:
+                self.bunker["threat_fixed"] = True
+                self.bunker["threat"] = "Нейтрализована аварийным ремонтом!"
+                self.log_event("АВАРИЙНЫЙ РЕМОНТ 🛠️", f"{player.name} устранил угрозу бункера подвигом инженера!", "success")
+
+        elif card_id == "cure_phobia":
+            target = self.players.get(target_player_id or player_id)
+            if target and "phobia" in target.cards:
+                target.cards["phobia"]["value"] = "Абсолютное бесстрашие (Излечен)"
+                target.cards["phobia"]["details"] = "Фобия полностью устранена сеансом гипноза."
+                target.cards["phobia"]["revealed"] = True
+                self.log_event("СНЯТИЕ ФОБИИ 🧠", f"{player.name} излечил фобию у {target.name}!", "success")
+
+        elif card_id == "bunker_ration_boost":
+            if self.bunker:
+                self.bunker["supplies_years"] = self.bunker.get("supplies_years", 5) + 2
+                self.log_event("РЕЗЕРВ ПРОВИЗИИ 🥫", f"{player.name} нашел законсервированный склад! Припасы бункера увеличены на +2 года (всего {self.bunker['supplies_years']} лет).", "success")
+
+        elif card_id == "blood_transfusion":
+            target = self.players.get(target_player_id or player_id)
+            if target and "health" in target.cards:
+                sev_map = {"critical": "medium", "medium": "minor", "minor": "good", "good": "good"}
+                old_sev = target.cards["health"].get("severity", "medium")
+                target.cards["health"]["severity"] = sev_map.get(old_sev, "good")
+                target.cards["health"]["details"] += " (Тяжесть снижена переливанием крови)."
+                target.cards["health"]["revealed"] = True
+                self.log_event("ПЕРЕЛИВАНИЕ КРОВИ 🩸", f"{player.name} улучшил состояние здоровья игрока {target.name}!", "success")
+
+        elif card_id == "event_satellite_recon":
+            self.event_special_bonus += 25
+            self.recalculate_event_odds()
+            self.log_event("СПУТНИКОВАЯ НАВИГАЦИЯ 📡", f"{player.name} задействовал орбитальный спутник! +25% к шансу успеха текущего испытания!", "success")
+
+        elif card_id == "event_hazard_exosuit":
+            self.volunteer_is_safe = True
+            self.event_special_bonus += 20
+            self.recalculate_event_odds()
+            self.log_event("ЭКЗОКОСТЮМ СТАЛКЕРА 🦾", f"{player.name} передал добровольцу тяжелый защитный экзоскелет! +20% к вылазке и 100% защита от ухудшения здоровья!", "success")
+
+        elif card_id == "event_suppress_sabotage":
+            self.sabotage_suppressed = True
+            self.recalculate_event_odds()
+            self.log_event("ОХРАННЫЙ ДРОН «ПЕРИМЕТР» 🛡️", f"{player.name} развернул дрон вокруг шлюза! Любой саботаж и диверсии изгнанных заблокированы.", "success")
+
+        elif card_id == "event_route_reroll":
+            if not self.active_event:
+                raise ValueError("Сейчас нет активного события для отмены!")
+            old_title = self.active_event["title"]
+            self.trigger_next_event(force_reroll=True)
+            self.log_event("ТАКТИЧЕСКАЯ КАРТА 🗺️", f"{player.name} отменил опасный маршрут «{old_title}»! Найдена альтернативная зона вылазки.", "warning")
+
+        elif card_id == "event_bunker_overdrive":
+            if self.active_event and self.active_event.get("type") == "BUNKER_CRISIS":
+                res = self.resolve_active_event(force_roll=1)
+                self.log_event("ФОРСАЖ СИСТЕМ БУНКЕРА ⚡", f"{player.name} перезапустил аварийные контуры! Авария в бункере мгновенно ликвидирована!", "success")
+            else:
+                self.event_special_bonus += 15
+                self.recalculate_event_odds()
+                self.log_event("ФОРСАЖ СИСТЕМ БУНКЕРА ⚡", f"{player.name} разогнал генераторы! +15% к вероятности успеха экспедиции.", "success")
 
         else:
             self.log_event("Спецкарта сыграна", f"{player.name} использовал: {special.get('title')}.", "info")
@@ -1431,7 +1775,9 @@ class BunkerGameRoom:
 
     def host_restart_phase(self):
         self.last_activity = time.time()
-        if self.phase == PHASE_SPEECH:
+        if self.phase == PHASE_PROLOGUE:
+            self.finish_prologue()
+        elif self.phase == PHASE_SPEECH:
             self.timer_seconds_left = self.speech_duration_sec
             self.timer_is_paused = False
             self.log_event("Перезапуск речи", "Ведущий перезапустил время защитной речи.")
@@ -1446,7 +1792,11 @@ class BunkerGameRoom:
 
     def host_set_phase(self, new_phase: str):
         self.last_activity = time.time()
-        if new_phase == PHASE_SPEECH:
+        if new_phase == PHASE_PROLOGUE:
+            self.phase = PHASE_PROLOGUE
+            self.timer_seconds_left = self.speech_duration_sec
+            self.timer_is_paused = True
+        elif new_phase == PHASE_SPEECH:
             self.phase = PHASE_SPEECH
             self.timer_seconds_left = self.speech_duration_sec
             self.timer_is_paused = False
@@ -1481,7 +1831,7 @@ class BunkerGameRoom:
         self.log_event("Вместимость бункера", f"Ведущий изменил лимит мест до {self.bunker_capacity}.")
 
     def tick_timer(self) -> bool:
-        if self.timer_is_paused or self.timer_seconds_left <= 0:
+        if self.timer_is_paused or self.timer_seconds_left <= 0 or self.phase in (PHASE_PROLOGUE, PHASE_LOBBY, PHASE_FINAL):
             return False
 
         self.timer_seconds_left -= 1
@@ -1668,6 +2018,7 @@ class BunkerGameRoom:
                 "current_odds": self.current_event_odds,
                 "volunteer_id": self.assigned_volunteer_id,
                 "assigned_volunteer_id": self.assigned_volunteer_id,
+                "is_sortie_skipped": self.is_sortie_skipped,
                 "last_resolved": self.last_resolved_event,
                 "resolved_history": self.resolved_events[-10:],
                 "events_score_delta": self.events_score_delta,

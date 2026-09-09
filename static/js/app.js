@@ -94,88 +94,18 @@ const ALL_ACHIEVEMENTS = [
 ];
 
 function getCatastropheIllustration(catId) {
-  switch (catId) {
-    case 'nuclear_winter':
-    case 'cosmic_radiation':
-      return `
-        <svg viewBox="0 0 120 120" width="100" height="100" style="filter: drop-shadow(0 0 12px var(--accent-cyan));">
-          <circle cx="60" cy="60" r="52" fill="none" stroke="var(--accent-cyan)" stroke-width="2.5" stroke-dasharray="6,4" opacity="0.6"/>
-          <circle cx="60" cy="60" r="14" fill="var(--accent-cyan)"/>
-          <path d="M60,18 L70,42 L50,42 Z" fill="var(--accent-cyan)" opacity="0.85"/>
-          <path d="M24,78 L48,68 L38,50 Z" fill="var(--accent-cyan)" opacity="0.85"/>
-          <path d="M96,78 L82,50 L72,68 Z" fill="var(--accent-cyan)" opacity="0.85"/>
-        </svg>
-      `;
-    case 'zombie_outbreak':
-    case 'super_virus':
-    case 'alien_invasion':
-      return `
-        <svg viewBox="0 0 120 120" width="100" height="100" style="filter: drop-shadow(0 0 12px var(--accent-danger));">
-          <circle cx="60" cy="60" r="52" fill="none" stroke="var(--accent-danger)" stroke-width="2" opacity="0.4"/>
-          <circle cx="60" cy="46" r="20" fill="none" stroke="var(--accent-danger)" stroke-width="5"/>
-          <circle cx="44" cy="74" r="20" fill="none" stroke="var(--accent-danger)" stroke-width="5"/>
-          <circle cx="76" cy="74" r="20" fill="none" stroke="var(--accent-danger)" stroke-width="5"/>
-          <circle cx="60" cy="64" r="8" fill="var(--accent-danger)"/>
-        </svg>
-      `;
-    case 'asteroid_impact':
-    case 'magnetic_flip':
-      return `
-        <svg viewBox="0 0 120 120" width="100" height="100" style="filter: drop-shadow(0 0 14px var(--accent-amber));">
-          <path d="M20,20 Q60,50 80,80" stroke="var(--accent-danger)" stroke-width="4" fill="none" stroke-linecap="round"/>
-          <path d="M35,15 Q65,45 85,75" stroke="var(--accent-amber)" stroke-width="3" fill="none" stroke-dasharray="4,4"/>
-          <circle cx="85" cy="85" r="24" fill="#5a3d28" stroke="var(--accent-amber)" stroke-width="3.5"/>
-          <circle cx="78" cy="78" r="5" fill="#382518"/>
-          <circle cx="92" cy="88" r="6" fill="#382518"/>
-        </svg>
-      `;
-    case 'ice_age':
-      return `
-        <svg viewBox="0 0 120 120" width="100" height="100" style="filter: drop-shadow(0 0 14px #80d4ff);">
-          <path d="M60,12 L60,108 M12,60 L108,60 M26,26 L94,94 M26,94 L94,26" stroke="#80d4ff" stroke-width="3" stroke-linecap="round"/>
-          <circle cx="60" cy="60" r="10" fill="none" stroke="#80d4ff" stroke-width="2.5"/>
-          <path d="M45,20 L60,35 L75,20 M45,100 L60,85 L75,100 M20,45 L35,60 L20,75 M100,45 L85,60 L100,75" fill="none" stroke="#80d4ff" stroke-width="2.5" stroke-linecap="round"/>
-        </svg>
-      `;
-    case 'solar_flare':
-    case 'atmospheric_fire':
-      return `
-        <svg viewBox="0 0 120 120" width="100" height="100" style="filter: drop-shadow(0 0 15px #f97316);">
-          <circle cx="60" cy="60" r="28" fill="#f97316" stroke="#fb923c" stroke-width="4"/>
-          <path d="M60,12 L60,24 M60,96 L60,108 M12,60 L24,60 M96,60 L108,60 M26,26 L35,35 M85,85 L94,94 M26,94 L35,85 M85,35 L94,26" stroke="#fbbf24" stroke-width="3.5" stroke-linecap="round"/>
-        </svg>
-      `;
-    case 'global_flood':
-    case 'acid_rains':
-      return `
-        <svg viewBox="0 0 120 120" width="100" height="100" style="filter: drop-shadow(0 0 12px #06b6d4);">
-          <path d="M10,80 Q35,50 60,80 T110,80 L110,110 L10,110 Z" fill="rgba(6, 182, 212, 0.35)" stroke="#06b6d4" stroke-width="3"/>
-          <path d="M10,65 Q35,35 60,65 T110,65" fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round"/>
-          <circle cx="45" cy="40" r="3" fill="#38bdf8"/>
-          <circle cx="75" cy="35" r="4" fill="#38bdf8"/>
-        </svg>
-      `;
-    case 'ai_rebellion':
-    case 'nanite_swarm':
-      return `
-        <svg viewBox="0 0 120 120" width="100" height="100" style="filter: drop-shadow(0 0 14px var(--accent-cyan));">
-          <rect x="25" y="25" width="70" height="70" rx="8" fill="none" stroke="var(--accent-cyan)" stroke-width="3.5"/>
-          <circle cx="60" cy="60" r="16" fill="var(--accent-danger)"/>
-          <line x1="25" y1="40" x2="10" y2="40" stroke="var(--accent-cyan)" stroke-width="3"/>
-          <line x1="25" y1="80" x2="10" y2="80" stroke="var(--accent-cyan)" stroke-width="3"/>
-          <line x1="95" y1="40" x2="110" y2="40" stroke="var(--accent-cyan)" stroke-width="3"/>
-          <line x1="95" y1="80" x2="110" y2="80" stroke="var(--accent-cyan)" stroke-width="3"/>
-        </svg>
-      `;
-    default:
-      return `
-        <svg viewBox="0 0 120 120" width="100" height="100" style="filter: drop-shadow(0 0 10px var(--accent-amber));">
-          <polygon points="60,15 110,100 10,100" fill="none" stroke="var(--accent-amber)" stroke-width="4.5" stroke-linejoin="round"/>
-          <line x1="60" y1="45" x2="60" y2="72" stroke="var(--accent-amber)" stroke-width="4.5" stroke-linecap="round"/>
-          <circle cx="60" cy="86" r="4" fill="var(--accent-amber)"/>
-        </svg>
-      `;
+  if (catId) {
+    return `
+      <div style="position: relative; width: 100%; max-width: 280px; height: 110px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(0, 240, 255, 0.35); box-shadow: 0 0 16px rgba(0, 240, 255, 0.2);">
+        <video src="/static/videos/catastrophes/${catId}.mp4" poster="/static/images/catastrophes/${catId}.jpg" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 3px 8px; background: rgba(0,0,0,0.7); font-size: 10px; color: var(--accent-cyan); font-family: var(--font-hud); letter-spacing: 1px; display: flex; align-items: center; justify-content: space-between;">
+          <span>🔴 ОПЕРАТИВНАЯ СВОДКА</span>
+          <span style="color: var(--accent-danger);">СУДНЫЙ ДЕНЬ</span>
+        </div>
+      </div>
+    `;
   }
+  return '';
 }
 
 // --- Initialization ---
@@ -273,17 +203,59 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 function setupSoundButtons() {
   const btnSound = document.getElementById('btnToggleSound');
-  if (btnSound) {
+  const sliderVol = document.getElementById('soundVolumeSlider');
+  const labelVol = document.getElementById('soundVolumeLabel');
+
+  const updateSoundUI = () => {
+    if (btnSound && window.soundFX) {
+      btnSound.textContent = window.soundFX.enabled ? '🔊 Звук: ВКЛ' : '🔇 Звук: ВЫКЛ';
+    }
+    if (sliderVol && window.soundFX) {
+      sliderVol.value = window.soundFX.volume;
+    }
+    if (labelVol && window.soundFX) {
+      labelVol.textContent = `${Math.round(window.soundFX.volume * 100)}%`;
+    }
+  };
+
+  if (sliderVol && window.soundFX) {
+    sliderVol.value = window.soundFX.volume;
+    if (labelVol) {
+      labelVol.textContent = `${Math.round(window.soundFX.volume * 100)}%`;
+    }
+
+    sliderVol.addEventListener('input', (e) => {
+      const val = parseFloat(e.target.value);
+      window.soundFX.setVolume(val);
+      if (labelVol) {
+        labelVol.textContent = `${Math.round(val * 100)}%`;
+      }
+      if (btnSound) {
+        btnSound.textContent = window.soundFX.enabled ? '🔊 Звук: ВКЛ' : '🔇 Звук: ВЫКЛ';
+      }
+    });
+
+    sliderVol.addEventListener('change', () => {
+      if (window.soundFX && window.soundFX.enabled) {
+        window.soundFX.playClick();
+      }
+    });
+  }
+
+  if (btnSound && window.soundFX) {
     btnSound.addEventListener('click', () => {
       const enabled = window.soundFX.toggleSound();
-      btnSound.textContent = enabled ? '🔊 Звук: ВКЛ' : '🔇 Звук: ВЫКЛ';
+      if (enabled && window.soundFX.volume === 0) {
+        window.soundFX.setVolume(0.5);
+      }
+      updateSoundUI();
       showToast(enabled ? 'Звуковые эффекты включены' : 'Звуковые эффекты отключены');
     });
-    btnSound.textContent = window.soundFX.enabled ? '🔊 Звук: ВКЛ' : '🔇 Звук: ВЫКЛ';
+    updateSoundUI();
   }
 
   const btnAmbient = document.getElementById('btnToggleAmbient');
-  if (btnAmbient) {
+  if (btnAmbient && window.soundFX) {
     btnAmbient.addEventListener('click', () => {
       const enabled = window.soundFX.toggleAmbient();
       btnAmbient.textContent = enabled ? '📻 Гул: ВКЛ' : '📻 Гул: ВЫКЛ';
@@ -303,7 +275,9 @@ async function fetchNetworkInfo() {
       state.networkInfo = await res.json();
       const extSpan = document.getElementById('networkExternal');
       const locSpan = document.getElementById('networkLocal');
-      if (extSpan && state.networkInfo.external_ip) {
+      if (extSpan && (state.networkInfo.display_url || state.networkInfo.external_url)) {
+        extSpan.textContent = state.networkInfo.display_url || state.networkInfo.external_url;
+      } else if (extSpan && state.networkInfo.external_ip) {
         extSpan.textContent = `http://${state.networkInfo.external_ip}:${state.networkInfo.port}`;
       } else if (extSpan) {
         extSpan.textContent = 'Локальный режим (без белого IP)';
@@ -753,6 +727,7 @@ function handleStateUpdate(game) {
   if (state.lastPhase !== game.phase) {
     handlePhaseTransition(game.phase);
     state.lastPhase = game.phase;
+    state.selectedVoteTarget = null; // Сброс выбранной цели голосования при смене фазы
   }
 
   // Cinematic prologue on game start
@@ -887,6 +862,20 @@ function renderHostControls(game) {
     const isTie = game.vote_results && game.vote_results.is_tie && game.phase === 'VOTE_RESULTS';
     btnTiebreaker.style.display = isTie ? 'inline-flex' : 'none';
   }
+
+  // Discussion skip button in host bar
+  const btnHostSkipDiscBar = document.getElementById('btnHostSkipDiscBar');
+  if (btnHostSkipDiscBar) {
+    btnHostSkipDiscBar.style.display = (game.phase === 'COLLECTIVE_DISCUSSION') ? 'inline-flex' : 'none';
+  }
+  const btnForceDebate = document.getElementById('btnForceDebate');
+  if (btnForceDebate) {
+    if (game.phase === 'COLLECTIVE_DISCUSSION') {
+      btnForceDebate.textContent = '🗣️ К обвинениям';
+    } else {
+      btnForceDebate.textContent = '🗣️ К дебатам';
+    }
+  }
 }
 
 function renderPhaseBanner(game) {
@@ -901,6 +890,7 @@ function renderPhaseBanner(game) {
 
   const phaseNames = {
     'LOBBY': { title: 'ШЛЮЗ БУНКЕРА: СБОР ВЫЖИВШИХ', desc: 'Ожидание подключения игроков. Раздайте ссылку друзьям в Discord!' },
+    'PROLOGUE': { title: 'КАТАСТРОФА: АКТИВАЦИЯ БУНКЕРА', desc: 'Ознакомьтесь с условиями катаклизма и нажмите «В бункер» для начала игры.' },
     'SPEECH': { title: 'ЗАЩИТНАЯ РЕЧЬ', desc: `Кандидат выступает и открывает характеристики.${dirHint}.` },
     'COLLECTIVE_DISCUSSION': { title: 'КОЛЛЕКТИВНОЕ ОБСУЖДЕНИЕ (60 СЕК)', desc: 'Открытый микрофон: свободное обсуждение кандидатов и открытых карт.' },
     'ACCUSATION': { title: 'РАУНД ОБВИНЕНИЙ И АРГУМЕНТОВ', desc: `По 30 секунд на каждого игрока: аргументируйте подозрения перед голосованием.${dirHint}.` },
@@ -918,7 +908,7 @@ function renderPhaseBanner(game) {
   descEl.textContent = pInfo.desc;
 
   // Circular SVG Timer
-  if (game.phase !== 'LOBBY' && game.phase !== 'FINAL') {
+  if (game.phase !== 'LOBBY' && game.phase !== 'FINAL' && game.phase !== 'PROLOGUE') {
     timerBox.style.display = 'flex';
     const sec = game.timer ? game.timer.seconds_left : 0;
     const m = Math.floor(sec / 60);
@@ -989,12 +979,16 @@ function renderPhaseBanner(game) {
     const passDebateBtn = document.getElementById('btnPassDebate');
     const hostDebateBox = document.getElementById('hostDebateControls');
     const badgeEl = document.getElementById('speakerRevealBadge');
+    const skipDiscBtn = document.getElementById('btnHostSkipDiscussion');
+    const skipVoteBtn = document.getElementById('btnHostSkipToVoting');
 
     // Default button display resets
     if (nextBtn) nextBtn.style.display = 'none';
     if (passAccBtn) passAccBtn.style.display = 'none';
     if (passJustBtn) passJustBtn.style.display = 'none';
     if (passDebateBtn) passDebateBtn.style.display = 'none';
+    if (skipDiscBtn) skipDiscBtn.style.display = 'none';
+    if (skipVoteBtn) skipVoteBtn.style.display = 'none';
 
     if (isSpeech) {
       if (spkNameEl && spkNameEl.textContent !== game.current_speaker.name) {
@@ -1016,8 +1010,8 @@ function renderPhaseBanner(game) {
       if (badgeEl && spStatus) {
         badgeEl.style.display = 'inline-block';
         badgeEl.textContent = `Вскрыто: ${spStatus.revealed_count} / ${spStatus.required_count}`;
-        if (spStatus.can_proceed) {
-          badgeEl.className = 'reveal-progress-badge ready';
+        if (spStatus.can_proceed || state.isHost) {
+          badgeEl.className = spStatus.can_proceed ? 'reveal-progress-badge ready' : 'reveal-progress-badge waiting';
           if (nextBtn) {
             nextBtn.disabled = false;
             nextBtn.style.opacity = '1';
@@ -1048,6 +1042,8 @@ function renderPhaseBanner(game) {
         badgeEl.className = 'reveal-progress-badge ready';
         badgeEl.textContent = 'Свободный микрофон';
       }
+      if (skipDiscBtn) skipDiscBtn.style.display = state.isHost ? 'inline-flex' : 'none';
+      if (skipVoteBtn) skipVoteBtn.style.display = state.isHost ? 'inline-flex' : 'none';
 
     } else if (isAccusation) {
       const accSp = game.accusation_speaker;
@@ -1672,8 +1668,13 @@ function renderVoteResultsSection(game) {
       outcomeBanner.className = 'threshold-notice elimination-alert';
       outcomeBanner.innerHTML = `⚡ <strong>МОМЕНТАЛЬНОЕ ИЗГНАНИЕ (≥70%):</strong> Кандидат <strong>${escapeHtml(res.eliminated_name)}</strong> набрал ${res.max_percent}% голосов и изгоняется без права на оправдание!`;
     } else if (res.revote_completed) {
-      outcomeBanner.className = 'threshold-notice elimination-alert';
-      outcomeBanner.innerHTML = `⚖️ <strong>ИТОГИ ПЕРЕГОЛОСОВАНИЯ:</strong> Большинство голосов отдано за изгнание: <strong>${escapeHtml(res.eliminated_name)}</strong>!`;
+      if (res.tie_broken_by === 'dice' || res.is_tie) {
+        outcomeBanner.className = 'threshold-notice tie-alert';
+        outcomeBanner.innerHTML = `🎲 <strong>НИЧЬЯ В ПЕРЕГОЛОСОВАНИИ:</strong> Кандидаты набрали поровну голосов. Жребий судьбы решил исход: бункер покидает <strong>${escapeHtml(res.eliminated_name)}</strong>! Ожидание возможного Вето...`;
+      } else {
+        outcomeBanner.className = 'threshold-notice elimination-alert';
+        outcomeBanner.innerHTML = `⚖️ <strong>ИТОГИ ПЕРЕГОЛОСОВАНИЯ:</strong> Большинство голосов отдано за изгнание: <strong>${escapeHtml(res.eliminated_name)}</strong>! Ожидание возможного Вето...`;
+      }
     } else if (res.threshold_failed) {
       outcomeBanner.className = 'threshold-notice threshold-failed-alert';
       outcomeBanner.innerHTML = `⚠️ <strong>НИКТО НЕ ИЗГНАН:</strong> Все участники воздержались от голосования. Никто не покидает бункер!`;
@@ -1694,7 +1695,7 @@ function renderVoteResultsSection(game) {
     const items = res.detailed_tally || [];
 
     items.forEach(t => {
-      const isElim = (res.eliminated_id === t.player_id && !res.threshold_failed && !res.is_tie && !res.veto_used);
+      const isElim = (res.eliminated_id === t.player_id && !res.threshold_failed && !res.veto_used);
       const row = document.createElement('div');
       row.className = 'vote-tally-item';
 
@@ -1704,7 +1705,8 @@ function renderVoteResultsSection(game) {
 
       const nameSpan = document.createElement('div');
       nameSpan.className = 'vote-tally-name';
-      nameSpan.innerHTML = `${isElim ? '🚫 ' : '👤 '} ${escapeHtml(t.player_name)} ${isElim ? '<span class="badge badge-danger">Кандидат на выход</span>' : ''}`;
+      const badgeText = (res.tie_broken_by === 'dice' || res.is_tie) ? 'Жребий: на выход' : 'Кандидат на выход';
+      nameSpan.innerHTML = `${isElim ? (res.tie_broken_by === 'dice' ? '🎲 ' : '🚫 ') : '👤 '} ${escapeHtml(t.player_name)} ${isElim ? `<span class="badge badge-danger">${badgeText}</span>` : ''}`;
 
       const statSpan = document.createElement('div');
       statSpan.className = 'vote-tally-stat';
@@ -2366,13 +2368,36 @@ function setupGameAndHostButtons() {
   const btnHostEndDebate = document.getElementById('btnHostEndDebate');
   if (btnHostEndDebate) {
     btnHostEndDebate.addEventListener('click', () => {
-      if (state.gameData && state.gameData.phase === 'SPEECH') {
-        sendAction('NEXT_SPEAKER', {});
-        showToast('Слово передано следующему спикеру');
+      const ph = state.gameData ? state.gameData.phase : '';
+      if (ph === 'SPEECH') {
+        sendAction('HOST_FORCE_NEXT_SPEAKER', {});
+        showToast('Слово передано следующему оратору');
+      } else if (ph === 'COLLECTIVE_DISCUSSION') {
+        sendAction('START_ACCUSATION', {});
+        showToast('Переход к раунду обвинений');
+      } else if (ph === 'JUSTIFICATION') {
+        sendAction('NEXT_JUSTIFICATION_SPEAKER', {});
+        showToast('Оправдательная речь завершена');
       } else {
-        sendAction('NEXT_DEBATE_SPEAKER', {});
-        showToast('Слово передано следующему участнику дебатов');
+        sendAction('NEXT_ACCUSATION_SPEAKER', {});
+        showToast('Слово передано следующему спикеру');
       }
+    });
+  }
+
+  const btnHostSkipDisc = document.getElementById('btnHostSkipDiscussion');
+  if (btnHostSkipDisc) {
+    btnHostSkipDisc.addEventListener('click', () => {
+      sendAction('START_ACCUSATION', {});
+      showToast('Переход к раунду обвинений');
+    });
+  }
+
+  const btnHostSkipVote = document.getElementById('btnHostSkipToVoting');
+  if (btnHostSkipVote) {
+    btnHostSkipVote.addEventListener('click', () => {
+      sendAction('START_VOTING', {});
+      showToast('Переход к тайному голосованию');
     });
   }
 
@@ -2395,6 +2420,22 @@ function setupGameAndHostButtons() {
     });
   }
 
+  const btnHostForceNext = document.getElementById('btnHostForceNextSpeaker');
+  if (btnHostForceNext) {
+    btnHostForceNext.addEventListener('click', () => {
+      sendAction('HOST_FORCE_NEXT_SPEAKER', {});
+      showToast('Слово передано дальше');
+    });
+  }
+
+  const btnHostSkipDiscBar = document.getElementById('btnHostSkipDiscBar');
+  if (btnHostSkipDiscBar) {
+    btnHostSkipDiscBar.addEventListener('click', () => {
+      sendAction('START_ACCUSATION', {});
+      showToast('Переход к раунду обвинений');
+    });
+  }
+
   const btnForceVoting = document.getElementById('btnForceVoting');
   if (btnForceVoting) {
     btnForceVoting.addEventListener('click', () => {
@@ -2405,7 +2446,12 @@ function setupGameAndHostButtons() {
   const btnForceDebate = document.getElementById('btnForceDebate');
   if (btnForceDebate) {
     btnForceDebate.addEventListener('click', () => {
-      sendAction('START_DEBATE', {});
+      if (state.gameData && state.gameData.phase === 'COLLECTIVE_DISCUSSION') {
+        sendAction('START_ACCUSATION', {});
+        showToast('Переход к раунду обвинений');
+      } else {
+        sendAction('START_DEBATE', {});
+      }
     });
   }
 
@@ -2449,58 +2495,7 @@ const bindHostControlEvents = setupGameAndHostButtons;
 // === EVENT RENDERING & RESOLUTION (v3.0) ===
 // =====================================================================
 
-function renderActiveEvent(game) {
-  const container = document.getElementById('eventChallengeSection');
-  if (!container) return;
-
-  const eventsState = game.events_state;
-  const activeEv = eventsState ? eventsState.active_event : null;
-
-  // Update HUD badge
-  const badgeEl = document.getElementById('hudEventsBadge');
-  const hist = (eventsState && eventsState.resolved_history) ? eventsState.resolved_history : [];
-  if (badgeEl) badgeEl.textContent = hist.length;
-
-  if (!activeEv) {
-    container.style.display = 'none';
-    container.innerHTML = '';
-    state.lastActiveEventId = null;
-    state.lastActiveEventOddsSig = null;
-    return;
-  }
-
-  container.style.display = 'block';
-
-  const odds = eventsState.current_odds || {
-    base_chance: activeEv.base_chance || 35,
-    final_chance: activeEv.base_chance || 35,
-    positive_factors: [],
-    negative_factors: [],
-    volunteer: null,
-    exiles: []
-  };
-
-  const isNewEvent = (state.lastActiveEventId !== activeEv.id);
-  const oddsSig = `${activeEv.id}_${odds.final_chance}_${eventsState.volunteer_id}_${(odds.positive_factors||[]).length}_${(odds.negative_factors||[]).length}_${(odds.exiles||[]).length}_${state.isHost}`;
-
-  if (!isNewEvent && state.lastActiveEventOddsSig === oddsSig && container.children.length > 0) {
-    return;
-  }
-
-  state.lastActiveEventId = activeEv.id;
-  state.lastActiveEventOddsSig = oddsSig;
-
-  const isSurface = (activeEv.type === 'SURFACE_EVENT');
-  const cardClass = isSurface ? 'crisis-card--surface' : 'crisis-card--bunker';
-  const badgeClass = isSurface ? 'crisis-badge--surface' : 'crisis-badge--bunker';
-  const badgeText = isSurface ? '🪂 ВЫЛАЗКА НА ПОВЕРХНОСТЬ' : '🚨 АВАРИЯ В БУНКЕРЕ';
-
-  const chanceVal = odds.final_chance;
-  const chanceTier = chanceVal >= 60 ? 'high' : chanceVal >= 40 ? 'mid' : 'low';
-  const animClass = isNewEvent ? 'animate-slide-in' : '';
-
-  let contentHtml = '';
-
+function renderEventContentHtml(activeEv, odds, game, eventsState, isSurface, isSkipped) {
   if (!isSurface) {
     // Внутри бункера: факторы живых игроков
     const posList = (odds.positive_factors || []).map(f => `
@@ -2517,7 +2512,7 @@ function renderActiveEvent(game) {
       </div>
     `).join('');
 
-    contentHtml = `
+    return `
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 12px;">
         <div class="duel-side duel-side--bunker">
           <div class="duel-side-title" style="color: var(--accent-success);">🛡️ Факторы защиты (+${odds.positive_factors ? odds.positive_factors.reduce((a, b) => a + b.delta, 0) : 0}%)</div>
@@ -2571,7 +2566,14 @@ function renderActiveEvent(game) {
       `;
     }).join('');
 
-    contentHtml = `
+    const skipBannerHtml = isSkipped ? `
+      <div style="background: rgba(255, 170, 0, 0.12); border: 1px solid var(--accent-amber); border-radius: var(--radius-sm); padding: 10px 14px; margin-bottom: 12px; color: var(--accent-amber); text-align: center; font-weight: 700; font-size: 13px;">
+        🚫 ВЫЛАЗКА ПРОПУЩЕНА: Гермошлюз запечатан. Никто не выходит на поверхность — риск для здоровья исключен (0% к шансам бункера).
+      </div>
+    ` : '';
+
+    return `
+      ${skipBannerHtml}
       <div class="duel-container">
         <!-- Bunker volunteer side -->
         <div class="duel-side duel-side--bunker">
@@ -2607,34 +2609,118 @@ function renderActiveEvent(game) {
       </div>
     `;
   }
+}
 
-  let actionControlsHtml = '';
+function renderEventActionsHtml(activeEv, isSurface, isSkipped) {
   if (state.isHost) {
-    actionControlsHtml = `
+    return `
       <div class="crisis-actions-bar">
         <button class="btn-resolve-event" onclick="window.handleHostResolveEvent()">
           🎲 БРОСИТЬ КУБИК d100 (Разрешить испытание)
         </button>
+        ${isSurface ? `
+          <button class="btn ${isSkipped ? 'btn-warning' : 'btn-secondary'} btn-sm" onclick="sendAction('SKIP_SORTIE', { skip: ${!isSkipped} })">
+            ${isSkipped ? '↩️ Возобновить вылазку' : '🚫 Пропустить вылазку'}
+          </button>
+        ` : ''}
         <button class="btn btn-secondary btn-sm" onclick="sendAction('HOST_TRIGGER_EVENT', {})">
           🔄 Сменить испытание
         </button>
         <span style="font-size: 11px; color: var(--text-muted); margin-left: auto;">
-          🎲 Испытание автоматически разрешится после голосования и изгнания (или бросьте вручную)
+          🎲 Испытание автоматически разрешится после голосования (или бросьте вручную)
         </span>
       </div>
     `;
   } else {
-    actionControlsHtml = `
+    return `
       <div class="crisis-actions-bar">
         <span style="font-size: 12px; color: var(--accent-amber); font-weight: 600;">
-          🎲 Кубик d100 бросится автоматически сразу после голосования и изгнания! Вскрывайте карты, чтобы повлиять на шансы.
+          ${isSkipped ? '🚫 Вылазка отменена ведущим: бункер запечатан, здоровье добровольца в безопасности.' : '🎲 Кубик d100 бросится автоматически сразу после голосования и изгнания! Вскрывайте карты, чтобы повлиять на шансы.'}
         </span>
       </div>
     `;
   }
+}
+
+function renderActiveEvent(game) {
+  const container = document.getElementById('eventChallengeSection');
+  if (!container) return;
+
+  const eventsState = game.events_state;
+  const activeEv = eventsState ? eventsState.active_event : null;
+
+  // Update HUD badge
+  const badgeEl = document.getElementById('hudEventsBadge');
+  const hist = (eventsState && eventsState.resolved_history) ? eventsState.resolved_history : [];
+  if (badgeEl) badgeEl.textContent = hist.length;
+
+  if (!activeEv) {
+    container.style.display = 'none';
+    container.innerHTML = '';
+    state.lastActiveEventId = null;
+    state.lastActiveEventOddsSig = null;
+    return;
+  }
+
+  container.style.display = 'block';
+
+  const odds = eventsState.current_odds || {
+    base_chance: activeEv.base_chance || 35,
+    final_chance: activeEv.base_chance || 35,
+    positive_factors: [],
+    negative_factors: [],
+    volunteer: null,
+    exiles: []
+  };
+
+  const isSurface = (activeEv.type === 'SURFACE_EVENT');
+  const isSkipped = Boolean(eventsState.is_sortie_skipped);
+  const cardClass = isSurface ? 'crisis-card--surface' : 'crisis-card--bunker';
+  const badgeClass = isSurface ? 'crisis-badge--surface' : 'crisis-badge--bunker';
+  const badgeText = isSurface ? '🪂 ВЫЛАЗКА НА ПОВЕРХНОСТЬ' : '🚨 АВАРИЯ В БУНКЕРЕ';
+
+  const chanceVal = odds.final_chance;
+  const chanceTier = chanceVal >= 60 ? 'high' : chanceVal >= 40 ? 'mid' : 'low';
+
+  const isNewEvent = (state.lastActiveEventId !== activeEv.id);
+  const oddsSig = `${activeEv.id}_${odds.final_chance}_${eventsState.volunteer_id}_${isSkipped}_${(odds.positive_factors||[]).length}_${(odds.negative_factors||[]).length}_${(odds.exiles||[]).length}_${state.isHost}`;
+
+  const existingCard = container.querySelector('.crisis-card');
+
+  // Если карточка уже существует для этого события, обновляем по месту (без пересоздания DOM и без перезапуска анимаций)
+  if (!isNewEvent && existingCard && existingCard.dataset.eventId === activeEv.id) {
+    if (state.lastActiveEventOddsSig === oddsSig) {
+      return;
+    }
+    state.lastActiveEventOddsSig = oddsSig;
+
+    const pctValEl = existingCard.querySelector('.odds-percent-val');
+    if (pctValEl) {
+      pctValEl.textContent = `${chanceVal}%`;
+      pctValEl.className = `odds-percent-val ${chanceTier}`;
+    }
+    const fillEl = existingCard.querySelector('.odds-progress-fill');
+    if (fillEl) {
+      fillEl.style.width = `${chanceVal}%`;
+      fillEl.className = `odds-progress-fill ${chanceTier}`;
+    }
+
+    const dynContentEl = existingCard.querySelector('#eventDynamicContent');
+    if (dynContentEl) {
+      dynContentEl.innerHTML = renderEventContentHtml(activeEv, odds, game, eventsState, isSurface, isSkipped);
+    }
+    const actionsEl = existingCard.querySelector('#eventActionControls');
+    if (actionsEl) {
+      actionsEl.innerHTML = renderEventActionsHtml(activeEv, isSurface, isSkipped);
+    }
+    return;
+  }
+
+  state.lastActiveEventId = activeEv.id;
+  state.lastActiveEventOddsSig = oddsSig;
 
   container.innerHTML = `
-    <div class="crisis-card ${cardClass} ${animClass}">
+    <div class="crisis-card ${cardClass}" data-event-id="${activeEv.id}">
       <div class="crisis-header">
         <div class="crisis-icon">${activeEv.title.split(' ')[0] || '🎲'}</div>
         <div class="crisis-title-wrap">
@@ -2656,8 +2742,13 @@ function renderActiveEvent(game) {
         </div>
       </div>
 
-      ${contentHtml}
-      ${actionControlsHtml}
+      <div id="eventDynamicContent">
+        ${renderEventContentHtml(activeEv, odds, game, eventsState, isSurface, isSkipped)}
+      </div>
+
+      <div id="eventActionControls">
+        ${renderEventActionsHtml(activeEv, isSurface, isSkipped)}
+      </div>
     </div>
   `;
 }
@@ -2687,7 +2778,11 @@ function openDiceModal(result) {
   const acceptBtn = document.getElementById('btnDiceModalAccept');
 
   title.textContent = `🎲 ${result.event_title || result.title}`;
-  targetDisplay.textContent = `Требуется выбросить: ≤ ${result.chance_required}% для успеха`;
+  if (result.is_skipped) {
+    targetDisplay.textContent = `Вылазка была отменена бункером`;
+  } else {
+    targetDisplay.textContent = `Требуется выбросить: ≤ ${result.chance_required}% для успеха`;
+  }
 
   outcomeContainer.style.display = 'none';
   acceptBtn.style.display = 'none';
@@ -2695,6 +2790,12 @@ function openDiceModal(result) {
   numDisplay.style.color = '#fff';
 
   modal.style.display = 'flex';
+
+  if (result.is_skipped) {
+    numDisplay.classList.remove('dice-rolling');
+    showDiceOutcome(result);
+    return;
+  }
 
   let rollCount = 0;
   const rollInterval = setInterval(() => {
@@ -2716,10 +2817,17 @@ function showDiceOutcome(result) {
   const boostNotice = document.getElementById('diceBoostNotice');
   const acceptBtn = document.getElementById('btnDiceModalAccept');
 
-  numDisplay.textContent = result.roll;
   outcomeContainer.style.display = 'block';
 
-  if (result.is_success) {
+  if (result.is_skipped) {
+    numDisplay.textContent = '🚫';
+    numDisplay.style.color = 'var(--accent-amber)';
+    outcomeTitle.style.color = 'var(--accent-amber)';
+    outcomeTitle.textContent = result.title;
+    outcomeDesc.textContent = result.description;
+    boostNotice.style.display = 'none';
+  } else if (result.is_success) {
+    numDisplay.textContent = result.roll;
     numDisplay.style.color = 'var(--accent-success)';
     outcomeTitle.style.color = 'var(--accent-success)';
     outcomeTitle.textContent = `✅ ${result.title} (Выброшено: ${result.roll} из ${result.chance_required}%)`;
@@ -2727,6 +2835,7 @@ function showDiceOutcome(result) {
     boostNotice.style.display = 'none';
     window.soundFX.playVaultDoor();
   } else {
+    numDisplay.textContent = result.roll;
     numDisplay.style.color = 'var(--accent-danger)';
     outcomeTitle.style.color = 'var(--accent-danger)';
     outcomeTitle.textContent = `❌ ${result.title} (Выброшено: ${result.roll} из ${result.chance_required}%)`;
@@ -2789,7 +2898,9 @@ function openEventHistoryModal() {
 // --- Utilities ---
 function copyDiscordLink() {
   let url = window.location.href;
-  if (state.networkInfo && state.networkInfo.external_ip && state.roomCode) {
+  if (state.networkInfo && state.networkInfo.external_url && state.roomCode) {
+    url = `${state.networkInfo.external_url}/?room=${state.roomCode}`;
+  } else if (state.networkInfo && state.networkInfo.external_ip && state.roomCode) {
     url = `http://${state.networkInfo.external_ip}:${state.networkInfo.port}?room=${state.roomCode}`;
   } else if (state.roomCode) {
     url = `${window.location.origin}/?room=${state.roomCode}`;
@@ -2817,11 +2928,13 @@ function triggerCinematicPrologue(game) {
   const modal = document.getElementById('cinematicPrologueModal');
   if (!modal || !game.catastrophe) return;
 
+  const videoBg = document.getElementById('prologueVideoBg');
   const titleEl = document.getElementById('prologueCatastropheTitle');
   const descEl = document.getElementById('prologueCatastropheDesc');
   const gridEl = document.getElementById('prologueHeroesGrid');
   const noticeEl = document.getElementById('prologueCapacityNotice');
   const enterBtn = document.getElementById('btnPrologueEnter');
+  const closeBtn = document.getElementById('btnPrologueClose');
 
   if (titleEl) titleEl.textContent = game.catastrophe.title;
   if (descEl) {
@@ -2846,21 +2959,32 @@ function triggerCinematicPrologue(game) {
     });
   }
 
+  // Load and play catastrophe video
+  if (videoBg && game.catastrophe.id) {
+    const catId = game.catastrophe.id;
+    videoBg.poster = `/static/images/catastrophes/${catId}.jpg`;
+    videoBg.src = `/static/videos/catastrophes/${catId}.mp4`;
+    videoBg.currentTime = 0;
+    const playPromise = videoBg.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(err => {
+        console.log('Video autoplay prevented or suppressed, fallback to poster:', err);
+      });
+    }
+  }
+
   modal.style.display = 'flex';
   window.soundFX.playSiren();
 
-  if (enterBtn) {
-    enterBtn.onclick = () => {
-      modal.style.display = 'none';
-      if (window.soundFX && window.soundFX.playVaultDoor) window.soundFX.playVaultDoor();
-    };
-  }
+  const handleClose = () => {
+    modal.style.display = 'none';
+    if (videoBg) {
+      videoBg.pause();
+    }
+    if (window.soundFX && window.soundFX.playVaultDoor) window.soundFX.playVaultDoor();
+    sendAction('ENTER_BUNKER');
+  };
 
-  const closeBtn = document.getElementById('btnPrologueClose');
-  if (closeBtn) {
-    closeBtn.onclick = () => {
-      modal.style.display = 'none';
-      if (window.soundFX && window.soundFX.playVaultDoor) window.soundFX.playVaultDoor();
-    };
-  }
+  if (enterBtn) enterBtn.onclick = handleClose;
+  if (closeBtn) closeBtn.onclick = handleClose;
 }

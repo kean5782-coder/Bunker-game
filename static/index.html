@@ -59,9 +59,15 @@
       <button id="btnLeaveRoom" class="btn btn-secondary btn-sm" style="display: none;" title="Выйти из текущей комнаты в меню">
         🚪 Выйти
       </button>
-      <button id="btnToggleSound" class="btn btn-secondary btn-sm" title="Включить/выключить звуковые эффекты">
-        🔊 Звук: ВКЛ
-      </button>
+      <div class="sound-control-group" title="Управление звуковыми эффектами">
+        <button id="btnToggleSound" class="btn btn-secondary btn-sm" title="Включить/выключить звуковые эффекты">
+          🔊 Звук: ВКЛ
+        </button>
+        <div class="sound-slider-wrap" title="Регулировка громкости звуковых эффектов">
+          <input type="range" id="soundVolumeSlider" class="sound-slider" min="0" max="1" step="0.05" value="0.7" aria-label="Громкость звуковых эффектов" />
+          <span id="soundVolumeLabel" class="sound-vol-label">70%</span>
+        </div>
+      </div>
       <button id="btnToggleAmbient" class="btn btn-secondary btn-sm" title="Атмосферный низкочастотный гул генератора бункера">
         📻 Гул: ВЫКЛ
       </button>
@@ -133,7 +139,7 @@
 
         <div class="network-badges">
           <div class="network-item">
-            <span style="color: var(--text-muted);">🌐 Внешний IP (для Discord):</span>
+            <span style="color: var(--text-muted);">🌐 Ссылка для Discord:</span>
             <span id="networkExternal" class="network-val">Определение...</span>
           </div>
           <div class="network-item">
@@ -193,6 +199,8 @@
       <div class="host-btn-group">
         <button id="btnHostPause" class="btn btn-secondary btn-sm">⏸️ Пауза</button>
         <button id="btnHostAddTime" class="btn btn-secondary btn-sm">⏱️ +30 сек</button>
+        <button id="btnHostForceNextSpeaker" class="btn btn-amber btn-sm" title="Принудительно переключить ход / передать слово следующему">⏭️ След. оратор</button>
+        <button id="btnHostSkipDiscBar" class="btn btn-warning btn-sm" style="display: none;" title="Завершить коллективное обсуждение и перейти к раунду обвинений">⏭️ К обвинениям</button>
         <button id="btnHostRestartDebate" class="btn btn-secondary btn-sm" title="Запустить повторные дебаты">🔄 Повтор дебатов</button>
         <button id="btnHostTiebreaker" class="btn btn-danger btn-sm" style="display: none;" title="Запустить решающее переголосование">⚡ Тайбрейк</button>
         <button id="btnForceDebate" class="btn btn-secondary btn-sm">🗣️ К дебатам</button>
@@ -331,6 +339,14 @@
         <!-- Debate Phase: Current speaker pass word -->
         <button id="btnPassDebate" class="btn btn-cyan btn-sm" style="display: none;">
           ⏭️ Передать слово
+        </button>
+
+        <!-- Collective Discussion Phase: Host Skip Buttons -->
+        <button id="btnHostSkipDiscussion" class="btn btn-amber btn-sm" style="display: none;" title="Завершить коллективное обсуждение и перейти к раунду обвинений">
+          ⏭️ К раунду обвинений
+        </button>
+        <button id="btnHostSkipToVoting" class="btn btn-danger btn-sm" style="display: none;" title="Пропустить дебаты и сразу перейти к тайному голосованию">
+          🗳️ Сразу к голосованию
         </button>
 
         <!-- Debate Phase: Host Controls -->
@@ -717,13 +733,18 @@
 
   <!-- MODAL: CINEMATIC PROLOGUE CUTSCENE -->
   <div id="cinematicPrologueModal" class="cinematic-prologue-overlay" style="display: none;">
+    <!-- Cataclysm Background Video -->
+    <video id="prologueVideoBg" class="prologue-video-bg" autoplay muted loop playsinline preload="auto"></video>
+    <div class="prologue-video-backdrop"></div>
+
     <div class="prologue-card">
+      <button id="btnPrologueClose" class="prologue-close-btn" title="Закрыть">✕</button>
       <div class="prologue-scanline"></div>
       <div class="prologue-tag">🚨 СУДНЫЙ ДЕНЬ // ПРОТОКОЛ «БУНКЕР» АКТИВИРОВАН 🚨</div>
       <h1 id="prologueCatastropheTitle" class="prologue-title">КАТАСТРОФА</h1>
       <p id="prologueCatastropheDesc" class="prologue-desc"></p>
       
-      <div style="background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 14px; margin-bottom: 20px;">
+      <div class="prologue-survivors-panel">
         <div style="font-family: var(--font-hud); font-size: 13px; color: var(--accent-amber); margin-bottom: 6px;">
           👥 ВЫЖИВШИЕ ПЕРЕД ЗАКРЫТИЕМ ШЛЮЗА
         </div>
@@ -732,7 +753,7 @@
       </div>
 
       <div class="prologue-footer">
-        <button id="btnPrologueEnter" class="btn btn-amber" style="padding: 14px 36px; font-size: 15px;">
+        <button id="btnPrologueEnter" class="btn btn-amber" style="padding: 14px 40px; font-size: 16px; font-weight: 800; letter-spacing: 1px; box-shadow: 0 0 30px rgba(255, 170, 0, 0.6);">
           🚪 В БУНКЕР ➔
         </button>
       </div>

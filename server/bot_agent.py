@@ -36,7 +36,7 @@ CARD_PRIORITY = ["profession", "biology", "health", "baggage", "hobby", "fact", 
 
 
 class BunkerBot:
-    def __init__(self, room_code: str, name: str, base_url: str = "http://127.0.0.1:64738", ws_url: str = "ws://127.0.0.1:64738/ws"):
+    def __init__(self, room_code: str, name: str, base_url: str = "http://127.0.0.1:8008", ws_url: str = "ws://127.0.0.1:8008/ws"):
         self.room_code = room_code.upper()
         self.name = name
         self.base_url = base_url
@@ -126,6 +126,10 @@ class BunkerBot:
         """Автоматические действия бота в зависимости от фазы игры"""
         last_phase = None
         voted_in_voting_phase = False
+        voted_in_revote_phase = False
+        has_spoken_in_accusation = False
+        has_spoken_in_justification = False
+        has_spoken_in_last_word = False
 
         while self.is_running and self.ws:
             await asyncio.sleep(1.0)
@@ -137,6 +141,10 @@ class BunkerBot:
                 last_phase = phase
                 self.has_revealed_in_current_speech = False
                 voted_in_voting_phase = False
+                voted_in_revote_phase = False
+                has_spoken_in_accusation = False
+                has_spoken_in_justification = False
+                has_spoken_in_last_word = False
                 # print(f"[{self.name}] Замечена смена фазы на {phase}")
 
             # Находим свои данные в списке игроков
@@ -189,7 +197,23 @@ class BunkerBot:
                 else:
                     self.has_revealed_in_current_speech = False
 
-            # 2. Фаза поочередных дебатов (DEBATE)
+            # 2. Фаза раунда обвинений (ACCUSATION)
+            elif phase == "ACCUSATION":
+                self.has_revealed_in_current_speech = False
+                acc_spk = self.latest_state.get("accusation_status") or {}
+                if acc_spk.get("speaker_id") == self.player_id:
+                    if not has_spoken_in_accusation:
+                        has_spoken_in_accusation = True
+                        await asyncio.sleep(random.uniform(2.0, 3.5))
+                        print(f"[{self.name}] 🗣️ Моя реплика в раунде обвинений! Передаю слово.")
+                        try:
+                            await self.ws.send(json.dumps({"action": "NEXT_ACCUSATION_SPEAKER"}))
+                        except Exception:
+                            pass
+                else:
+                    has_spoken_in_accusation = False
+
+            # 3. Фаза поочередных дебатов (DEBATE)
             elif phase == "DEBATE":
                 self.has_revealed_in_current_speech = False
                 deb_spk = self.latest_state.get("debate_speaker") or {}
@@ -206,7 +230,7 @@ class BunkerBot:
                 else:
                     self.has_spoken_in_debate = False
 
-            # 3. Фаза голосования (VOTING)
+            # 4. Фаза голосования (VOTING)
             elif phase == "VOTING":
                 self.has_revealed_in_current_speech = False
                 self.has_spoken_in_debate = False
@@ -247,8 +271,62 @@ class BunkerBot:
                             "payload": {"target_id": target["id"]}
                         }))
 
+            # 5. Фаза оправдательного слова (JUSTIFICATION)
+            elif phase == "JUSTIFICATION":
+                self.has_revealed_in_current_speech = False
+                just_spk = self.latest_state.get("justification_status") or {}
+                if just_spk.get("speaker_id") == self.player_id:
+                    if not has_spoken_in_justification:
+                        has_spoken_in_justification = True
+                        await asyncio.sleep(random.uniform(2.0, 3.5))
+                        print(f"[{self.name}] 🎙️ Моя оправдательная речь! Передаю слово.")
+                        try:
+                            await self.ws.send(json.dumps({"action": "NEXT_JUSTIFICATION_SPEAKER"}))
+                        except Exception:
+                            pass
+                else:
+                    has_spoken_in_justification = False
 
-async def spawn_bots_for_room(room_code: str, count: int = 6, base_url: str = "http://127.0.0.1:64738", ws_url: str = "ws://127.0.0.1:64738/ws"):
+            # 6. Фаза переголосования (REVOTE)
+            elif phase == "REVOTE":
+                self.has_revealed_in_current_speech = False
+                if not voted_in_revote_phase:
+                    voted_in_revote_phase = True
+                    await asyncio.sleep(random.uniform(1.5, 3.5))
+                    if self.latest_state.get("phase") != "REVOTE":
+                        continue
+                    rev_status = self.latest_state.get("revote_status") or {}
+                    candidates = rev_status.get("candidates") or []
+                    other_cands = [cid for cid in candidates if cid != self.player_id]
+                    target_id = random.choice(other_cands) if other_cands else (candidates[0] if candidates else None)
+                    if target_id:
+                        cand_name = next((p["name"] for p in players if p["id"] == target_id), target_id)
+                        print(f"[{self.name}] 🗳️ [ПЕРЕГОЛОСОВАНИЕ] Голосую строго за кандидата: {cand_name}")
+                        try:
+                            await self.ws.send(json.dumps({
+                                "action": "CAST_VOTE",
+                                "payload": {"target_id": target_id}
+                            }))
+                        except Exception:
+                            pass
+
+            # 7. Фаза последнего слова (LAST_WORD)
+            elif phase == "LAST_WORD":
+                last_word = self.latest_state.get("last_word") or {}
+                if last_word.get("speaker_id") == self.player_id:
+                    if not has_spoken_in_last_word:
+                        has_spoken_in_last_word = True
+                        await asyncio.sleep(random.uniform(2.5, 4.0))
+                        print(f"[{self.name}] 🚪 Произношу последнее слово перед уходом из бункера.")
+                        try:
+                            await self.ws.send(json.dumps({"action": "FINISH_LAST_WORD"}))
+                        except Exception:
+                            pass
+                else:
+                    has_spoken_in_last_word = False
+
+
+async def spawn_bots_for_room(room_code: str, count: int = 6, base_url: str = "http://127.0.0.1:8008", ws_url: str = "ws://127.0.0.1:8008/ws"):
     """Запускает группу ботов для указанной комнаты"""
     print(f"\n==================================================")
     print(f"  🤖 ЗАПУСК {count} ТЕСТОВЫХ БОТОВ В КОМНАТУ: {room_code}")

@@ -8,6 +8,10 @@ class BunkerSoundFX {
     this.ctx = null;
     this.enabled = localStorage.getItem('bunker_sound_enabled') !== 'false';
     this.ambientEnabled = localStorage.getItem('bunker_ambient_enabled') === 'true';
+    const savedVol = localStorage.getItem('bunker_sound_volume');
+    this.volume = savedVol !== null ? Math.max(0, Math.min(1, parseFloat(savedVol))) : 0.7;
+    if (isNaN(this.volume)) this.volume = 0.7;
+    this.masterGain = null;
     this.ambientNode = null;
     this.ambientGain = null;
   }
@@ -19,14 +23,60 @@ class BunkerSoundFX {
         this.ctx = new AudioCtx();
       }
     }
-    if (this.ctx && this.ctx.state === 'suspended') {
-      this.ctx.resume();
+    if (this.ctx) {
+      if (!this.masterGain) {
+        this.masterGain = this.ctx.createGain();
+        this.masterGain.gain.setValueAtTime(this.enabled ? this.volume : 0, this.ctx.currentTime);
+        this.masterGain.connect(this.ctx.destination);
+      }
+      if (this.ctx.state === 'suspended') {
+        this.ctx.resume().catch(() => {});
+      }
     }
+  }
+
+  getDestination() {
+    this.init();
+    return this.masterGain || (this.ctx ? this.ctx.destination : null);
+  }
+
+  setVolume(value) {
+    let num = parseFloat(value);
+    if (isNaN(num)) return;
+    num = Math.max(0, Math.min(1, num));
+    this.volume = num;
+    try {
+      localStorage.setItem('bunker_sound_volume', this.volume.toString());
+    } catch (_) {}
+
+    if (this.volume > 0 && !this.enabled) {
+      this.enabled = true;
+      try {
+        localStorage.setItem('bunker_sound_enabled', 'true');
+      } catch (_) {}
+    }
+
+    if (this.ctx && this.masterGain) {
+      const now = this.ctx.currentTime;
+      this.masterGain.gain.cancelScheduledValues(now);
+      this.masterGain.gain.setValueAtTime(this.enabled ? this.volume : 0, now);
+    }
+  }
+
+  getVolume() {
+    return this.volume;
   }
 
   toggleSound() {
     this.enabled = !this.enabled;
-    localStorage.setItem('bunker_sound_enabled', this.enabled);
+    try {
+      localStorage.setItem('bunker_sound_enabled', this.enabled);
+    } catch (_) {}
+    if (this.ctx && this.masterGain) {
+      const now = this.ctx.currentTime;
+      this.masterGain.gain.cancelScheduledValues(now);
+      this.masterGain.gain.setValueAtTime(this.enabled ? this.volume : 0, now);
+    }
     if (!this.enabled && this.ambientNode) {
       this.stopAmbient();
     }
@@ -90,7 +140,10 @@ class BunkerSoundFX {
       humOsc.connect(humGain);
       humGain.connect(this.ambientGain);
 
-      this.ambientGain.connect(this.ctx.destination);
+      const dest = this.getDestination();
+      if (dest) {
+        this.ambientGain.connect(dest);
+      }
 
       whiteNoise.start(now);
       humOsc.start(now);
@@ -138,7 +191,8 @@ class BunkerSoundFX {
     gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
 
     osc.connect(gain);
-    gain.connect(this.ctx.destination);
+    const dest = this.getDestination();
+    if (dest) gain.connect(dest);
 
     osc.start(now);
     osc.stop(now + 0.28);
@@ -162,7 +216,8 @@ class BunkerSoundFX {
     gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
 
     osc.connect(gain);
-    gain.connect(this.ctx.destination);
+    const dest = this.getDestination();
+    if (dest) gain.connect(dest);
 
     osc.start(now);
     osc.stop(now + 0.35);
@@ -172,6 +227,9 @@ class BunkerSoundFX {
     if (!this.enabled) return;
     this.init();
     if (!this.ctx) return;
+
+    const dest = this.getDestination();
+    if (!dest) return;
 
     for (let i = 0; i < count; i++) {
       const delay = Math.random() * 0.4;
@@ -186,7 +244,7 @@ class BunkerSoundFX {
       gain.gain.exponentialRampToValueAtTime(0.001, t + 0.015);
 
       osc.connect(gain);
-      gain.connect(this.ctx.destination);
+      gain.connect(dest);
 
       osc.start(t);
       osc.stop(t + 0.015);
@@ -216,7 +274,8 @@ class BunkerSoundFX {
       gain.gain.linearRampToValueAtTime(0.0001, now + (urgent ? 0.1 : 0.06));
 
       osc.connect(gain);
-      gain.connect(this.ctx.destination);
+      const dest = this.getDestination();
+      if (dest) gain.connect(dest);
 
       osc.start(now);
       osc.stop(now + (urgent ? 0.1 : 0.06));
@@ -246,7 +305,8 @@ class BunkerSoundFX {
     gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
 
     osc.connect(gain);
-    gain.connect(this.ctx.destination);
+    const dest = this.getDestination();
+    if (dest) gain.connect(dest);
 
     osc.start(now);
     osc.stop(now + 0.2);
@@ -269,7 +329,8 @@ class BunkerSoundFX {
     gain.gain.exponentialRampToValueAtTime(0.005, now + 0.18);
 
     osc.connect(gain);
-    gain.connect(this.ctx.destination);
+    const dest = this.getDestination();
+    if (dest) gain.connect(dest);
 
     osc.start(now);
     osc.stop(now + 0.18);
@@ -294,7 +355,8 @@ class BunkerSoundFX {
     gain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
 
     osc.connect(gain);
-    gain.connect(this.ctx.destination);
+    const dest = this.getDestination();
+    if (dest) gain.connect(dest);
 
     osc.start(now);
     osc.stop(now + 0.6);
@@ -312,33 +374,40 @@ class BunkerSoundFX {
       const now = this.ctx.currentTime;
       const osc1 = this.ctx.createOscillator();
       const osc2 = this.ctx.createOscillator();
+      const filter = this.ctx.createBiquadFilter();
       const gain = this.ctx.createGain();
 
       osc1.type = 'sawtooth';
       osc2.type = 'triangle';
 
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(1200, now);
+
       // Pitch sweep cycle 1
-      osc1.frequency.setValueAtTime(420, now);
-      osc1.frequency.linearRampToValueAtTime(840, now + 0.5);
-      osc1.frequency.linearRampToValueAtTime(420, now + 1.0);
+      osc1.frequency.setValueAtTime(380, now);
+      osc1.frequency.linearRampToValueAtTime(680, now + 0.5);
+      osc1.frequency.linearRampToValueAtTime(380, now + 1.0);
       // Pitch sweep cycle 2
-      osc1.frequency.linearRampToValueAtTime(840, now + 1.5);
-      osc1.frequency.linearRampToValueAtTime(420, now + 2.0);
+      osc1.frequency.linearRampToValueAtTime(680, now + 1.5);
+      osc1.frequency.linearRampToValueAtTime(380, now + 2.0);
 
       // Sub oscillator for deep alarm roar
-      osc2.frequency.setValueAtTime(210, now);
-      osc2.frequency.linearRampToValueAtTime(420, now + 0.5);
-      osc2.frequency.linearRampToValueAtTime(210, now + 1.0);
-      osc2.frequency.linearRampToValueAtTime(420, now + 1.5);
-      osc2.frequency.linearRampToValueAtTime(210, now + 2.0);
+      osc2.frequency.setValueAtTime(190, now);
+      osc2.frequency.linearRampToValueAtTime(340, now + 0.5);
+      osc2.frequency.linearRampToValueAtTime(190, now + 1.0);
+      osc2.frequency.linearRampToValueAtTime(340, now + 1.5);
+      osc2.frequency.linearRampToValueAtTime(190, now + 2.0);
 
-      gain.gain.setValueAtTime(0.35, now);
-      gain.gain.setValueAtTime(0.35, now + 1.8);
+      // Мягкая комфортная громкость (было 0.35, теперь 0.08)
+      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.setValueAtTime(0.08, now + 1.8);
       gain.gain.linearRampToValueAtTime(0.0001, now + 2.15);
 
-      osc1.connect(gain);
-      osc2.connect(gain);
-      gain.connect(this.ctx.destination);
+      osc1.connect(filter);
+      osc2.connect(filter);
+      filter.connect(gain);
+      const dest = this.getDestination();
+      if (dest) gain.connect(dest);
 
       osc1.start(now);
       osc2.start(now);
@@ -366,7 +435,8 @@ class BunkerSoundFX {
     gain.gain.exponentialRampToValueAtTime(0.001, now + 0.9);
 
     osc.connect(gain);
-    gain.connect(this.ctx.destination);
+    const dest = this.getDestination();
+    if (dest) gain.connect(dest);
 
     osc.start(now);
     osc.stop(now + 0.9);
@@ -389,7 +459,8 @@ class BunkerSoundFX {
     gain.gain.exponentialRampToValueAtTime(0.001, now + 0.7);
 
     osc.connect(gain);
-    gain.connect(this.ctx.destination);
+    const dest = this.getDestination();
+    if (dest) gain.connect(dest);
 
     osc.start(now);
     osc.stop(now + 0.7);
@@ -408,7 +479,8 @@ class BunkerSoundFX {
     gain.gain.setValueAtTime(0.15, now);
     gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
     osc.connect(gain);
-    gain.connect(this.ctx.destination);
+    const dest = this.getDestination();
+    if (dest) gain.connect(dest);
     osc.start(now);
     osc.stop(now + 0.04);
   }
@@ -425,7 +497,8 @@ class BunkerSoundFX {
     gain.gain.setValueAtTime(0.25, now);
     gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
     osc.connect(gain);
-    gain.connect(this.ctx.destination);
+    const dest = this.getDestination();
+    if (dest) gain.connect(dest);
     osc.start(now);
     osc.stop(now + 0.22);
   }

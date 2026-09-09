@@ -1,7 +1,7 @@
 import subprocess
 import sys
 
-def free_port(port: int = 64738):
+def free_port(port: int = 8008):
     try:
         out = subprocess.check_output('netstat -ano', shell=True).decode(errors='ignore')
         for line in out.splitlines():
@@ -33,5 +33,5 @@ def free_port(port: int = 64738):
         pass
 
 if __name__ == '__main__':
-    p = int(sys.argv[1]) if len(sys.argv) > 1 else 64738
+    p = int(sys.argv[1]) if len(sys.argv) > 1 else 8008
     free_port(p)

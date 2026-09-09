@@ -31,14 +31,25 @@ from pydantic import BaseModel
 from .game_engine import (
     BunkerGameRoom, 
     PHASE_LOBBY, 
+    PHASE_PROLOGUE,
     PHASE_SPEECH, 
+    PHASE_COLLECTIVE_DISCUSSION,
+    PHASE_ACCUSATION,
     PHASE_DEBATE, 
     PHASE_VOTING, 
+    PHASE_JUSTIFICATION,
+    PHASE_REVOTE,
     PHASE_VOTE_RESULTS, 
     PHASE_LAST_WORD,
     PHASE_FINAL
 )
-from .network_utils import get_local_ip, get_external_ip, generate_qr_data_url
+from .network_utils import (
+    get_local_ip, 
+    get_external_ip, 
+    generate_qr_data_url, 
+    get_config, 
+    get_domain_info
+)
 
 # Хранилище активных комнат
 rooms: Dict[str, BunkerGameRoom] = {}
@@ -46,7 +57,7 @@ rooms: Dict[str, BunkerGameRoom] = {}
 # Хранилище подключений WebSocket: room_code -> {player_id: WebSocket}
 connections: Dict[str, Dict[str, WebSocket]] = {}
 
-PORT = int(os.getenv("PORT", 64738))
+PORT = int(os.getenv("PORT", get_config().get("port", 8008)))
 
 
 def generate_room_code() -> str:
@@ -68,7 +79,7 @@ async def timer_background_worker():
             now = time.time()
 
             for room_code, room in list(rooms.items()):
-                if room.phase != PHASE_LOBBY and room.phase != PHASE_FINAL:
+                if room.phase not in (PHASE_LOBBY, PHASE_FINAL, PHASE_PROLOGUE):
                     timer_changed = room.tick_timer()
                     if timer_changed or (room.timer_seconds_left > 0 and not room.timer_is_paused):
                         await broadcast_room_state(room_code)
@@ -95,19 +106,36 @@ async def lifespan(app: FastAPI):
     
     local_ip = get_local_ip()
     external_ip = get_external_ip()
-    logger.info("=" * 65)
+    domain_display, domain_punycode = get_domain_info()
+
+    logger.info("=" * 68)
     logger.info("  🚀 СЕРВЕР ИГРЫ «БУНКЕР» УСПЕШНО ЗАПУЩЕН!")
     logger.info(f"  💻 На этом компьютере:              http://localhost:{PORT}")
     logger.info(f"  🏠 Для устройств в сети Wi-Fi:      http://{local_ip}:{PORT}")
-    if external_ip:
+    if domain_display:
+        logger.info(f"  🌐 Для друзей в Discord (Домен):    http://{domain_display}:{PORT}")
+        if domain_display != domain_punycode:
+            logger.info(f"     (Punycode адрес для ссылок):     http://{domain_punycode}:{PORT}")
+    elif external_ip:
         logger.info(f"  🌐 Для друзей в Discord (Белый IP): http://{external_ip}:{PORT}")
     else:
         logger.info("  🌐 Внешний IP: Не определен автоматически (проверьте интернет)")
-    logger.info("=" * 65)
+    logger.info("=" * 68)
     
     yield
     
     timer_task.cancel()
+    # Автоматическое закрытие порта в Брандмауэре Windows при остановке сервера
+    try:
+        import subprocess
+        subprocess.run(
+            'netsh advfirewall firewall delete rule name="Bunker Game 8008"', 
+            shell=True, 
+            stdout=subprocess.DEVNULL, 
+            stderr=subprocess.DEVNULL
+        )
+    except Exception:
+        pass
 
 app = FastAPI(title="Бункер - Онлайн игра с друзьями", lifespan=lifespan)
 
@@ -163,11 +191,22 @@ async def get_manifest():
 
 @app.get("/api/network-info")
 async def get_network_info():
-    """Возвращает информацию о локальном и внешнем IP + ссылки"""
+    """Возвращает информацию о локальном и внешнем IP/домене + ссылки"""
     local_ip = get_local_ip()
     external_ip = get_external_ip()
+    domain_display, domain_punycode = get_domain_info()
+    
     local_url = f"http://{local_ip}:{PORT}"
-    ext_url = f"http://{external_ip}:{PORT}" if external_ip else None
+    
+    if domain_punycode:
+        ext_url = f"http://{domain_punycode}:{PORT}"
+        display_url = f"http://{domain_display}:{PORT}"
+    elif external_ip:
+        ext_url = f"http://{external_ip}:{PORT}"
+        display_url = ext_url
+    else:
+        ext_url = None
+        display_url = None
     
     qr_data = generate_qr_data_url(ext_url or local_url)
     
@@ -175,8 +214,11 @@ async def get_network_info():
         "port": PORT,
         "local_ip": local_ip,
         "external_ip": external_ip,
+        "domain": domain_display,
+        "domain_punycode": domain_punycode,
         "local_url": local_url,
         "external_url": ext_url,
+        "display_url": display_url,
         "qr_code": qr_data
     }
 
@@ -409,8 +451,13 @@ async def websocket_endpoint(websocket: WebSocket, room_code: str, player_id: st
                         speech_duration=speech_duration,
                         debate_duration=debate_duration,
                         voting_duration=voting_duration,
-                        last_word_duration=last_word_duration
+                        last_word_duration=last_word_duration,
+                        skip_prologue=False
                     )
+
+                elif action in ("ENTER_BUNKER", "FINISH_PROLOGUE"):
+                    room.enter_bunker(player_id)
+                    await broadcast_room_state(room_code)
 
                 elif action == "ADD_BOTS" and is_host:
                     if room.phase != PHASE_LOBBY:
@@ -455,12 +502,59 @@ async def websocket_endpoint(websocket: WebSocket, room_code: str, player_id: st
                     category = payload.get("category")
                     room.reveal_player_card(player_id, category)
 
+                elif action == "HOST_FORCE_NEXT_SPEAKER" and is_host:
+                    if room.phase == PHASE_SPEECH:
+                        room.next_speaker(force=True)
+                    elif room.phase == PHASE_COLLECTIVE_DISCUSSION:
+                        room.start_accusation_phase()
+                    elif room.phase == PHASE_ACCUSATION:
+                        room.next_accusation_speaker()
+                    elif room.phase == PHASE_JUSTIFICATION:
+                        room.next_justification_speaker()
+                    elif room.phase == PHASE_DEBATE:
+                        room.next_debate_speaker()
+                    elif room.phase == PHASE_LAST_WORD:
+                        room.finish_last_word()
+
                 elif action == "NEXT_SPEAKER":
-                    current_sp = room.get_current_speaker()
-                    if is_host or (current_sp and current_sp.id == player_id):
-                        room.next_speaker()
+                    if is_host:
+                        if room.phase == PHASE_SPEECH:
+                            room.next_speaker(force=True)
+                        elif room.phase == PHASE_COLLECTIVE_DISCUSSION:
+                            room.start_accusation_phase()
+                        elif room.phase == PHASE_ACCUSATION:
+                            room.next_accusation_speaker()
+                        elif room.phase == PHASE_JUSTIFICATION:
+                            room.next_justification_speaker()
+                        elif room.phase == PHASE_DEBATE:
+                            room.next_debate_speaker()
+                        elif room.phase == PHASE_LAST_WORD:
+                            room.finish_last_word()
                     else:
-                        raise ValueError("Передать слово может только текущий оратор или ведущий!")
+                        if room.phase == PHASE_SPEECH:
+                            current_sp = room.get_current_speaker()
+                            if current_sp and current_sp.id == player_id:
+                                room.next_speaker(force=False)
+                            else:
+                                raise ValueError("Передать слово может только текущий оратор или ведущий!")
+                        elif room.phase == PHASE_ACCUSATION:
+                            current_acc = room.get_current_accusation_speaker()
+                            if current_acc and current_acc.id == player_id:
+                                room.next_accusation_speaker()
+                            else:
+                                raise ValueError("Сейчас не ваше слово на раунде обвинений!")
+                        elif room.phase == PHASE_JUSTIFICATION:
+                            current_just = room.get_current_justification_speaker()
+                            if current_just and current_just.id == player_id:
+                                room.next_justification_speaker()
+                            else:
+                                raise ValueError("Сейчас не ваше слово для оправдания!")
+                        elif room.phase == PHASE_DEBATE:
+                            current_deb = room.get_current_debate_speaker()
+                            if current_deb and current_deb.id == player_id:
+                                room.next_debate_speaker()
+                            else:
+                                raise ValueError("Сейчас не ваше слово на дебатах!")
 
                 elif action == "START_COLLECTIVE_DISCUSSION" and is_host:
                     room.start_collective_discussion()
@@ -469,14 +563,22 @@ async def websocket_endpoint(websocket: WebSocket, room_code: str, player_id: st
                     room.start_accusation_phase()
 
                 elif action in ("NEXT_ACCUSATION_SPEAKER", "NEXT_DEBATE_SPEAKER"):
-                    current_deb = room.get_current_accusation_speaker() or room.get_current_debate_speaker()
-                    if is_host or (current_deb and current_deb.id == player_id):
-                        if room.phase == PHASE_ACCUSATION:
+                    if is_host:
+                        if room.phase == PHASE_COLLECTIVE_DISCUSSION:
+                            room.start_accusation_phase()
+                        elif room.phase == PHASE_ACCUSATION:
                             room.next_accusation_speaker()
                         else:
                             room.next_debate_speaker()
                     else:
-                        raise ValueError("Сейчас не ваше слово на раунде обвинений / дебатов!")
+                        current_deb = room.get_current_accusation_speaker() or room.get_current_debate_speaker()
+                        if current_deb and current_deb.id == player_id:
+                            if room.phase == PHASE_ACCUSATION:
+                                room.next_accusation_speaker()
+                            else:
+                                room.next_debate_speaker()
+                        else:
+                            raise ValueError("Сейчас не ваше слово на раунде обвинений / дебатов!")
 
                 elif action == "NEXT_JUSTIFICATION_SPEAKER":
                     current_just = room.get_current_justification_speaker()
@@ -573,6 +675,10 @@ async def websocket_endpoint(websocket: WebSocket, room_code: str, player_id: st
 
                 elif action == "HOST_TRIGGER_EVENT" and is_host:
                     room.host_trigger_event()
+
+                elif action == "SKIP_SORTIE" and is_host:
+                    skip = payload.get("skip", True)
+                    room.skip_sortie(skip)
 
                 elif action == "CLAIM_HOST":
                     new_name = payload.get("name")

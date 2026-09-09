@@ -47,3 +47,6 @@ storage/active_rooms.json
 
 # Logs
 *.log
+
+# Scratch scripts
+scratch/

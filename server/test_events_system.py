@@ -163,6 +163,160 @@ class TestEventsSystem(unittest.TestCase):
         )
         self.assertTrue(any("Жизненная необходимость" in p for p in eval_res["pros"]))
 
+    def test_round1_event_active_in_standard_mode(self):
+        """В 1-м раунде стандартного режима игры событие должно быть активно сразу"""
+        room = BunkerGameRoom("TEST_R1", "host_1", "Host")
+        room.add_player("p1", "Игрок 1")
+        room.add_player("p2", "Игрок 2")
+        room.add_player("p3", "Игрок 3")
+        room.start_game(capacity=2, enable_events=True)
+        self.assertTrue(room.events_enabled)
+        self.assertIsNotNone(room.active_event)
+        self.assertIsNotNone(room.current_event_odds)
+
+    def test_skip_sortie_mechanism(self):
+        """Пропуск вылазки ведущим: 0% дельта, статус is_skipped, здоровье не ухудшается"""
+        room = BunkerGameRoom("TEST_SKIP", "host_1", "Host")
+        p1 = room.add_player("p1", "Игрок 1")
+        p2 = room.add_player("p2", "Игрок 2")
+        room.start_game(capacity=1, enable_events=True)
+
+        surface_ev = {
+            "id": "test_surf",
+            "type": "SURFACE_EVENT",
+            "title": "Вылазка за припасами",
+            "description": "Тестовая вылазка",
+            "base_chance": 40,
+            "rules": {"positive": [], "negative": []},
+            "on_success": {"score_delta": 10, "title": "Успех", "description": "Найдено"},
+            "on_failure": {"score_delta": -10, "title": "Провал", "description": "Потеря"}
+        }
+        room.active_event = surface_ev
+        room.assigned_volunteer_id = "p1"
+        room.recalculate_event_odds()
+
+        # Ведущий пропускает вылазку
+        room.skip_sortie(True)
+        self.assertTrue(room.is_sortie_skipped)
+
+        res = room.resolve_active_event()
+        self.assertTrue(res["is_skipped"])
+        self.assertEqual(res["score_delta"], 0)
+        self.assertEqual(room.events_score_delta, 0)
+        self.assertIsNone(res["health_degraded"])
+        self.assertIsNone(room.active_event)
+
+    def test_surface_sortie_health_degradation_healthy_to_minor(self):
+        """Здоровый доброволец при провальной вылазке в экстремальный катаклизм получает легкую болезнь"""
+        room = BunkerGameRoom("TEST_DEG1", "host_1", "Host")
+        p1 = room.add_player("p1", "Игрок 1")
+        p2 = room.add_player("p2", "Игрок 2")
+        room.start_game(capacity=1, enable_events=True)
+
+        room.catastrophe = {
+            "id": "ice_age",
+            "title": "Ледниковый период (-70°C)",
+            "description": "Смертоносный мороз сковал планету"
+        }
+
+        p1.cards["health"] = {
+            "value": "Абсолютно здоров",
+            "details": "Отличный иммунитет",
+            "severity": "good",
+            "revealed": False
+        }
+
+        surface_ev = {
+            "id": "test_freeze_surf",
+            "type": "SURFACE_EVENT",
+            "title": "Разведка ледника",
+            "description": "Выход на ледяную поверхность",
+            "base_chance": 10,
+            "rules": {"positive": [], "negative": []},
+            "on_success": {"score_delta": 10, "title": "Успех", "description": "Успешно"},
+            "on_failure": {"score_delta": -10, "title": "Провал", "description": "Замерзли"}
+        }
+        room.active_event = surface_ev
+        room.assigned_volunteer_id = "p1"
+        room.recalculate_event_odds()
+
+        import random
+        # Фиксируем random, чтобы кубик вылазки провалился (force_roll=99) и кубик здоровья выпал 1 (урон)
+        orig_randint = random.randint
+        def mock_randint(a, b):
+            if a == 1 and b == 100:
+                return 1  # 1 <= danger_chance гарантирует ухудшение
+            return orig_randint(a, b)
+
+        random.randint = mock_randint
+        try:
+            res = room.resolve_active_event(force_roll=99)
+        finally:
+            random.randint = orig_randint
+
+        self.assertIsNotNone(res["health_degraded"])
+        self.assertEqual(res["health_degraded"]["player_id"], "p1")
+        # Здоровый должен получить начальную стадию (minor), а не остаться 'good'
+        self.assertEqual(p1.cards["health"]["severity"], "minor")
+        # Карта здоровья не раскрывается автоматически, остается скрытой
+        self.assertFalse(p1.cards["health"]["revealed"])
+        self.assertIn("обморожение", p1.cards["health"]["value"].lower())
+
+    def test_surface_sortie_health_degradation_minor_to_medium(self):
+        """Доброволец с легким заболеванием (minor) при вылазке ухудшает состояние до medium втихую"""
+        room = BunkerGameRoom("TEST_DEG2", "host_1", "Host")
+        p1 = room.add_player("p1", "Игрок 1")
+        room.add_player("p2", "Игрок 2")
+        room.start_game(capacity=1, enable_events=True)
+
+        room.catastrophe = {
+            "id": "super_virus",
+            "title": "Супер-вирус",
+            "description": "Смертоносная биологическая пандемия"
+        }
+
+        p1.cards["health"] = {
+            "value": "Хронический гастрит",
+            "details": "Легкая форма",
+            "severity": "minor",
+            "revealed": False
+        }
+
+        surface_ev = {
+            "id": "test_virus_surf",
+            "type": "SURFACE_EVENT",
+            "title": "Вылазка за вакциной",
+            "description": "Поиск антидота",
+            "base_chance": 10,
+            "rules": {"positive": [], "negative": []},
+            "on_success": {"score_delta": 10, "title": "Успех", "description": "Успешно"},
+            "on_failure": {"score_delta": -10, "title": "Провал", "description": "Провал"}
+        }
+        room.active_event = surface_ev
+        room.assigned_volunteer_id = "p1"
+        room.recalculate_event_odds()
+
+        import random
+        orig_randint = random.randint
+        def mock_randint(a, b):
+            if a == 1 and b == 100:
+                return 1
+            return orig_randint(a, b)
+
+        random.randint = mock_randint
+        try:
+            res = room.resolve_active_event(force_roll=99)
+        finally:
+            random.randint = orig_randint
+
+        self.assertIsNotNone(res["health_degraded"])
+        # minor должен обостриться до medium
+        self.assertEqual(p1.cards["health"]["severity"], "medium")
+        # Карта здоровья не раскрывается автоматически, остается скрытой
+        self.assertFalse(p1.cards["health"]["revealed"])
+        self.assertIn("Обострение", p1.cards["health"]["value"])
+
 
 if __name__ == "__main__":
     unittest.main()
+

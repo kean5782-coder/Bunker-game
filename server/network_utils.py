@@ -5,7 +5,36 @@ import os
 import requests
 import qrcode
 
+import json
+
 _cached_external_ip = None
+CONFIG_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "config.json"))
+
+def get_config() -> dict:
+    """Loads configuration from config.json or returns defaults"""
+    defaults = {"port": 8008, "domain": ""}
+    if os.path.exists(CONFIG_PATH):
+        try:
+            with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                defaults.update(data)
+        except Exception:
+            pass
+    return defaults
+
+def get_domain_info():
+    """Returns (display_domain, punycode_domain) or (None, None)"""
+    env_domain = os.getenv("BUNKER_DOMAIN")
+    domain = env_domain or get_config().get("domain")
+    if not domain or not domain.strip():
+        return None, None
+    
+    clean_domain = domain.strip().lower().replace("http://", "").replace("https://", "").rstrip("/")
+    try:
+        punycode = clean_domain.encode("idna").decode("ascii")
+    except Exception:
+        punycode = clean_domain
+    return clean_domain, punycode
 
 def get_local_ip():
     """Returns local network IP address (e.g. 192.168.1.50)"""
