@@ -1,52 +1,32 @@
-# Byte-compiled / optimized / DLL files
+# Python and local development files
 __pycache__/
 *.py[cod]
-*$py.class
-
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Virtual environments
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 .venv/
 venv/
-ENV/
-env/
-env.bak/
-venv.bak/
-
-# IDE & Editor settings
+*.egg-info/
 .idea/
-*.swp
-*.swo
-*~
+.vscode/
 .DS_Store
 Thumbs.db
-
-# Storage / Runtime database
-storage/*.json
-!storage/.gitkeep
-storage/active_rooms.json
-
-# Logs
 *.log
+.env
+.env.*
+!.env.example
 
-# Scratch scripts
-scratch/
+# Local game state and test/build environments
+BunkerData/
+test-state/
+storage/
+instance.json
+/.build-tools/
+/.test-deps/
+/.local-backups/
+
+# The current Windows build is published as Bunker.exe
+/Bunker_Random.exe
+/Bunker_V4_6_Source/Bunker.exe
+*.next.exe
+/Bunker_V4_6_Source/before_*.zip

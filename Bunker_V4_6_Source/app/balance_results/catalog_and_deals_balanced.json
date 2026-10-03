@@ -1,0 +1,108 @@
+{
+  "deal_mode": "balanced",
+  "ordinary_source_rows": 667,
+  "mechanical_categories": [
+    "profession",
+    "health",
+    "body",
+    "trait",
+    "hobby",
+    "phobia",
+    "big_inventory",
+    "backpack",
+    "fact"
+  ],
+  "missing_profiles": [],
+  "inactive_profiles_in_body_trait_phobia_hobby_fact_equipment": [],
+  "special_ids": 33,
+  "canonical_special_effects": 30,
+  "events": 35,
+  "seed": 20260919,
+  "total_deals": 6000,
+  "results": [
+    {
+      "players": 3,
+      "deals": 1000,
+      "weak_cap": 0,
+      "weak_cap_violations": 0,
+      "duplicate_special_effects": 0,
+      "mean_weak_professions": 0.0,
+      "health_shares": {
+        "minor": 0.394,
+        "good": 0.2053,
+        "medium": 0.259,
+        "critical": 0.1417
+      }
+    },
+    {
+      "players": 4,
+      "deals": 1000,
+      "weak_cap": 1,
+      "weak_cap_violations": 0,
+      "duplicate_special_effects": 0,
+      "mean_weak_professions": 1.0,
+      "health_shares": {
+        "minor": 0.4032,
+        "good": 0.2005,
+        "medium": 0.25,
+        "critical": 0.1462
+      }
+    },
+    {
+      "players": 6,
+      "deals": 1000,
+      "weak_cap": 1,
+      "weak_cap_violations": 0,
+      "duplicate_special_effects": 0,
+      "mean_weak_professions": 1.0,
+      "health_shares": {
+        "critical": 0.146,
+        "good": 0.2025,
+        "minor": 0.3985,
+        "medium": 0.253
+      }
+    },
+    {
+      "players": 8,
+      "deals": 1000,
+      "weak_cap": 2,
+      "weak_cap_violations": 0,
+      "duplicate_special_effects": 0,
+      "mean_weak_professions": 1.813,
+      "health_shares": {
+        "minor": 0.4002,
+        "medium": 0.25,
+        "critical": 0.1494,
+        "good": 0.2004
+      }
+    },
+    {
+      "players": 10,
+      "deals": 1000,
+      "weak_cap": 2,
+      "weak_cap_violations": 0,
+      "duplicate_special_effects": 0,
+      "mean_weak_professions": 1.883,
+      "health_shares": {
+        "critical": 0.15,
+        "good": 0.2,
+        "minor": 0.4,
+        "medium": 0.25
+      }
+    },
+    {
+      "players": 12,
+      "deals": 1000,
+      "weak_cap": 3,
+      "weak_cap_violations": 0,
+      "duplicate_special_effects": 0,
+      "mean_weak_professions": 2.753,
+      "health_shares": {
+        "minor": 0.3998,
+        "critical": 0.1493,
+        "medium": 0.25,
+        "good": 0.2008
+      }
+    }
+  ]
+}

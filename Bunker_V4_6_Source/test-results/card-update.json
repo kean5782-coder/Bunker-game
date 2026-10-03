@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-01",
+  "executable": "D:\\Bunker_V4_6\\Bunker_Random.exe",
+  "bytes": 69192192,
+  "sha256": "2f0ac8e2b6357624df9a6bb8d22518c00dd328c0dce5cbfc84f9cbd7ba3e4e42",
+  "character_cards": {
+    "profession": 158,
+    "health": 74,
+    "body": 30,
+    "trait": 60,
+    "phobia": 40,
+    "big_inventory": 65,
+    "backpack": 65,
+    "hobby": 65,
+    "fact": 75
+  },
+  "tests": {
+    "server_tests": 538,
+    "server_runtime": "Python 3.13.15, FastAPI 0.128.2, Pydantic 2.13.4 (installed game runtime, read only)",
+    "lobby_browser_checks": 64,
+    "simulated_deals": 12000,
+    "information_browser_checks": 57
+  },
+  "launcher": "Built for Windows amd64 with Go 1.27.1; not launched because the old launcher is running. Close the old launcher and server before starting Bunker_Random.exe."
+}

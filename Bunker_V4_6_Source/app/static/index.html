@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>БУНКЕР — Командный пункт</title>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="#111519" name="theme-color"/>
+
+<link href="/static/css/style.css?v=4.6.0" rel="stylesheet"/>
+<link href="/static/css/animations.css?v=4.6.0" rel="stylesheet"/>
+<link href="/static/css/dashboard.css?v=4.6.0" rel="stylesheet"/>
+<link href="/static/css/lobby.css?v=4.6.0-cards1" rel="stylesheet"/>
+<link rel="stylesheet" href="/static/css/results.css?v=4.6.0"/>
+<link rel="stylesheet" href="/static/css/audio.css?v=4.6.0"/>
+</head>
+<body>
+<!-- Cinematic Phase Alert Overlay (Animated on phase change) -->
+<div aria-hidden="true" class="cinematic-phase-overlay" id="cinematicPhaseBanner" style="display: none;">
+<div class="cinematic-alert-title" id="cinematicAlertTitle" style="color: var(--accent-cyan);">ВНИМАНИЕ</div>
+<div class="cinematic-alert-sub" id="cinematicAlertSub">Смена фазы бункера</div>
+</div>
+<!-- HUD Top Bar -->
+<header class="hud-header">
+<div class="brand">
+<span class="brand-icon">Б</span>
+<div>
+<div class="brand-title">БУНКЕР</div>
+<div class="brand-badge" id="hudConnectionStatus"><span class="live-dot"></span> ВНЕ КОМНАТЫ</div>
+</div>
+</div>
+<div class="hud-actions">
+<a class="btn btn-secondary btn-sm" href="/help" target="_blank" rel="noopener" title="Инструкция по запуску и подключению">? Помощь</a>
+<div id="hudStatsGroup" style="display: flex; gap: 16px; align-items: center;">
+<div style="font-size: 11px; font-family: var(--font-hud); color: var(--text-muted);">
+          КОД: <span id="hudRoomCode" style="color: var(--accent-cyan); font-weight: 800;">---</span>
+</div>
+<div style="font-size: 11px; font-family: var(--font-hud); color: var(--text-muted);">
+          МЕСТ: <span id="hudCapacity" style="color: var(--accent-amber); font-weight: 800;">-</span>
+</div>
+<div style="font-size: 11px; font-family: var(--font-hud); color: var(--text-muted);">
+          ВЫЖИВШИХ: <span id="hudAliveCount" style="color: var(--accent-success); font-weight: 800;">0 / 0</span>
+</div>
+</div>
+<button class="btn btn-secondary btn-sm" id="btnOpenEventsJournal" title="Журнал испытаний и событий бункера">
+        📜 События (<span id="hudEventsBadge">0</span>)
+      </button>
+<button class="btn btn-secondary btn-sm" id="btnOpenAchievements" title="Достижения и рекорды бункера">
+        🏆 Достижения
+      </button>
+<button class="btn btn-amber btn-sm" id="btnClaimHost" style="display: none;" title="Взять управление комнатой в качестве ведущего">
+        👑 Стать ведущим
+      </button>
+<button class="btn btn-secondary btn-sm" id="btnCopyDiscord" style="display: none;" title="Скопировать ссылку для друзей в Discord">
+        📋 Discord Ссылка
+      </button>
+<button class="btn btn-secondary btn-sm" id="btnLeaveRoom" style="display: none;" title="Выйти из текущей комнаты в меню">
+        🚪 Выйти
+      </button>
+<div class="sound-control-group" title="Управление всем звуком">
+<button class="btn btn-secondary btn-sm" id="btnToggleSound" title="Включить/выключить весь звук">
+          🔊 Звук: ВКЛ
+        </button>
+<div class="sound-slider-wrap" title="Регулировка громкости звуковых эффектов">
+<input aria-label="Общая громкость" class="sound-slider" id="soundVolumeSlider" max="1" min="0" step="0.05" type="range" value="0.7"/>
+<span class="sound-vol-label" id="soundVolumeLabel">70%</span>
+</div>
+</div>
+<button class="btn btn-secondary btn-sm" id="btnToggleAmbient" title="Реалистичный бункер: вентиляция, оборудование и редкие механические детали">
+        Эмбиент: ВКЛ
+      </button>
+</div>
+</header>
+<!-- VIEW 1: WELCOME & LOBBY CONNECT -->
+<main class="welcome-screen" id="viewWelcome">
+<section aria-labelledby="welcomeTitle" class="welcome-hero">
+<div class="welcome-kicker"><span class="status-line"></span> ПРОТОКОЛ ВЫЖИВАНИЯ / 01</div>
+<h1 id="welcomeTitle">СНАРУЖИ — КОНЕЦ.<br/>ВНУТРИ — <em>ВЫБОР.</em></h1>
+<p class="welcome-tagline">Ты пережил первый удар. Но мест хватит не всем.<br/>Сможешь ли ты остаться?</p>
+<div class="welcome-facts"><span>Досье и тайны</span><span>Личные речи</span><span>Общее решение</span></div>
+<div class="welcome-footnote">Браузерная игра для компании. Общайтесь голосом в Discord или рядом за одним столом.</div>
+</section>
+<section aria-label="Вход в игру" class="welcome-access">
+<div class="access-heading"><span class="eyebrow">КОНТРОЛЬ ДОСТУПА</span><span class="access-code">B / 01</span></div>
+<div class="invite-banner" id="welcomeRoomDetectedBanner" style="display:none">
+<h2>Приглашение в комнату <span id="detectedRoomCode"></span></h2>
+<label class="form-label" for="inputDirectName">Ваше имя</label>
+<input class="form-input" id="inputDirectName" maxlength="50" type="text" value="Игрок"/>
+<div class="button-row"><button class="btn btn-primary" id="btnDirectJoinPlayer">Войти игроком</button><button class="btn btn-secondary" id="btnDirectClaimHost">Стать ведущим</button></div>
+</div>
+<div aria-label="Способ входа" class="welcome-switch" role="group"><button aria-pressed="true" class="btn" id="accessCreate" type="button">Создать комнату</button><button aria-pressed="false" class="btn" id="accessJoin" type="button">Войти по коду</button></div>
+<div id="accessCreatePane">
+<h2>Откройте шлюз.</h2><p class="muted">Вы станете ведущим. Друзья присоединятся по ссылке.</p>
+<div class="form-group"><label class="form-label" for="inputHostName">Ваше имя</label><input class="form-input" id="inputHostName" maxlength="50" placeholder="Например, Алекс" type="text" value="Ведущий"/></div>
+<label class="traitor-toggle-box" for="checkEnableTraitor"><input class="traitor-checkbox" id="checkEnableTraitor" type="checkbox"/><span><strong>Тайный предатель</strong><small>Скрытая миссия саботажа бункера</small></span></label>
+<label class="traitor-toggle-box" for="checkEnableEvents"><input checked="" class="traitor-checkbox" id="checkEnableEvents" type="checkbox"/><span><strong>Испытания и вылазки</strong><small>Аварии, ресурсы и решения команды</small></span></label>
+<button class="btn btn-primary access-submit" id="btnCreateRoom">Создать комнату <span aria-hidden="true">→</span></button>
+</div>
+<div hidden="" id="accessJoinPane">
+<h2>Вас уже ждут.</h2><p class="muted">Введите код комнаты, полученный от ведущего.</p>
+<div class="form-group"><label class="form-label" for="inputPlayerName">Ваше имя</label><input class="form-input" id="inputPlayerName" maxlength="50" placeholder="Имя или позывной" type="text"/></div>
+<div class="form-group"><label class="form-label" for="inputJoinRoom">Код комнаты</label><input autocapitalize="characters" autocomplete="off" class="form-input room-code-input" id="inputJoinRoom" maxlength="12" placeholder="ABCD" type="text"/></div>
+<button class="btn btn-primary access-submit" id="btnJoinRoom">Войти в комнату <span aria-hidden="true">→</span></button>
+</div>
+<details class="network-details"><summary>Подключение и сеть</summary><div class="network-item"><span>Адрес для друзей</span><span class="network-val" id="networkExternal">Определение…</span></div><div class="network-item"><span>Локальный адрес</span><span class="network-val" id="networkLocal">Определение…</span></div><p class="muted">Сервер запускает только ведущий. Код комнаты работает после подключения к его серверу. <a href="/help" target="_blank" rel="noopener">Как подключиться</a></p></details>
+</section></main>
+<!-- VIEW 2: ACTIVE GAME INTERFACE -->
+<main class="container" id="viewGame" style="display: none;">
+<!-- SPECTATOR UNREGISTERED BANNER -->
+<div class="panel panel-cyan" id="spectatorJoinBanner" style="display: none; margin-bottom: 20px; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;">
+<div>
+<h3 style="font-family: var(--font-hud); font-size: 15px; color: var(--accent-cyan); margin-bottom: 4px;">
+          👀 ВЫ НАХОДИТЕСЬ В РЕЖИМЕ НАБЛЮДАТЕЛЯ
+        </h3>
+<div style="font-size: 12px; color: var(--text-muted);">
+          Вы еще не заняли слот в этой комнате. Введите имя, чтобы получить досье или стать Ведущим:
+        </div>
+</div>
+<div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+<input class="form-input" id="spectatorPlayerName" placeholder="Ваше имя" style="width: 170px;" type="text" value="Беженец"/>
+<button class="btn btn-primary btn-sm" id="btnSpectatorJoin">📱 Войти игроком</button>
+<button class="btn btn-amber btn-sm" id="btnSpectatorClaimHost">👑 Занять место Ведущего</button>
+</div>
+</div>
+<!-- HOST CONTROL BAR (Visible only to Host) -->
+<div class="host-controls-bar" id="hostControlsBar" style="display: none;">
+<div class="host-badge">
+<span>⚡ ПАНЕЛЬ ВЕДУЩЕГО</span>
+</div>
+<div class="host-btn-group">
+<button class="btn btn-secondary btn-sm" id="btnHostPause">⏸️ Пауза</button>
+<button class="btn btn-secondary btn-sm" id="btnHostAddTime">⏱️ +30 сек</button>
+<button class="btn btn-amber btn-sm" id="btnHostForceNextSpeaker" title="Принудительно переключить ход / передать слово следующему">⏭️ След. оратор</button>
+<button class="btn btn-warning btn-sm" id="btnHostSkipDiscBar" style="display: none;" title="Перейти ко второму кругу индивидуальных речей">⏭️ Ко 2-й речи</button>
+<button class="btn btn-secondary btn-sm" id="btnHostRestartDebate" title="Перезапустить время текущей речи">🔄 Сброс речи</button>
+<button class="btn btn-danger btn-sm" id="btnHostTiebreaker" style="display: none;" title="Запустить решающее переголосование">⚡ Тайбрейк</button>
+<button class="btn btn-secondary btn-sm" id="btnForceDebate">🎙️ Ко 2-й речи</button>
+<button class="btn btn-danger btn-sm" id="btnForceVoting">🗳️ Начать голосование</button>
+<button class="btn btn-cyan btn-sm" id="btnHostTriggerEvent" title="Вытянуть случайное испытание">🎲 Вытянуть испытание</button>
+<button class="btn btn-amber btn-sm" id="btnTriggerSiren" title="Включить тревогу у всех игроков">🚨 Сирена</button>
+</div>
+</div>
+<!-- HOST LOBBY CONTROLS (Before game start) -->
+<div class="lobby-settings" id="hostLobbySettings" style="display:none">
+<h3>Параметры убежища</h3>
+<div class="lobby-fields">
+<div>
+<label class="form-label" for="selectGameMode">Режим игры:</label>
+<select class="form-input" id="selectGameMode">
+<option selected="" value="STANDARD">Стандартный (Классика)</option>
+<option value="METEORITE">☄️ Быстрый «Метеорит»</option>
+</select>
+</div>
+<div>
+<label class="form-label" for="inputBunkerCapacity">Вместимость бункера:</label>
+<input class="form-input" id="inputBunkerCapacity" max="20" min="1" type="number" value="3"/>
+</div>
+<div>
+<label class="form-label" for="selectSpeechTime">1-я речь (сек):</label>
+<select class="form-input" id="selectSpeechTime">
+<option value="30">30 сек (Метеорит)</option>
+<option selected="" value="60">60 сек (Стандарт)</option>
+</select>
+</div>
+<div>
+<label class="form-label" for="selectDebateTime">2-я речь (авто):</label>
+<select class="form-input" disabled="" id="selectDebateTime" title="Всегда вдвое короче первой речи">
+<option value="15">15 сек</option>
+<option selected="" value="30">30 сек (Стандарт)</option>
+</select>
+</div>
+<div>
+<label class="form-label" for="selectVotingTime">Голосование:</label>
+<select class="form-input" id="selectVotingTime">
+<option selected="" value="15">15 сек (Правила 5Б)</option>
+<option value="30">30 сек (Быстро)</option>
+<option value="60">60 сек (Классика)</option>
+</select>
+</div>
+<div>
+<label class="traitor-toggle-box" for="checkLobbyTraitor">
+<input class="traitor-checkbox" id="checkLobbyTraitor" type="checkbox"/>
+<div>
+<span style="color: #ff3366; font-size: 12px; font-weight: 700;">☣️ Предатель</span>
+<div style="font-size: 10px; color: var(--text-muted);">Диверсионная роль</div>
+</div>
+</label>
+</div>
+<div>
+<label class="traitor-toggle-box" for="checkLobbyEvents">
+<input checked="" class="traitor-checkbox" id="checkLobbyEvents" type="checkbox"/>
+<div>
+<span style="color: var(--accent-cyan); font-size: 12px; font-weight: 700;">Испытания и вылазки</span>
+<div style="font-size: 10px; color: var(--text-muted);">Кризисы и вылазки</div>
+</div>
+</label>
+</div>
+<div>
+<div class="copy-link-box">
+<span class="copy-link-text" id="shareLinkUrl">Ссылка для друзей в Discord</span>
+<button class="btn btn-primary btn-sm" id="btnCopyShareLink">Копировать</button>
+</div>
+</div>
+<button class="btn btn-amber" id="btnStartGame">Закрыть шлюз и раздать карты</button>
+<button class="btn btn-cyan" id="btnAddBotsLobby" title="Запустить 5 ИИ-ботов в комнату">Добавить 5 ботов</button>
+</div>
+</div>
+<!-- PHASE BANNER & CIRCULAR TIMER -->
+<div class="phase-banner">
+<div class="phase-info">
+<h2 id="phaseTitle">ПОДГОТОВКА</h2>
+<div class="phase-desc" id="phaseDesc">Ожидание команд...</div>
+</div>
+<!-- Circular SVG Ring Timer -->
+<div class="svg-timer-wrap" id="timerBox" style="display: none;">
+<svg class="svg-timer-circle" viewbox="0 0 100 100">
+<circle class="svg-timer-bg" cx="50" cy="50" r="42"></circle>
+<circle class="svg-timer-bar" cx="50" cy="50" id="svgTimerBar" r="42" stroke-dasharray="264" stroke-dashoffset="0"></circle>
+</svg>
+<div class="svg-timer-inner">
+<div class="svg-timer-digits" id="timerDigits">00:00</div>
+<div class="svg-timer-sub">ТАЙМЕР</div>
+</div>
+</div>
+</div>
+<!-- ACTIVE TURN: REVEAL CIRCLE, THEN FIRST & SECOND SPEECH CIRCLES -->
+<div class="speaker-spotlight" id="speakerSpotlight" style="display: none;">
+<div>
+<div class="speaker-title" id="speakerProgress">
+<span>АКТИВНЫЙ СПИКЕР</span>
+<span class="audio-bars-wrapper">
+<span class="audio-bar"></span><span class="audio-bar"></span><span class="audio-bar"></span><span class="audio-bar"></span>
+</span>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; margin-top: 4px;">
+<div class="speaker-name" id="speakerName">Игрок</div>
+<span class="reveal-progress-badge" id="speakerRevealBadge">Ожидание открытия</span>
+</div>
+</div>
+<div id="speakerActionsWrap" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+<!-- Speech Phase: Next Speaker -->
+<button class="btn btn-primary btn-sm" id="btnNextSpeaker" style="display: none;">
+          Слово следующему ➡️
+        </button>
+<!-- Second speech round: current speaker passes word -->
+<button class="btn btn-cyan btn-sm" id="btnPassAccusation" style="display: none;">
+          ⏭️ Передать слово (2-я речь)
+        </button>
+<!-- Justification Phase: Candidate finish speech -->
+<button class="btn btn-amber btn-sm" id="btnPassJustification" style="display: none;">
+          🛡️ Завершить оправдание ➡️
+        </button>
+<!-- Debate Phase: Current speaker pass word -->
+<button class="btn btn-cyan btn-sm" id="btnPassDebate" style="display: none;">
+          ⏭️ Передать слово
+        </button>
+<!-- Legacy collective-discussion controls (phase is no longer used) -->
+<button class="btn btn-amber btn-sm" id="btnHostSkipDiscussion" style="display: none;" title="Перейти ко второму кругу индивидуальных речей">
+          ⏭️ Ко 2-й речи
+        </button>
+<button class="btn btn-danger btn-sm" id="btnHostSkipToVoting" style="display: none;" title="Перейти сразу к тайному голосованию">
+          🗳️ Сразу к голосованию
+        </button>
+<!-- Debate Phase: Host Controls -->
+<div id="hostDebateControls" style="display: none; gap: 6px; align-items: center; flex-wrap: wrap;">
+<button class="btn btn-danger btn-sm" id="btnHostEndDebate" title="Завершить время текущего спикера и передать слово следующему">
+            ⏹️ Завершить речь
+          </button>
+<button class="btn btn-secondary btn-sm" id="btnHostRestartDebateTime" title="Сбросить время текущего выступления">
+            🔄 Сброс времени
+          </button>
+<div style="display: flex; gap: 4px; align-items: center;">
+<select class="form-input" id="selectHostGrantDebate" style="padding: 5px 8px; font-size: 12px; width: 140px;"></select>
+<button class="btn btn-amber btn-sm" id="btnHostGrantDebate" title="Дать слово выбранному игроку">
+              🎙️ Дать слово
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- ACTIVE EVENT & CHALLENGE RESOLUTION SECTION -->
+<section class="event-section" id="eventChallengeSection" style="display: none;"></section>
+<!-- LAST WORD SECTION (When phase === 'LAST_WORD') -->
+<section class="last-word-overlay" id="lastWordSection" style="display: none;">
+<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+<div>
+<div style="font-family: var(--font-hud); font-size: 13px; color: var(--accent-danger); letter-spacing: 2px;">
+            🎙️ ПОСЛЕДНЕЕ СЛОВО ИЗГНАННОГО
+          </div>
+<div class="last-word-speaker-highlight" id="lastWordSpeakerName">
+            Игрок
+          </div>
+<p id="lastWordInstruction" style="font-size: 13px; color: var(--text-main); margin-top: 4px;">
+            Гермошлюз открыт: кандидат произносит своё последнее слово! Все его карты раскрыты.
+          </p>
+</div>
+<div style="display: flex; align-items: center; gap: 12px;">
+<button class="btn btn-secondary btn-sm" id="btnFinishLastWord" style="display: none;">
+            Завершить речь ⏹️
+          </button>
+</div>
+</div>
+</section>
+<!-- CATASTROPHE & BUNKER SECTION -->
+<div class="scenario-toggle-bar" id="scenarioHeaderBar" style="display: none;">
+<button class="btn btn-secondary btn-sm scenario-toggle-btn" id="btnToggleScenario" title="Свернуть или развернуть описание бункера" type="button">
+<span id="scenarioToggleIcon">🔽</span> <span id="scenarioToggleText">Свернуть данные бункера и катастрофы</span>
+</button>
+</div>
+<div class="scenario-grid" id="scenarioSection" style="display: none;">
+<!-- Catastrophe Card -->
+<div class="scenario-card">
+<div class="scenario-header">
+<span class="scenario-icon">☄️</span>
+<div>
+<div class="scenario-title" id="catastropheTitle">Катастрофа</div>
+<div id="catastropheDuration" style="font-size: 11px; color: var(--accent-danger);">Срок изоляции</div>
+</div>
+<span class="scenario-tag">ГЛОБАЛЬНАЯ УГРОЗА</span>
+</div>
+<div class="catastrophe-illustration" id="catastropheIllustration" style="margin: 10px 0; display: flex; justify-content: center;"></div>
+<p id="catastropheDesc" style="font-size: 13px; color: var(--text-main); margin-bottom: 8px;"></p>
+<div id="catastropheHazard" style="font-size: 12px; color: var(--accent-amber); font-weight: 600;"></div>
+</div>
+<!-- Bunker Card -->
+<div class="scenario-card">
+<div class="scenario-header">
+<span class="scenario-icon">🛡️</span>
+<div>
+<div class="scenario-title" id="bunkerTitle">Характеристики Бункера</div>
+<div id="bunkerSize" style="font-size: 11px; color: var(--accent-cyan);">Размер</div>
+</div>
+</div>
+<p id="bunkerDesc" style="font-size: 13px; color: var(--text-main); margin-bottom: 8px;"></p>
+<div id="bunkerFacilities" style="margin-bottom: 8px;"></div>
+<div id="bunkerThreat" style="font-size: 12px; color: var(--accent-danger);"></div>
+</div>
+</div>
+<!-- MY DOSSIER (PLAYER VIEW) -->
+<section class="my-card-section" id="myDossierSection" style="display: none; margin-bottom: 30px;">
+<div class="panel panel-cyan">
+
+<!-- Secret Peek Alert (Announcement) -->
+<div class="secret-peek-box" id="secretPeekAlert" style="display: none;">
+<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+<div>
+<strong style="color: var(--accent-cyan); font-size: 14px;">🔍 ТАЙНЫЙ ШПИОНАЖ:</strong>
+<div id="secretPeekText" style="font-size: 13px; color: #fff; margin-top: 2px;"></div>
+</div>
+<button class="btn btn-amber btn-sm" id="btnAnnouncePeeked">
+              📢 Объявить всем (Раскрыть карту)
+            </button>
+</div>
+</div>
+<!-- Silence Warning -->
+<div class="threshold-notice" id="silenceWarning" style="display: none; background: rgba(255, 51, 102, 0.15); border-color: var(--accent-danger); color: #ff99aa; margin-bottom: 14px;">
+          🔇 <strong>ОБЕТ МОЛЧАНИЯ:</strong> Ограничение устных выступлений до конца раунда. Обычный обет запрещает Речь 2; приказ о молчании — обе речи. Открытие карточек в свой отдельный ход сохраняется. Discord автоматически не отключается!
+        </div>
+<!-- Exile Vendetta Box -->
+<div class="vendetta-box" id="exileVendettaBox" style="display: none;">
+<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+<div>
+<strong style="color: #ff0055; font-size: 14px;">⚡☠️ ВЕНДЕТТА ИЗГНАННЫХ АКТИВНА</strong>
+<div style="font-size: 12px; color: #ff99aa; margin-top: 2px;">
+                Вы выжили на поверхности благодаря своей экипировке! Вы можете отомстить бункеру, осложнив жизнь оставшихся колонистов (1 раз за игру).
+              </div>
+</div>
+<button class="btn btn-vendetta" id="btnTriggerVendetta">
+              💀 СОВЕРШИТЬ ДИВЕРСИЮ
+            </button>
+</div>
+</div>
+<!-- Dynamic Turn Status Banner -->
+<div class="dossier-turn-banner" id="dossierTurnStatus" style="display: none;"></div>
+<div class="dossier-list" id="myCardsList"></div>
+</div>
+</section>
+<!-- VOTING SECTION (When active) -->
+<section class="vote-section" id="votingSection" style="display: none;">
+<div class="tiebreaker-banner" id="tiebreakerNotice" style="display: none;">
+        ⚠️ <strong>РЕШАЮЩИЙ ТАЙБРЕЙК!</strong> Равное количество голосов. Голосуйте только против кандидатов с равными голосами!
+      </div>
+<div class="threshold-notice" id="thresholdNotice">
+        🛡️ Итоги голосования определят следующий этап. До подтверждения изгнания кандидат остаётся в убежище.
+      </div>
+<div id="votingProgressBanner" style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 14px; font-size: 14px; font-weight: 700; color: var(--accent-cyan); background: rgba(0, 240, 255, 0.08); border: 1px solid rgba(0, 240, 255, 0.2); padding: 8px 16px; border-radius: var(--radius-sm);">
+<span>🗳️ Ожидание голосов...</span>
+</div>
+<h3 style="font-family: var(--font-hud); font-size: 18px; color: var(--accent-danger); text-align: center;">
+        🚫 КОГО ИЗГНАТЬ НА ПОВЕРХНОСТЬ?
+      </h3>
+<p style="text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 4px;">
+        Выберите кандидата, чей вклад в бункер наименее ценен, или воздержитесь:
+      </p>
+<div class="vote-grid" id="voteCandidatesGrid"></div>
+<div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+<button class="vote-btn-abstain" id="btnVoteAbstain" style="margin-top: 0;">
+<span>⚪ ВОЗДЕРЖАТЬСЯ</span> (Пропустить голос / Никого не выгонять)
+        </button>
+<button class="btn btn-amber" id="btnVoteSkipRound" style="display: none; width: 100%; padding: 14px; font-weight: 700; font-size: 14px; border-radius: var(--radius-sm);">
+<span>⏭️ ПРОПУСТИТЬ ИЗГНАНИЕ (1-й раунд)</span>
+<div style="font-size: 11px; opacity: 0.9; font-weight: 400; margin-top: 3px;">Большинство оставит всех в бункере, но во 2-м раунде произойдет ДВОЙНОЕ изгнание!</div>
+</button>
+</div>
+</section>
+<!-- VOTE RESULTS SECTION (When phase === 'VOTE_RESULTS') -->
+<section class="vote-section" id="voteResultsSection" style="display: none; margin-bottom: 30px;">
+<div class="panel panel-cyan" style="border-color: var(--accent-amber); box-shadow: 0 0 25px rgba(255, 170, 0, 0.15);">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+<div>
+<h3 style="font-family: var(--font-hud); font-size: 20px; color: var(--accent-amber); margin: 0;">
+              📊 ИТОГИ ГОЛОСОВАНИЯ
+            </h3>
+<div id="voteResultsSub" style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">
+              Результаты подсчета голосов участников
+            </div>
+</div>
+<div class="badge badge-amber" id="voteResultsCountdown" style="font-size: 13px; padding: 6px 14px; font-weight: 700;">
+            ⏳ Следующий раунд...
+          </div>
+</div>
+<div class="threshold-notice" id="voteOutcomeBanner" style="margin-bottom: 18px; font-size: 14px; line-height: 1.5;"></div>
+<div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-family: var(--font-hud); margin-bottom: 10px; letter-spacing: 1px;">
+          Распределение голосов:
+        </div>
+<div id="voteTallyGrid" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;"></div>
+<div id="voteResultsHostControls" style="display: none; justify-content: flex-end; gap: 12px; margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 15px;">
+<button class="btn btn-amber btn-sm" id="btnHostNextRoundNow">
+            ▶️ Начать следующий раунд сейчас
+          </button>
+</div>
+</div>
+</section>
+<!-- FINAL EVALUATION SCREEN -->
+<section class="final-screen" id="finalScreenSection" style="display: none;">
+<div class="final-heading"><div><span class="eyebrow">ПРОТОКОЛ ЗАКРЫТИЯ ШЛЮЗА</span><h1 id="finalTitle">Итоги партии</h1><p id="finalVaultDoorStatus"></p></div><button class="btn btn-secondary" id="btnCopyDiscordReport">Скопировать отчёт</button></div>
+<div class="final-grid">
+<section class="final-main"><div class="final-rating-row"><div class="final-rating" id="survivalGauge">—</div><div><h2>Судьба колонии</h2><p class="muted">Итоги решений вашей команды</p><p id="finalPersonalResult"></p></div></div><p class="final-intro" id="finalText"></p><h2 class="section-label">Состояние убежища</h2><div class="balance-needs" id="finalNeeds"></div><div class="final-reasons" id="finalKeyReasons"></div></section>
+<aside class="final-roster"><span class="eyebrow">ОСТАЛИСЬ ВНУТРИ</span><h2>Состав колонии</h2><div id="finalSurvivors"></div><details><summary>Участники на поверхности</summary><div id="finalExiles"></div></details></aside>
+</div>
+<details class="final-details"><summary>Разбор: что помогло и чего не хватило</summary><p id="finalFullText" class="final-full-text"></p><div class="final-detail-grid"><section><h2>Что помогло</h2><ul id="finalProsList"></ul></section><section><h2>Чего не хватило</h2><ul id="finalConsList"></ul></section></div><div id="finalAchievementsContainer"><h2>Заслуги команды</h2><div class="achievements-grid" id="finalAchievementsList"></div></div></details>
+</section>
+<!-- ALL PLAYERS GRID (TABLE VIEW) -->
+<section style="margin-top: 30px;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+<h3 style="font-family: var(--font-hud); font-size: 16px; letter-spacing: 1px; color: var(--accent-cyan);">
+          👥 ВСЕ КАНДИДАТЫ В БУНКЕР
+        </h3>
+<span style="font-size: 11px; color: var(--text-muted);">Кликните на игрока для подробного досмотра</span>
+</div>
+<div class="players-grid" id="allPlayersGrid"></div>
+</section>
+<!-- EVENT LOG -->
+<section style="margin-top: 30px;">
+<h4 style="font-family: var(--font-hud); font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">
+        📟 БОРТОВОЙ ЖУРНАЛ БУНКЕРА:
+      </h4>
+<div class="game-log-box" id="gameLogBox"></div>
+</section>
+</main>
+<!-- MODALS CONTAINER -->
+<!-- Modal 1: Target Player Picker (for special cards) -->
+<div class="modal-overlay" id="modalTargetPicker" style="display: none;">
+<div class="bunker-modal modal-content-anim">
+<div class="modal-header">
+<div class="modal-title" id="targetPickerTitle">ВЫБЕРИТЕ ЦЕЛЬ</div>
+<button aria-label="Закрыть окно" class="modal-close" id="btnTargetPickerClose">×</button>
+</div>
+<div class="modal-body">
+<div id="targetPickerPrompt" style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;"></div>
+<div id="targetPickerList"></div>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary btn-sm" id="btnTargetPickerCancel">Отмена</button>
+<button class="btn btn-primary btn-sm" id="btnTargetPickerConfirm">Применить</button>
+</div>
+</div>
+</div>
+<!-- Modal 2: Vote Confirmation -->
+<div class="modal-overlay" id="modalVoteConfirm" style="display: none;">
+<div class="bunker-modal danger modal-content-anim">
+<div class="modal-header">
+<div class="modal-title" style="color: var(--accent-danger);">⚠️ ПОДТВЕРЖДЕНИЕ ИЗГНАНИЯ</div>
+<button aria-label="Закрыть окно" class="modal-close" id="btnVoteConfirmClose">×</button>
+</div>
+<div class="modal-body" style="text-align: center;">
+<p style="font-size: 14px; color: var(--text-main); margin-bottom: 12px;">
+          Вы голосуете за изгнание кандидата:
+        </p>
+<div id="voteConfirmCandidateName" style="font-family: var(--font-hud); font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 14px;">
+          Игрок
+        </div>
+<div style="background: rgba(255, 51, 102, 0.1); border: 1px dashed var(--accent-danger); border-radius: var(--radius-sm); padding: 12px; font-size: 12px; color: #ff99aa;">
+          Голос нельзя отозвать после отправки. Если кандидат наберет большинство, он останется снаружи бункера.
+        </div>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary btn-sm" id="btnVoteConfirmCancel">Отмена</button>
+<button class="btn btn-danger btn-sm" id="btnVoteConfirmSend">🚫 ОТДАТЬ ГОЛОС</button>
+</div>
+</div>
+</div>
+<!-- Modal 3: Player Full Dossier Inspector -->
+<div class="modal-overlay" id="modalPlayerDossier" style="display: none;">
+<div class="bunker-modal modal-content-anim">
+<div class="modal-header">
+<div>
+<div class="modal-title" id="dossierModalPlayerName">ЛИЧНОЕ ДЕЛО</div>
+<div id="dossierModalStatus" style="font-size: 11px; color: var(--accent-cyan); font-family: var(--font-hud);">В БУНКЕРЕ</div>
+</div>
+<button aria-label="Закрыть окно" class="modal-close" id="btnPlayerDossierClose">×</button>
+</div>
+<div class="modal-body">
+<div class="dossier-list" id="dossierModalCardsList"></div>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary btn-sm" id="btnPlayerDossierDismiss">Закрыть</button>
+</div>
+</div>
+</div>
+<!-- Modal 4: Event Dice Roll & Resolution -->
+<div class="modal-overlay" id="modalEventDice" style="display: none;">
+<div class="bunker-modal modal-content-anim" style="max-width: 550px; text-align: center;">
+<div class="modal-header">
+<div class="modal-title" id="diceModalTitle" style="color: var(--accent-amber);">🎲 РАЗРЕШЕНИЕ ИСПЫТАНИЯ</div>
+<button aria-label="Закрыть окно" class="modal-close" id="btnDiceModalClose">×</button>
+</div>
+<div class="modal-body">
+<div class="dice-anim-container" id="diceAnimContainer">
+<div class="dice-cube-wrap">
+<div class="dice-number-display" id="diceNumberDisplay">--</div>
+</div>
+<div class="dice-target-display" id="diceTargetDisplay">Исход испытания</div>
+</div>
+<div id="diceOutcomeContainer" style="display: none; margin-top: 20px;">
+<div id="diceOutcomeTitle" style="font-family: var(--font-hud); font-size: 24px; font-weight: 900; margin-bottom: 8px;">РЕЗУЛЬТАТ</div>
+<p id="diceOutcomeDesc" style="font-size: 14px; color: var(--text-main); margin-bottom: 12px; line-height: 1.5;"></p>
+<div class="dice-boost-notice" id="diceBoostNotice" style="display: none;"></div>
+</div>
+</div>
+<div class="modal-footer" style="justify-content: center;">
+<button class="btn btn-primary btn-sm" id="btnDiceModalAccept" style="display: none;">Принять результат</button>
+</div>
+</div>
+</div>
+<!-- Modal 5: Events Journal / History -->
+<div class="modal-overlay" id="modalEventHistory" style="display: none;">
+<div class="bunker-modal modal-content-anim" style="max-width: 650px;">
+<div class="modal-header">
+<div class="modal-title" style="color: var(--accent-cyan);">📜 ЖУРНАЛ ИСПЫТАНИЙ И ВЫЛАЗОК</div>
+<button aria-label="Закрыть окно" class="modal-close" id="btnEventHistoryClose">×</button>
+</div>
+<div class="modal-body">
+<div class="event-history-list" id="eventHistoryList"></div>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary btn-sm" id="btnEventHistoryDismiss">Закрыть</button>
+</div>
+</div>
+</div>
+<!-- Modal 6: Achievements & Stats Modal -->
+<div class="modal-overlay" id="modalAchievements" style="display: none;">
+<div class="bunker-modal modal-content-anim" style="max-width: 650px;">
+<div class="modal-header">
+<div class="modal-title" style="color: var(--accent-amber);">🏆 СИСТЕМА ДОСТИЖЕНИЙ И ЗАСЛУГ</div>
+<button aria-label="Закрыть окно" class="modal-close" id="btnAchievementsClose">×</button>
+</div>
+<div class="modal-body">
+<p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
+          Особые почетные звания и титулы, присваиваемые выжившим в финале партии в зависимости от их роли в сохранении колонии:
+        </p>
+<div class="achievements-grid" id="achievementsModalList"></div>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary btn-sm" id="btnAchievementsDismiss">Закрыть</button>
+</div>
+</div>
+</div>
+<!-- MODAL: CINEMATIC PROLOGUE CUTSCENE -->
+<div class="cinematic-prologue-overlay" id="cinematicPrologueModal" style="display: none;">
+<!-- Cataclysm Background Video -->
+<video class="prologue-video-bg" id="prologueVideoBg" muted="" playsinline="" preload="none"></video>
+<div class="prologue-video-backdrop"></div>
+<div class="prologue-card">
+<button class="prologue-close-btn" id="btnPrologueClose" title="Закрыть">✕</button>
+<div class="prologue-scanline"></div>
+<div class="prologue-tag">🚨 СУДНЫЙ ДЕНЬ // ПРОТОКОЛ «БУНКЕР» АКТИВИРОВАН 🚨</div>
+<h1 class="prologue-title" id="prologueCatastropheTitle">КАТАСТРОФА</h1>
+<p class="prologue-desc" id="prologueCatastropheDesc"></p>
+<div class="prologue-survivors-panel">
+<div style="font-family: var(--font-hud); font-size: 13px; color: var(--accent-amber); margin-bottom: 6px;">
+          👥 ВЫЖИВШИЕ ПЕРЕД ЗАКРЫТИЕМ ШЛЮЗА
+        </div>
+<div class="prologue-heroes-grid" id="prologueHeroesGrid"></div>
+<div id="prologueCapacityNotice" style="font-size: 13px; color: #ff99aa; margin-top: 10px; font-weight: 600;"></div>
+</div>
+<div class="prologue-footer">
+<button class="btn btn-amber" id="btnPrologueEnter">Войти в бункер</button>
+<button aria-pressed="false" class="btn btn-secondary" id="btnPrologueSound" type="button">Звук видео: выкл.</button><button class="btn btn-secondary" id="btnPrologueReplay" type="button">Повторить 5 секунд</button><button class="btn btn-secondary" id="btnPrologueAudioSettings" type="button">Звук и видео</button><span class="muted">Пропуск относится только к вашему вступлению.</span></div>
+</div>
+</div>
+<!-- Toast Container -->
+<div aria-live="polite" class="toast-container" id="toastContainer" role="status"></div>
+<!-- Scripts -->
+<script src="/static/js/sound_fx.js?v=4.6.0"></script>
+<script src="/static/js/app.js?v=4.6.0"></script>
+<script src="/static/js/dashboard.js?v=4.6.0"></script>
+<script src="/static/js/lobby.js?v=4.6.0-cards1"></script>
+<script src="/static/js/results.js?v=4.6.0"></script>
+<script src="/static/js/audio_settings.js?v=4.6.0"></script>
+</body>
+</html>

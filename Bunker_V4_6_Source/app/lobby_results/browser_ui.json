@@ -1,0 +1,404 @@
+{
+  "passed": 64,
+  "checks": [
+    "Full random is selected by default",
+    "Brief shows the actual deal mode",
+    "Balanced mode explains its guarantees",
+    "Random mode explains the lack of guarantees",
+    "Launch blocked before third player",
+    "Fill-to-six button dispatches correct bot count (test binding)",
+    "Ready gate blocks unready guests",
+    "Guest settings read-only",
+    "Guest cannot start",
+    "Guest cannot add bots",
+    "Actual engine readiness unlocks launch button",
+    "lobby_general_1366x768: no horizontal overflow",
+    "lobby_general_1366x768: no desktop page scroll",
+    "lobby_general_1366x768: launch footer visible",
+    "lobby_general_1366x768: all primary settings fit",
+    "Preset resets old ready confirmations",
+    "Second speech live preview = half first",
+    "lobby_rules_1366x768: no horizontal overflow",
+    "lobby_rules_1366x768: no desktop page scroll",
+    "lobby_rules_1366x768: launch footer visible",
+    "Guest preview reflects common scenario snapshot",
+    "lobby_scenario_1366x768: no horizontal overflow",
+    "lobby_scenario_1366x768: no desktop page scroll",
+    "lobby_scenario_1366x768: launch footer visible",
+    "Lock button reflects server acknowledgement",
+    "JSON import is applied to the engine, not only form",
+    "Invalid settings import is atomic",
+    "Profile export contains current settings without credentials",
+    "lobby_general_1440x900: no horizontal overflow",
+    "lobby_general_1440x900: no desktop page scroll",
+    "lobby_general_1440x900: launch footer visible",
+    "lobby_general_1440x900: all primary settings fit",
+    "lobby_general_1920x1080: no horizontal overflow",
+    "lobby_general_1920x1080: no desktop page scroll",
+    "lobby_general_1920x1080: launch footer visible",
+    "lobby_general_1920x1080: all primary settings fit",
+    "lobby_general_1280x720: no horizontal overflow",
+    "lobby_general_1280x720: no desktop page scroll",
+    "lobby_general_1280x720: launch footer visible",
+    "lobby_general_1280x720: all primary settings fit",
+    "lobby_guest_1366x768: no horizontal overflow",
+    "lobby_guest_1366x768: no desktop page scroll",
+    "lobby_guest_1366x768: launch footer visible",
+    "lobby_mobile_settings_390x844: no horizontal overflow",
+    "lobby_mobile_crew_390x844: no horizontal overflow",
+    "lobby_mobile_brief_390x844: no horizontal overflow",
+    "Player names escaped, never HTML",
+    "Keyboard navigation between settings tabs",
+    "Pending settings keep launch disabled",
+    "Unconfirmed edit is not reported as saved",
+    "Disconnected host cannot launch",
+    "Disconnection shown truthfully",
+    "Engine deal uses selected scenario",
+    "Timers from UI reach the real engine",
+    "Extra timers from UI reach engine",
+    "Capacity reaches the actual deal",
+    "Selected random mode reaches the actual game",
+    "Initial profession reveal reaches every dealt dossier",
+    "Launch transitions from new lobby to existing game UI",
+    "Second-speech explanation uses configured duration",
+    "Voting timer displays configured duration",
+    "Actual justification phase uses configured duration",
+    "Actual revote phase uses configured duration",
+    "No uncaught JavaScript errors"
+  ],
+  "errors": [],
+  "failure": null,
+  "layouts": [
+    {
+      "name": "lobby_general_1366x768",
+      "viewport": [
+        1366,
+        768
+      ],
+      "doc": [
+        1366,
+        768
+      ],
+      "footer": {
+        "x": 20,
+        "y": 687,
+        "width": 1326,
+        "height": 65,
+        "top": 687,
+        "right": 1346,
+        "bottom": 752,
+        "left": 20
+      },
+      "scroll": [
+        {
+          "id": "lcSettingsScroll",
+          "client": 361,
+          "scroll": 361
+        },
+        {
+          "id": "lcRoster",
+          "client": 210,
+          "scroll": 210
+        }
+      ]
+    },
+    {
+      "name": "lobby_rules_1366x768",
+      "viewport": [
+        1366,
+        768
+      ],
+      "doc": [
+        1366,
+        768
+      ],
+      "footer": {
+        "x": 20,
+        "y": 687,
+        "width": 1326,
+        "height": 65,
+        "top": 687,
+        "right": 1346,
+        "bottom": 752,
+        "left": 20
+      },
+      "scroll": [
+        {
+          "id": "lcSettingsScroll",
+          "client": 361,
+          "scroll": 392
+        },
+        {
+          "id": "lcRoster",
+          "client": 210,
+          "scroll": 210
+        }
+      ]
+    },
+    {
+      "name": "lobby_scenario_1366x768",
+      "viewport": [
+        1366,
+        768
+      ],
+      "doc": [
+        1366,
+        768
+      ],
+      "footer": {
+        "x": 20,
+        "y": 687,
+        "width": 1326,
+        "height": 65,
+        "top": 687,
+        "right": 1346,
+        "bottom": 752,
+        "left": 20
+      },
+      "scroll": [
+        {
+          "id": "lcSettingsScroll",
+          "client": 361,
+          "scroll": 361
+        },
+        {
+          "id": "lcRoster",
+          "client": 210,
+          "scroll": 210
+        }
+      ]
+    },
+    {
+      "name": "lobby_general_1440x900",
+      "viewport": [
+        1440,
+        900
+      ],
+      "doc": [
+        1440,
+        900
+      ],
+      "footer": {
+        "x": 20,
+        "y": 814,
+        "width": 1400,
+        "height": 70,
+        "top": 814,
+        "right": 1420,
+        "bottom": 884,
+        "left": 20
+      },
+      "scroll": [
+        {
+          "id": "lcSettingsScroll",
+          "client": 443,
+          "scroll": 443
+        },
+        {
+          "id": "lcRoster",
+          "client": 287,
+          "scroll": 287
+        }
+      ]
+    },
+    {
+      "name": "lobby_general_1920x1080",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "doc": [
+        1920,
+        1080
+      ],
+      "footer": {
+        "x": 30,
+        "y": 984,
+        "width": 1860,
+        "height": 74,
+        "top": 984,
+        "right": 1890,
+        "bottom": 1058,
+        "left": 30
+      },
+      "scroll": [
+        {
+          "id": "lcSettingsScroll",
+          "client": 560,
+          "scroll": 560
+        },
+        {
+          "id": "lcRoster",
+          "client": 434,
+          "scroll": 434
+        }
+      ]
+    },
+    {
+      "name": "lobby_general_1280x720",
+      "viewport": [
+        1280,
+        720
+      ],
+      "doc": [
+        1280,
+        720
+      ],
+      "footer": {
+        "x": 20,
+        "y": 639,
+        "width": 1240,
+        "height": 65,
+        "top": 639,
+        "right": 1260,
+        "bottom": 704,
+        "left": 20
+      },
+      "scroll": [
+        {
+          "id": "lcSettingsScroll",
+          "client": 313,
+          "scroll": 313
+        },
+        {
+          "id": "lcRoster",
+          "client": 180,
+          "scroll": 180
+        }
+      ]
+    },
+    {
+      "name": "lobby_guest_1366x768",
+      "viewport": [
+        1366,
+        768
+      ],
+      "doc": [
+        1366,
+        768
+      ],
+      "footer": {
+        "x": 20,
+        "y": 688,
+        "width": 1326,
+        "height": 64,
+        "top": 688,
+        "right": 1346,
+        "bottom": 752,
+        "left": 20
+      },
+      "scroll": [
+        {
+          "id": "lcSettingsScroll",
+          "client": 329,
+          "scroll": 358
+        },
+        {
+          "id": "lcRoster",
+          "client": 276,
+          "scroll": 276
+        }
+      ]
+    },
+    {
+      "name": "lobby_mobile_settings_390x844",
+      "viewport": [
+        390,
+        844
+      ],
+      "doc": [
+        390,
+        1350
+      ],
+      "footer": {
+        "x": 10,
+        "y": 724.203125,
+        "width": 370,
+        "height": 111.796875,
+        "top": 724.203125,
+        "right": 380,
+        "bottom": 836,
+        "left": 10
+      },
+      "scroll": [
+        {
+          "id": "lcSettingsScroll",
+          "client": 708,
+          "scroll": 708
+        },
+        {
+          "id": "lcRoster",
+          "client": 0,
+          "scroll": 0
+        }
+      ]
+    },
+    {
+      "name": "lobby_mobile_crew_390x844",
+      "viewport": [
+        390,
+        844
+      ],
+      "doc": [
+        390,
+        965
+      ],
+      "footer": {
+        "x": 10,
+        "y": 724.203125,
+        "width": 370,
+        "height": 111.796875,
+        "top": 724.203125,
+        "right": 380,
+        "bottom": 836,
+        "left": 10
+      },
+      "scroll": [
+        {
+          "id": "lcSettingsScroll",
+          "client": 0,
+          "scroll": 0
+        },
+        {
+          "id": "lcRoster",
+          "client": 257,
+          "scroll": 257
+        }
+      ]
+    },
+    {
+      "name": "lobby_mobile_brief_390x844",
+      "viewport": [
+        390,
+        844
+      ],
+      "doc": [
+        390,
+        1082
+      ],
+      "footer": {
+        "x": 10,
+        "y": 724.203125,
+        "width": 370,
+        "height": 111.796875,
+        "top": 724.203125,
+        "right": 380,
+        "bottom": 836,
+        "left": 10
+      },
+      "scroll": [
+        {
+          "id": "lcSettingsScroll",
+          "client": 0,
+          "scroll": 0
+        },
+        {
+          "id": "lcRoster",
+          "client": 0,
+          "scroll": 0
+        }
+      ]
+    }
+  ],
+  "transport": "Explicit test binding to real Python game engine; not a live browser match"
+}

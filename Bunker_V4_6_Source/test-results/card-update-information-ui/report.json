@@ -1,0 +1,158 @@
+{
+  "passed": true,
+  "mode": "Real bundled Chromium UI + explicit in-process engine binding; network tested separately using ASGI WebSockets",
+  "checks_passed": 57,
+  "checks": [
+    "Default: immersion",
+    "Exactly two selectable information modes",
+    "lobby 1366x768: no horizontal overflow",
+    "lobby 1366x768: primary lobby settings fit without scrolling",
+    "lobby 1280x720: no horizontal overflow",
+    "lobby 1280x720: primary lobby settings fit without scrolling",
+    "lobby 1920x1080: no horizontal overflow",
+    "lobby 1920x1080: primary lobby settings fit without scrolling",
+    "lobby 390x844: no horizontal overflow",
+    "Host selector updates mode explanation",
+    "Preset selection preserves chosen information mode",
+    "Returning to classic preserves information mode",
+    "Saved JSON profile contains mode",
+    "Import restores mode through actual file input",
+    "Guests cannot edit mode",
+    "Guest sees common selected mode",
+    "Actual Start button freezes confirmed mode",
+    "immersion event: no numeric mechanics or individual rankings",
+    "Immersion: server qualitative chance visible",
+    "immersion: no exact chance bar",
+    "immersion: assigned volunteer remains visible",
+    "immersion: volunteer control updates engine",
+    "immersion: canceled sortie explicit",
+    "immersion: sortie can be resumed",
+    "immersion event 1366x768: no horizontal overflow",
+    "immersion: own dossier opens",
+    "immersion dossier: no numeric mechanics or individual rankings",
+    "immersion: result opens automatically",
+    "immersion: five-second review preserved",
+    "immersion outcome: no numeric mechanics or individual rankings",
+    "immersion: next phase remains visible",
+    "immersion: review closes after five server ticks",
+    "immersion: review did not consume speech timer",
+    "immersion history: no numeric mechanics or individual rankings",
+    "immersion: narrative final renders",
+    "immersion final: no numeric mechanics or individual rankings",
+    "uncertainty event: no numeric mechanics or individual rankings",
+    "Uncertainty: no qualitative odds",
+    "Uncertainty: odds not sent in state",
+    "uncertainty: no exact chance bar",
+    "uncertainty: assigned volunteer remains visible",
+    "uncertainty: volunteer control updates engine",
+    "uncertainty: canceled sortie explicit",
+    "uncertainty: sortie can be resumed",
+    "uncertainty event 1366x768: no horizontal overflow",
+    "uncertainty: own dossier opens",
+    "uncertainty dossier: no numeric mechanics or individual rankings",
+    "uncertainty: result opens automatically",
+    "uncertainty: five-second review preserved",
+    "uncertainty outcome: no numeric mechanics or individual rankings",
+    "uncertainty: next phase remains visible",
+    "uncertainty: review closes after five server ticks",
+    "uncertainty: review did not consume speech timer",
+    "uncertainty history: no numeric mechanics or individual rankings",
+    "uncertainty: narrative final renders",
+    "uncertainty final: no numeric mechanics or individual rankings",
+    "No JavaScript exceptions"
+  ],
+  "layouts": [
+    {
+      "viewport": [
+        1366,
+        768
+      ],
+      "document": [
+        1366,
+        768
+      ],
+      "settings": {
+        "scroll": 361,
+        "client": 361
+      },
+      "label": "lobby 1366x768"
+    },
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "document": [
+        1280,
+        720
+      ],
+      "settings": {
+        "scroll": 313,
+        "client": 313
+      },
+      "label": "lobby 1280x720"
+    },
+    {
+      "viewport": [
+        1920,
+        1080
+      ],
+      "document": [
+        1920,
+        1080
+      ],
+      "settings": {
+        "scroll": 560,
+        "client": 560
+      },
+      "label": "lobby 1920x1080"
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "document": [
+        390,
+        1365
+      ],
+      "settings": {
+        "scroll": 723,
+        "client": 723
+      },
+      "label": "lobby 390x844"
+    },
+    {
+      "viewport": [
+        1366,
+        768
+      ],
+      "document": [
+        1366,
+        768
+      ],
+      "settings": {
+        "scroll": 0,
+        "client": 0
+      },
+      "label": "immersion event 1366x768"
+    },
+    {
+      "viewport": [
+        1366,
+        768
+      ],
+      "document": [
+        1366,
+        768
+      ],
+      "settings": {
+        "scroll": 0,
+        "client": 0
+      },
+      "label": "uncertainty event 1366x768"
+    }
+  ],
+  "page_errors": [],
+  "failure": null
+}

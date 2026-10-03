@@ -1,0 +1,29 @@
+{
+  "app": "bunker-lobby",
+  "schema_version": 1,
+  "settings": {
+    "preset": "classic",
+    "game_mode": "STANDARD",
+    "deal_mode": "full_random",
+    "information_mode": "uncertainty",
+    "max_players": 20,
+    "capacity_mode": "auto",
+    "capacity": 3,
+    "speech_duration": 60,
+    "voting_duration": 15,
+    "justification_duration": 30,
+    "revote_duration": 15,
+    "last_word_duration": 15,
+    "enable_events": true,
+    "event_difficulty": "normal",
+    "enable_traitor": false,
+    "enable_special_cards": true,
+    "initial_reveal": "mode",
+    "speaker_order": "join",
+    "catastrophe_id": "random",
+    "bunker_id": "random",
+    "show_prologue": true,
+    "require_ready": false,
+    "room_locked": false
+  }
+}

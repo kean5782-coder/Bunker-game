@@ -1,0 +1,21 @@
+/* V4.6 compact personal sound panel. Native dialog provides focus trapping. */
+.audio-dialog{width:min(850px,calc(100vw - 24px));max-height:calc(100dvh - 28px);margin:auto;padding:0;background:#1a2229;color:#e9eef2;border:1px solid #647480;border-radius:10px;box-shadow:0 24px 80px #000b;overflow:auto;font-family:inherit}
+.audio-dialog::backdrop{background:#070b10b8;backdrop-filter:blur(3px)}
+.audio-titlebar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px 14px;border-bottom:1px solid #3d4d59;background:#202c35}
+.audio-titlebar h2{font-size:23px;margin:4px 0 0;letter-spacing:0}.audio-titlebar .btn{min-width:38px}
+.audio-body{padding:16px 22px}.audio-master{display:grid;grid-template-columns:1fr auto;gap:10px 18px;align-items:center}.audio-master strong{font-size:16px}.audio-master small,.audio-channel small,.audio-consent small{display:block;color:#b1bfc8;font-size:11px;line-height:1.45;margin-top:3px}
+.audio-master>input{width:100%}.audio-master>output{font-size:14px;text-align:center;font-variant-numeric:tabular-nums}
+.audio-dialog input[type=range]{accent-color:#81bfc4;cursor:pointer;min-width:0;height:24px}.audio-dialog input[type=checkbox]{accent-color:#81bfc4;width:17px;height:17px;flex-shrink:0;cursor:pointer}
+.audio-status{font-size:12px;line-height:1.5;color:#c5dfe3;padding:9px 11px;background:#24353d;border-left:2px solid #72a7ad;margin:13px 0}
+.audio-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.audio-card{border:1px solid #45545f;border-radius:7px;padding:13px 14px;min-width:0}.audio-card h3{font-size:15px;margin:0 0 12px}.audio-channel{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px 10px;padding:8px 0;border-bottom:1px solid #384751}.audio-channel>div label{font-size:13px;font-weight:600}.audio-enable{display:flex;align-items:center;gap:5px;font-size:11px;color:#c3d2db}.audio-channel>input[type=range]{width:100%}.audio-channel output{align-self:center;min-width:40px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums}.audio-channel:last-of-type{border-bottom:0}
+.audio-test-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.audio-test-row .btn{font-size:11px;min-height:34px}
+.audio-options .eyebrow{font-size:9px;display:block;margin-bottom:5px}.audio-options>p{font-size:12px;color:#b8c7d0;line-height:1.55;margin:0 0 12px}.audio-options>label{display:flex;align-items:flex-start;gap:9px;font-size:12px;line-height:1.45;margin:12px 0;cursor:pointer}.audio-options>small{display:block;color:#aebfc9;font-size:11px;line-height:1.5;margin-top:14px}
+.audio-sources{margin-top:13px;font-size:12px;color:#b8c9d3}.audio-sources summary{cursor:pointer;padding:4px 0}.audio-sources p{line-height:1.5;margin:9px 0}.audio-sources .btn{margin:4px 5px 3px 0;font-size:11px}.audio-footer{padding:12px 22px;border-top:1px solid #3d4d59;font-size:11px;line-height:1.5;color:#adbec9}
+.header-audio{display:inline-flex;align-items:center;gap:6px}.header-audio[data-muted=true]{color:#b6c4cd}.header-audio[data-muted=true]>span:first-child{opacity:.55}
+.audio-consent{margin-top:14px;padding:12px;border:1px solid #62737f;border-radius:6px;background:#26343d}.audio-consent[hidden]{display:none!important}.audio-consent strong{font-size:13px}.audio-consent>div+div{display:flex;gap:7px;margin-top:10px;flex-wrap:wrap}
+#btnOpenAudioFromVisual{margin:0 0 15px}
+/* Short scenes remain 720p; display does not apply a blur or a dark full-frame mask. */
+.prologue-video-bg{opacity:.93!important;filter:none!important}.prologue-video-backdrop{background:linear-gradient(90deg,#080e1580,#0a101a0f 45%,#080e1555)!important}
+.prologue-card{background:#14202bec!important;backdrop-filter:blur(6px);border-color:#647381!important}.prologue-scanline{display:none!important}
+.prologue-media-note{font-size:11px;color:#acbec9;line-height:1.4;margin-top:7px}.prologue-footer{flex-wrap:wrap}.prologue-footer .btn{min-height:36px}
+@media(max-width:600px){.audio-dialog{width:calc(100vw - 16px);max-height:calc(100dvh - 16px)}.audio-titlebar{padding:14px 15px}.audio-body{padding:13px 15px}.audio-titlebar h2{font-size:20px}.audio-grid{grid-template-columns:1fr}.audio-footer{padding:12px 15px}.audio-master>.btn{font-size:11px}.header-audio-label{display:none}.header-audio{min-width:32px;padding:6px!important}.audio-consent{padding:10px}}

@@ -1,0 +1,357 @@
+{
+  "version": "4.6.0",
+  "notes": "12 re-composed animated illustrations, 13 restored existing clips. Native delivery 720p; not AI-generated video or recovered HD detail. Audio is locally synthesized, not external recordings.",
+  "clips": [
+    {
+      "id": "acid_rains",
+      "action": "original motion, mild denoise and sharpening",
+      "sources": [
+        "acid_rains"
+      ],
+      "cue": "rain",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "22f15fa540e8fd55f73adfceedddd36f0ffafcd0972a5241f11f8504cd75e941"
+    },
+    {
+      "id": "ai_rebellion",
+      "action": "original motion, mild denoise and sharpening",
+      "sources": [
+        "ai_rebellion"
+      ],
+      "cue": "ventilation",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "1dbba8571c0fe8af28c6e6acdd762c5540b7abfc5fd06ffc52b503bd8cc83fbd"
+    },
+    {
+      "id": "alien_invasion",
+      "action": "original motion, mild denoise and sharpening",
+      "sources": [
+        "alien_invasion"
+      ],
+      "cue": "rumble",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "2e01e11a6a717dca0bc9bda1f430451aef31c0f1dc1fbf40d66d9d46a755dc4d"
+    },
+    {
+      "id": "asteroid_impact",
+      "action": "original motion, mild denoise and sharpening",
+      "sources": [
+        "asteroid_impact"
+      ],
+      "cue": "rumble",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "53a8587bb914a8b9068314fc0462e21cf6a129e896c30ada5f040fb4c58de78e"
+    },
+    {
+      "id": "atmospheric_fire",
+      "action": "original motion, mild denoise and sharpening",
+      "sources": [
+        "atmospheric_fire"
+      ],
+      "cue": "rumble",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "a1651e687a205fde762c7759858f2733e4e09645aa4ea244b78308e6399cbd98"
+    },
+    {
+      "id": "biological_mutation",
+      "action": "recomposed animated illustration",
+      "sources": [
+        "zombie_outbreak"
+      ],
+      "cue": "ventilation",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "58b334783ac03d818ea095470d0af2d564e816a95ad37ab067c8408ace19be6b"
+    },
+    {
+      "id": "black_hole_approach",
+      "action": "recomposed animated illustration",
+      "sources": [
+        "cosmic_radiation"
+      ],
+      "cue": "rumble",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "ed830d375dc426bdda456ee912df1355d64c9bf2ce3724b9283b70c91849c22e"
+    },
+    {
+      "id": "cosmic_radiation",
+      "action": "original motion, mild denoise and sharpening",
+      "sources": [
+        "cosmic_radiation"
+      ],
+      "cue": "wind",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "4f1046d279d32172aeb36b99b0aff22f752d007e7e8f1497838968b422e516a1"
+    },
+    {
+      "id": "cyber_blackout",
+      "action": "recomposed animated illustration",
+      "sources": [
+        "super_virus"
+      ],
+      "cue": "ventilation",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "59e2c5961c46adeacf730fb9b206e694b0b90de2b45a16f12651dc857fb178c8"
+    },
+    {
+      "id": "dark_matter_storm",
+      "action": "recomposed animated illustration",
+      "sources": [
+        "nuclear_winter"
+      ],
+      "cue": "wind",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "36601729c9d3768ae5902601f2ff50636945ef871335c91bf1eb71ad72f5ef57"
+    },
+    {
+      "id": "global_flood",
+      "action": "original motion, mild denoise and sharpening",
+      "sources": [
+        "global_flood"
+      ],
+      "cue": "rain",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "6f7244f36d9e9dbd886ec9282a94797589fb1dda40eaf7ff8ac35787da936e3b"
+    },
+    {
+      "id": "ice_age",
+      "action": "original motion, mild denoise and sharpening",
+      "sources": [
+        "ice_age"
+      ],
+      "cue": "wind",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "0f64046f016501497252527eb36eebda935ea130504def3cb42c101e097e3b83"
+    },
+    {
+      "id": "magnetic_flip",
+      "action": "recomposed animated illustration",
+      "sources": [
+        "nuclear_winter",
+        "cosmic_radiation"
+      ],
+      "cue": "ventilation",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "e687e71bf5f0363138d7d8982d334567dd4e051e6a70cf890d29aaf0f58b7d16"
+    },
+    {
+      "id": "mirror_virus",
+      "action": "recomposed animated illustration",
+      "sources": [
+        "ice_age"
+      ],
+      "cue": "ventilation",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "e9a399d28dd4dfb2bd9ebeff4668f790fc4dbcc98bff8bd1aed8ed2af3964cbf"
+    },
+    {
+      "id": "nanite_swarm",
+      "action": "original motion, mild denoise and sharpening",
+      "sources": [
+        "nanite_swarm"
+      ],
+      "cue": "rumble",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "dec0946ede755b8e63ccdb3596210662a98f284472a185e147a4f48d6445945a"
+    },
+    {
+      "id": "nuclear_winter",
+      "action": "original motion, mild denoise and sharpening",
+      "sources": [
+        "nuclear_winter"
+      ],
+      "cue": "wind",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "b2ab899e6d1628ae4738dc1d5e234dc36f9b8b5ae774e2c9864e460f3d2baa69"
+    },
+    {
+      "id": "orbital_debris",
+      "action": "recomposed animated illustration",
+      "sources": [
+        "super_virus"
+      ],
+      "cue": "rumble",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "f66b463e1567ba4f38f7e931b6f48c3460b9eeba0ebe1d80da14074e653d01f7"
+    },
+    {
+      "id": "parasite_infestation",
+      "action": "recomposed animated illustration",
+      "sources": [
+        "nanite_swarm"
+      ],
+      "cue": "ventilation",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "56a0c6d44916f70c6bc7e79bff5ad4cbda21723fe46837f7f2d5cdf78ebb1c8d"
+    },
+    {
+      "id": "permafrost_thaw",
+      "action": "recomposed animated illustration",
+      "sources": [
+        "ice_age"
+      ],
+      "cue": "rain",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "8a0fc01d3689d7023a92d74d716a8f1adc1dee4dd502b4f467514b651022507f"
+    },
+    {
+      "id": "solar_flare",
+      "action": "original motion, mild denoise and sharpening",
+      "sources": [
+        "solar_flare"
+      ],
+      "cue": "ventilation",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "afbdd52465b1222a248a6e67d5d471c0ac53ff6f0c6421beb16607f4eae36216"
+    },
+    {
+      "id": "super_virus",
+      "action": "original motion, mild denoise and sharpening",
+      "sources": [
+        "super_virus"
+      ],
+      "cue": "ventilation",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "b3b0ae0c21d63905551102bf5c1800333ee79ffe2f88e1be365ffe807f1c8191"
+    },
+    {
+      "id": "supervolcano",
+      "action": "recomposed animated illustration",
+      "sources": [
+        "atmospheric_fire"
+      ],
+      "cue": "rumble",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "a317df6044e83bee0bf150e12bab3c713917c4a04f1a615bb79bfc367a67e540"
+    },
+    {
+      "id": "synthetic_spores",
+      "action": "recomposed animated illustration",
+      "sources": [
+        "acid_rains"
+      ],
+      "cue": "wind",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "fdbe33ce3c7ad26c98ceb8c892d2a446161820bca6b160593958ce629aab0241"
+    },
+    {
+      "id": "toxic_bloom",
+      "action": "recomposed animated illustration",
+      "sources": [
+        "global_flood"
+      ],
+      "cue": "rain",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "fcb6f814a8ab29eb936327969d977522fc831c46559138c3d75bf4a38cf8021f"
+    },
+    {
+      "id": "zombie_outbreak",
+      "action": "original motion, mild denoise and sharpening",
+      "sources": [
+        "zombie_outbreak"
+      ],
+      "cue": "ventilation",
+      "duration": 5,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "audio": "AAC",
+      "sha256": "21aac3782f245994f76fc82b37bb5220b147983bdcf31e7c90b5627b2a8d5372"
+    }
+  ]
+}

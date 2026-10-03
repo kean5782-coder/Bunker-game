@@ -1,0 +1,6310 @@
+{
+  "cards": {
+    "profession": {
+      "Врач-хирург": {
+        "id": "profession_0d36e644fc0a",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Терапевт / Врач общей практики": {
+        "id": "profession_7870b535ea2a",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Психотерапевт / Кризисный психолог": {
+        "id": "profession_1909ce59cec9",
+        "skills": {
+          "medicine": 0.55,
+          "social": 1.0
+        },
+        "traits": [
+          "calm",
+          "empathy"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Фармацевт-провизор": {
+        "id": "profession_ca212b11439b",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Травматолог-ортопед": {
+        "id": "profession_aab46c2267da",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Акушер-гинеколог": {
+        "id": "profession_61cb6f9956a2",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Стоматолог-хирург": {
+        "id": "profession_2465890f78b8",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Анестезиолог-реаниматолог": {
+        "id": "profession_667e2ace10f3",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Эпидемиолог-инфекционист": {
+        "id": "profession_181b1b3bffcb",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Фельдшер скорой помощи": {
+        "id": "profession_e6d57bff643c",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Инженер-электрик": {
+        "id": "profession_d21d173ff9ed",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 0.65
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Слесарь-сантехник / Гидравлик": {
+        "id": "profession_4c8c193d7fd1",
+        "skills": {
+          "engineering": 1.0,
+          "water": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Автомеханик / Дизелист": {
+        "id": "profession_fbc7684ea57e",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 0.65
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Строитель / Архитектор подземных сооружений": {
+        "id": "profession_8e0bb32ffb06",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 0.65
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Сварщик высшего 6-го разряда": {
+        "id": "profession_a4e2f3b1b46f",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 0.65
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Инженер систем вентиляции и кондиционирования": {
+        "id": "profession_26960d476c37",
+        "skills": {
+          "engineering": 1.0,
+          "water": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Инженер-электронщик / Робототехник": {
+        "id": "profession_5ade514575f6",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 0.65
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Специалист по возобновляемой энергетике": {
+        "id": "profession_88432e9e9677",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 0.65
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Агроном-селекционер": {
+        "id": "profession_fdf4ba696fb4",
+        "skills": {
+          "agriculture": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Физик-ядерщик": {
+        "id": "profession_7c90846f8f83",
+        "skills": {
+          "science": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Химик-технолог": {
+        "id": "profession_4d81058d4be6",
+        "skills": {
+          "science": 1.0,
+          "medicine": 0.4,
+          "water": 0.5
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Генетик-биолог": {
+        "id": "profession_32a957897ca4",
+        "skills": {
+          "science": 1.0,
+          "agriculture": 0.6
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Геолог / Бурильщик": {
+        "id": "profession_84ca5f75b91f",
+        "skills": {
+          "science": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Зоолог / Ветеринар": {
+        "id": "profession_cc5ba7dacded",
+        "skills": {
+          "agriculture": 1.0,
+          "medicine": 0.55
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Микробиолог / Миколог": {
+        "id": "profession_7758812daab4",
+        "skills": {
+          "science": 1.0,
+          "medicine": 0.4,
+          "water": 0.5,
+          "agriculture": 0.6
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Гидрогеолог / Эксперт по очистке воды": {
+        "id": "profession_7b2edb98ef11",
+        "skills": {
+          "science": 1.0,
+          "water": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Офицер спецназа / Инструктор": {
+        "id": "profession_d8d42a8175b1",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Спасатель МЧС / Газодымозащитник": {
+        "id": "profession_81741e7fb93e",
+        "skills": {
+          "security": 1.0,
+          "medicine": 0.55,
+          "craft": 0.55
+        },
+        "traits": [
+          "calm",
+          "strength"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Профессиональный снайпер": {
+        "id": "profession_d00f2396cea8",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Сапер / Взрывотехник": {
+        "id": "profession_c85be0e80fb3",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Служебный кинолог с овчаркой": {
+        "id": "profession_def50793d56e",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Телохранитель": {
+        "id": "profession_8f927196758b",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Специалист по кибербезопасности / Хакер": {
+        "id": "profession_e9dd770e00e6",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Военный связист / Радиотехник": {
+        "id": "profession_9822d7cf4715",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Системный администратор баз данных": {
+        "id": "profession_8beccf30f8d1",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Шеф-повар полевой кухни": {
+        "id": "profession_93bbf74ec712",
+        "skills": {
+          "food": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Пивовар / Мастер дистилляции": {
+        "id": "profession_845ad68c52e9",
+        "skills": {
+          "food": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Плотник / Столяр-краснодеревщик": {
+        "id": "profession_a78643024fcc",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Оружейник / Токарь": {
+        "id": "profession_8480b7a43839",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Шахтер-проходчик": {
+        "id": "profession_a6ad34fc34ea",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Швея / Портной защитной экипировки": {
+        "id": "profession_ad283dd66290",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Кузнец / Металлург": {
+        "id": "profession_3f0dad25d93a",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Учитель / Педагог-методист": {
+        "id": "profession_494654731636",
+        "skills": {
+          "education": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Библиотекарь / Архивист": {
+        "id": "profession_5fa4cd367bdf",
+        "skills": {
+          "education": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Юрист / Профессиональный медиатор": {
+        "id": "profession_3d2092c36ff2",
+        "skills": {
+          "social": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Священник / Капеллан": {
+        "id": "profession_536beea6bb5b",
+        "skills": {
+          "social": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Кладовщик / Логист снабжения": {
+        "id": "profession_94287835ba5e",
+        "skills": {
+          "logistics": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Пилот вертолета / Дроновод": {
+        "id": "profession_c2c13c222336",
+        "skills": {
+          "transport": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Коллектор микрозаймов": {
+        "id": "profession_49baf6d09967",
+        "skills": {
+          "social": 0.45
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Таролог / Астролог": {
+        "id": "profession_491e38f98eb5",
+        "skills": {
+          "education": 0.25,
+          "social": 0.3
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Блогер-пранкер": {
+        "id": "profession_1893b6bdfa04",
+        "skills": {
+          "education": 0.25,
+          "social": 0.3
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Инфоцыган / Коуч личностного роста": {
+        "id": "profession_e7f24e107eea",
+        "skills": {
+          "social": 0.45
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Фейсконтрольщик ночного клуба": {
+        "id": "profession_700b5b388625",
+        "skills": {
+          "social": 0.45
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Криптоинвестор-банкрот": {
+        "id": "profession_a43aae375404",
+        "skills": {
+          "education": 0.25,
+          "social": 0.3
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Менеджер финансовой пирамиды": {
+        "id": "profession_4ec2216c8533",
+        "skills": {
+          "education": 0.25,
+          "social": 0.3
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Ритуальный агент / Гробовщик": {
+        "id": "profession_7d3a1d250a9b",
+        "skills": {
+          "social": 0.45
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Стример нелегального казино": {
+        "id": "profession_4ab946697d09",
+        "skills": {
+          "education": 0.25,
+          "social": 0.3
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Продавец БАДов и сомнительных биодобавок": {
+        "id": "profession_0e21400a8cd5",
+        "skills": {
+          "social": 0.45
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Охранник продуктового супермаркета": {
+        "id": "profession_082051242d71",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Безработный диванный философ": {
+        "id": "profession_9413bdc371b1",
+        "skills": {
+          "education": 0.25,
+          "social": 0.3
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Скупщик металлолома и хлама": {
+        "id": "profession_becac26dc929",
+        "skills": {
+          "craft": 1.0,
+          "logistics": 0.65
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Инспектор по парковкам": {
+        "id": "profession_8d8a1b313833",
+        "skills": {
+          "social": 0.45
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Инфекционист-эпидемиолог": {
+        "id": "profession_f1ba57711452",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Фармацевт-биохимик": {
+        "id": "profession_1cc854cdb1b7",
+        "skills": {
+          "medicine": 0.4,
+          "water": 0.5
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Судебно-медицинский эксперт": {
+        "id": "profession_ca269a27158c",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Врач скорой помощи": {
+        "id": "profession_daac8093fe99",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Клинический токсиколог": {
+        "id": "profession_d61399c55dcd",
+        "skills": {
+          "medicine": 0.4,
+          "water": 0.5
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Операционная медсестра": {
+        "id": "profession_5bbc00955c8e",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Инженер-атомщик АЭС": {
+        "id": "profession_77be01e6da6f",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 0.65
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Криоинженер систем охлаждения": {
+        "id": "profession_bdbba076629a",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 0.65
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Программист систем реального времени (АСУ ТП)": {
+        "id": "profession_52a6075b9e9a",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Инженер гидросооружений и насосных станций": {
+        "id": "profession_f5653c9d863c",
+        "skills": {
+          "engineering": 1.0,
+          "water": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Радиоинженер коротковолновой связи": {
+        "id": "profession_a535a0ffa01d",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Специалист по опреснению и мембранной очистке": {
+        "id": "profession_d3b870e65845",
+        "skills": {
+          "engineering": 1.0,
+          "water": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Геофизик-сейсмолог": {
+        "id": "profession_f0d2e62b81c9",
+        "skills": {
+          "science": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Инженер-химик синтетических материалов": {
+        "id": "profession_394a31351a80",
+        "skills": {
+          "science": 1.0,
+          "medicine": 0.4,
+          "water": 0.5
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Специалист по кибербезопасности и реверс-инжинирингу": {
+        "id": "profession_80052e4138c5",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Машинист дизельных энергоустановок": {
+        "id": "profession_fb46ef4974b8",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 0.65
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Астрофизик оптических систем": {
+        "id": "profession_cc614470fb1a",
+        "skills": {
+          "science": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Инженер-баллистик систем ПВО": {
+        "id": "profession_fd121aae0cb9",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 0.65
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Микроэлектронщик-пайщик": {
+        "id": "profession_251d246ff28a",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Горный инженер подземной проходки": {
+        "id": "profession_c02ce502a038",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 0.65
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Технолог порошковой металлургии": {
+        "id": "profession_384966254b2a",
+        "skills": {
+          "science": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Специалист по радиоэлектронной борьбе (РЭБ)": {
+        "id": "profession_9a2491602240",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Инженер-робототехник": {
+        "id": "profession_39acc7ae6aaf",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Промышленный агроном-гидропонист": {
+        "id": "profession_1cc6f16dcda1",
+        "skills": {
+          "agriculture": 1.0,
+          "water": 0.35
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Миколог-культиватор (разведение грибов)": {
+        "id": "profession_7ee1bcd8ae94",
+        "skills": {
+          "food": 1.0,
+          "water": 0.35
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Ветеринар широкого профиля": {
+        "id": "profession_72967562a94e",
+        "skills": {
+          "agriculture": 1.0,
+          "medicine": 0.55
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Технолог консервирования и сублимации": {
+        "id": "profession_aa43abe46035",
+        "skills": {
+          "food": 1.0,
+          "water": 0.35
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Специалист по замкнутой аквапонике": {
+        "id": "profession_b4d25a64ea72",
+        "skills": {
+          "food": 1.0,
+          "water": 0.35
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Пчеловод-селекционер": {
+        "id": "profession_f452ea8c8abd",
+        "skills": {
+          "agriculture": 1.0,
+          "water": 0.35
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Почвовед-мелиоратор": {
+        "id": "profession_2ffb6c554fe0",
+        "skills": {
+          "agriculture": 1.0,
+          "water": 0.35
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Пекарь-технолог зернового брожения": {
+        "id": "profession_b8879d37dba9",
+        "skills": {
+          "food": 1.0,
+          "water": 0.35
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Специалист по переработке биоотходов": {
+        "id": "profession_bb873c59e2b3",
+        "skills": {
+          "agriculture": 1.0,
+          "water": 0.35
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Зоотехник мелкого животноводства": {
+        "id": "profession_b546c0a1ce61",
+        "skills": {
+          "food": 1.0,
+          "water": 0.35
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Сапер-взрывотехник МЧС": {
+        "id": "profession_91dc95089a46",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Снайпер-наблюдатель спецподразделения": {
+        "id": "profession_dd5a9dbfb27c",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Спасатель-парамедик МЧС": {
+        "id": "profession_df51c87d99d0",
+        "skills": {
+          "security": 1.0,
+          "medicine": 0.55,
+          "craft": 0.55
+        },
+        "traits": [
+          "calm",
+          "strength"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Водолаз-глубоководник (акванавт)": {
+        "id": "profession_d155b84ce84c",
+        "skills": {
+          "security": 1.0,
+          "water": 0.8,
+          "transport": 0.7
+        },
+        "traits": [
+          "endurance",
+          "water"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Офицер караульной службы ФСИН": {
+        "id": "profession_9bb87dfd121c",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Специалист радиационной, химической и биозащиты (РХБЗ)": {
+        "id": "profession_b2a618dbff87",
+        "skills": {
+          "security": 1.0,
+          "science": 0.7
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Горноспасатель военизированных частей": {
+        "id": "profession_051f558e2acc",
+        "skills": {
+          "security": 1.0,
+          "medicine": 0.55,
+          "craft": 0.55
+        },
+        "traits": [
+          "calm",
+          "strength"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Служебный кинолог с патрульной овчаркой": {
+        "id": "profession_b254e7493edf",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Боец штурмовой группы антитеррора": {
+        "id": "profession_857d8a3455a7",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Следователь по особо важным делам": {
+        "id": "profession_004b62cefa95",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Слесарь-инструментальщик высшего разряда": {
+        "id": "profession_3591c24a0e7f",
+        "skills": {
+          "craft": 0.65
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Электрогазосварщик конструкций высокого давления": {
+        "id": "profession_ede1d40ffff0",
+        "skills": {
+          "craft": 0.65
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Мастер по ремонту швейного и защитного снаряжения": {
+        "id": "profession_a97c17f6635e",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Кузнец-оружейник горячей ковки": {
+        "id": "profession_7e3123227ad3",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Электромонтер высоковольтных подстанций": {
+        "id": "profession_d5f015c48a84",
+        "skills": {
+          "craft": 0.65
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Плотник-строитель каркасных конструкций": {
+        "id": "profession_782ae9bd7e13",
+        "skills": {
+          "craft": 0.65
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Водитель-механик тяжелой гусеничной техники": {
+        "id": "profession_2c02f2e61c54",
+        "skills": {
+          "transport": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Диспетчер логистического хаба": {
+        "id": "profession_6c31d2072ea5",
+        "skills": {
+          "logistics": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Специалист по вентиляции и кондиционированию": {
+        "id": "profession_e3223867ef9c",
+        "skills": {
+          "engineering": 1.0,
+          "water": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Мастер часовых и прецизионных механизмов": {
+        "id": "profession_e21a242a7362",
+        "skills": {
+          "craft": 0.65
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Профессиональный сомелье элитных вин": {
+        "id": "profession_82245c959733",
+        "skills": {
+          "social": 0.45
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Таролог и астролог-консультант": {
+        "id": "profession_025417eac246",
+        "skills": {
+          "social": 0.45
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Бьюти-блогер миллионник": {
+        "id": "profession_fc5e0dc9f36d",
+        "skills": {
+          "social": 0.45
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Инструктор по зумбе и аэробике": {
+        "id": "profession_1c0484b3aa81",
+        "skills": {
+          "social": 0.4
+        },
+        "traits": [
+          "agility",
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Криптотрейдер мем-токенов": {
+        "id": "profession_7db8a863004f",
+        "skills": {
+          "education": 0.25,
+          "social": 0.3
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Профессиональный стендап-комик": {
+        "id": "profession_c7938626a29b",
+        "skills": {
+          "social": 0.45
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Дегустатор премиального корма для животных": {
+        "id": "profession_3cbbf8164f45",
+        "skills": {
+          "food": 0.3
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Философ-постмодернист": {
+        "id": "profession_46b4acd329a1",
+        "skills": {
+          "education": 0.25,
+          "social": 0.3
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Стилист-парикмахер животных (грумер)": {
+        "id": "profession_ed658a2e5a27",
+        "skills": {
+          "craft": 0.35,
+          "agriculture": 0.35
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Организатор свадеб и шумных корпоративов": {
+        "id": "profession_8941eb77d853",
+        "skills": {
+          "social": 0.45
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Профессиональный дегустатор кормов для животных": {
+        "id": "profession_67172e784f79",
+        "skills": {
+          "social": 0.45
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Бывший ведущий телемагазина": {
+        "id": "profession_64f6aefbe63a",
+        "skills": {
+          "social": 0.45
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Оператор аттракциона в парке развлечений": {
+        "id": "profession_8e1423cd68e8",
+        "skills": {
+          "engineering": 0.45
+        },
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Специалист по обезвреживанию опасных объектов": {
+        "id": "profession_782efdea4a3a",
+        "skills": {
+          "engineering": 1.0,
+          "security": 0.7
+        },
+        "traits": [
+          "calm",
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Эпидемиолог": {
+        "id": "profession_291caf8a803e",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      }
+    },
+    "body": {
+      "Атлетическое телосложение": {
+        "id": "body_f829515d9127",
+        "skills": {},
+        "traits": [
+          "endurance",
+          "strength"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Крепкое жилистое телосложение": {
+        "id": "body_bfc285deb573",
+        "skills": {},
+        "traits": [
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Худощавое ловкое телосложение": {
+        "id": "body_3b34bade632e",
+        "skills": {},
+        "traits": [
+          "agility",
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Широкоплечий богатырь": {
+        "id": "body_d1d00638f273",
+        "skills": {},
+        "traits": [
+          "strength"
+        ],
+        "risks": [
+          "confined"
+        ],
+        "protection": []
+      },
+      "Спортивное подтянутое телосложение": {
+        "id": "body_efeba7792868",
+        "skills": {},
+        "traits": [
+          "endurance",
+          "strength"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Плотное коренастое телосложение": {
+        "id": "body_662a329ddcb8",
+        "skills": {},
+        "traits": [
+          "strength"
+        ],
+        "risks": [
+          "confined"
+        ],
+        "protection": []
+      },
+      "Сухощавый жилистый ветеран": {
+        "id": "body_4786a85a7c7e",
+        "skills": {},
+        "traits": [
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Обычное среднее телосложение": {
+        "id": "body_995b2796e0e6",
+        "skills": {},
+        "traits": [
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Миниатюрное телосложение": {
+        "id": "body_643ec7ba6d9e",
+        "skills": {},
+        "traits": [
+          "agility",
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Высокое худощавое телосложение": {
+        "id": "body_4d0dcbee0aef",
+        "skills": {},
+        "traits": [
+          "agility",
+          "reach"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Тяжелое массивное телосложение": {
+        "id": "body_741412991c99",
+        "skills": {},
+        "traits": [
+          "strength"
+        ],
+        "risks": [
+          "confined"
+        ],
+        "protection": []
+      },
+      "Грациозное гибкое телосложение": {
+        "id": "body_1d62f89dc3b4",
+        "skills": {},
+        "traits": [
+          "agility",
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Травмированное телосложение": {
+        "id": "body_d6d58c00fbc7",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "physical"
+        ],
+        "protection": []
+      },
+      "Закаленное северное телосложение": {
+        "id": "body_0347fbf099a3",
+        "skills": {},
+        "traits": [
+          "cold",
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Сухожилистый марафонец": {
+        "id": "body_7e2b1507000c",
+        "skills": {},
+        "traits": [
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Борцовское коренастое телосложение": {
+        "id": "body_01cc399c529a",
+        "skills": {},
+        "traits": [
+          "strength"
+        ],
+        "risks": [
+          "confined"
+        ],
+        "protection": []
+      },
+      "Астеническое компактное телосложение": {
+        "id": "body_0753bb061ff8",
+        "skills": {},
+        "traits": [
+          "agility",
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Гигантизм (рост 206 см)": {
+        "id": "body_a56f8fe8559b",
+        "skills": {},
+        "traits": [
+          "strength"
+        ],
+        "risks": [
+          "confined"
+        ],
+        "protection": []
+      },
+      "Телосложение с биопротезом руки": {
+        "id": "body_fb4329d24ba1",
+        "skills": {},
+        "traits": [
+          "precision",
+          "strength"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Обожженное закаленное телосложение": {
+        "id": "body_b92a684a078e",
+        "skills": {},
+        "traits": [
+          "calm",
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Плотное скандинавское телосложение": {
+        "id": "body_530cedacea5d",
+        "skills": {},
+        "traits": [
+          "cold",
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Тонкокостное хрупкое телосложение": {
+        "id": "body_1d9b8bb62d50",
+        "skills": {},
+        "traits": [
+          "agility"
+        ],
+        "risks": [
+          "strength"
+        ],
+        "protection": []
+      },
+      "Шрамированное телосложение ветерана": {
+        "id": "body_7ba5be8d05ec",
+        "skills": {},
+        "traits": [
+          "calm",
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Компактная карликовость (ахондроплазия)": {
+        "id": "body_975b1438d82c",
+        "skills": {},
+        "traits": [
+          "agility",
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Мускулистое атлетическое кроссфит-телосложение": {
+        "id": "body_6a086a1f8172",
+        "skills": {},
+        "traits": [
+          "endurance",
+          "strength"
+        ],
+        "risks": [],
+        "protection": []
+      }
+    },
+    "trait": {
+      "Принципиальный идеалист": {
+        "id": "trait_0470195f6218",
+        "skills": {},
+        "traits": [
+          "discipline",
+          "trust"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Хладнокровный прагматик": {
+        "id": "trait_f096d5edfb77",
+        "skills": {},
+        "traits": [
+          "calm"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Самоотверженный альтруист": {
+        "id": "trait_17764d1d81d3",
+        "skills": {},
+        "traits": [
+          "empathy",
+          "teamwork"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Прирожденный лидер": {
+        "id": "trait_af85656b30b1",
+        "skills": {},
+        "traits": [
+          "organization"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Осторожный параноик": {
+        "id": "trait_89267eb54829",
+        "skills": {},
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Вспыльчивый правдоруб": {
+        "id": "trait_4bded4417027",
+        "skills": {},
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [
+          "conflict"
+        ],
+        "protection": []
+      },
+      "Педант и перфекционист": {
+        "id": "trait_b9dee1ebbb15",
+        "skills": {},
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Неисправимый оптимист": {
+        "id": "trait_019be58be80b",
+        "skills": {},
+        "traits": [
+          "morale"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Скрытный одиночка": {
+        "id": "trait_edb676d92a71",
+        "skills": {},
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Эмпатичный миротворец": {
+        "id": "trait_c75b996dbc29",
+        "skills": {},
+        "traits": [
+          "empathy",
+          "teamwork"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Хитрый манипулятор": {
+        "id": "trait_88900afe07d3",
+        "skills": {},
+        "traits": [
+          "negotiation"
+        ],
+        "risks": [
+          "trust"
+        ],
+        "protection": []
+      },
+      "Неутомимый трудоголик": {
+        "id": "trait_2b7d70fb8330",
+        "skills": {},
+        "traits": [
+          "discipline"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Паникер в кризисе": {
+        "id": "trait_d46ed3cccac5",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "panic"
+        ],
+        "protection": []
+      },
+      "Циничный скептик": {
+        "id": "trait_3ddb57c35b80",
+        "skills": {},
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Твердокаменный стоик": {
+        "id": "trait_e89e41446251",
+        "skills": {},
+        "traits": [
+          "calm"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Азартный авантюрист": {
+        "id": "trait_198e8584fa3e",
+        "skills": {},
+        "traits": [
+          "initiative"
+        ],
+        "risks": [
+          "discipline"
+        ],
+        "protection": []
+      },
+      "Прирожденный дипломат": {
+        "id": "trait_9c20e5da94a5",
+        "skills": {},
+        "traits": [
+          "organization"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Стрессоустойчивый хладнокровный": {
+        "id": "trait_f0c59f61de24",
+        "skills": {},
+        "traits": [
+          "calm"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Изобретательный кулибин": {
+        "id": "trait_54fd6e4647b9",
+        "skills": {},
+        "traits": [
+          "resourceful"
+        ],
+        "risks": [
+          "discipline"
+        ],
+        "protection": []
+      },
+      "Железная дисциплина": {
+        "id": "trait_6536c550b292",
+        "skills": {},
+        "traits": [
+          "discipline"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Чуткий военный психолог": {
+        "id": "trait_159154d7d61e",
+        "skills": {},
+        "traits": [
+          "empathy",
+          "teamwork"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Душа компании": {
+        "id": "trait_f349cedc475f",
+        "skills": {},
+        "traits": [
+          "morale"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Преданный защитник": {
+        "id": "trait_07bef96ce043",
+        "skills": {},
+        "traits": [
+          "calm",
+          "vigilance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Абсолютная честность": {
+        "id": "trait_7c9bbb5c8096",
+        "skills": {},
+        "traits": [
+          "discipline",
+          "trust"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Скромный аскет": {
+        "id": "trait_2296fe5c613c",
+        "skills": {},
+        "traits": [
+          "frugal"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Острый тактический ум": {
+        "id": "trait_ff4d636f6d03",
+        "skills": {},
+        "traits": [
+          "calm",
+          "vigilance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Мастер тайм-менеджмента": {
+        "id": "trait_4359fd055341",
+        "skills": {},
+        "traits": [
+          "organization"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Непоколебимая вера в будущее": {
+        "id": "trait_01d060d969de",
+        "skills": {},
+        "traits": [
+          "morale"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Уважительный командный игрок": {
+        "id": "trait_3144ad83dfcb",
+        "skills": {},
+        "traits": [
+          "empathy",
+          "teamwork"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Клептоман-барахольщик": {
+        "id": "trait_b51fd11696e5",
+        "skills": {},
+        "traits": [
+          "resourceful"
+        ],
+        "risks": [
+          "trust"
+        ],
+        "protection": []
+      },
+      "Завистливый интриган": {
+        "id": "trait_444c1616ee27",
+        "skills": {},
+        "traits": [
+          "initiative"
+        ],
+        "risks": [
+          "conflict"
+        ],
+        "protection": []
+      },
+      "Пассивно-агрессивный бунтарь": {
+        "id": "trait_290cff3455af",
+        "skills": {},
+        "traits": [
+          "initiative"
+        ],
+        "risks": [
+          "conflict"
+        ],
+        "protection": []
+      },
+      "Трусливый дезертир": {
+        "id": "trait_8c81499c4262",
+        "skills": {},
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [
+          "combat"
+        ],
+        "protection": []
+      },
+      "Патологический лжец": {
+        "id": "trait_9da95eb99369",
+        "skills": {},
+        "traits": [
+          "negotiation"
+        ],
+        "risks": [
+          "trust"
+        ],
+        "protection": []
+      },
+      "Эгоцентричный нарцисс": {
+        "id": "trait_dc3fd55dd2b5",
+        "skills": {},
+        "traits": [
+          "initiative"
+        ],
+        "risks": [
+          "conflict"
+        ],
+        "protection": []
+      },
+      "Мстительный фанатик": {
+        "id": "trait_2e186fe4debd",
+        "skills": {},
+        "traits": [
+          "initiative"
+        ],
+        "risks": [
+          "conflict"
+        ],
+        "protection": []
+      },
+      "Жалобщик-нытик": {
+        "id": "trait_cc8a49879adb",
+        "skills": {},
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [
+          "morale"
+        ],
+        "protection": []
+      },
+      "Догматичный фарисей": {
+        "id": "trait_79d51bef303b",
+        "skills": {},
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [
+          "morale"
+        ],
+        "protection": []
+      },
+      "Склочный сутяжник": {
+        "id": "trait_a681dc87a6eb",
+        "skills": {},
+        "traits": [
+          "initiative"
+        ],
+        "risks": [
+          "conflict"
+        ],
+        "protection": []
+      },
+      "Жестокий садист": {
+        "id": "trait_268a8d656abc",
+        "skills": {},
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [
+          "morale"
+        ],
+        "protection": []
+      },
+      "Ленивый паразитирующий тунеядец": {
+        "id": "trait_c597df963f91",
+        "skills": {},
+        "traits": [
+          "frugal"
+        ],
+        "risks": [
+          "physical"
+        ],
+        "protection": []
+      },
+      "Азартный лудоман": {
+        "id": "trait_9816abe3b733",
+        "skills": {},
+        "traits": [
+          "initiative"
+        ],
+        "risks": [
+          "discipline"
+        ],
+        "protection": []
+      },
+      "Фаталист-пофигист": {
+        "id": "trait_195b163b1817",
+        "skills": {},
+        "traits": [
+          "frugal"
+        ],
+        "risks": [
+          "physical"
+        ],
+        "protection": []
+      },
+      "Аскетичный молчун": {
+        "id": "trait_736dfe8d0dd9",
+        "skills": {},
+        "traits": [
+          "frugal"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Суеверный консерватор": {
+        "id": "trait_fdbbee8ab1b0",
+        "skills": {},
+        "traits": [
+          "discipline"
+        ],
+        "risks": [
+          "panic"
+        ],
+        "protection": []
+      },
+      "Безжалостный логик": {
+        "id": "trait_89ffa526d786",
+        "skills": {},
+        "traits": [
+          "calm"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Одержимый коллекционер": {
+        "id": "trait_318cef696b8e",
+        "skills": {},
+        "traits": [
+          "resourceful"
+        ],
+        "risks": [
+          "trust"
+        ],
+        "protection": []
+      },
+      "Бунтарь против авторитетов": {
+        "id": "trait_928813787aab",
+        "skills": {},
+        "traits": [
+          "initiative"
+        ],
+        "risks": [
+          "conflict"
+        ],
+        "protection": []
+      },
+      "Педантичный формалист": {
+        "id": "trait_f17258999d38",
+        "skills": {},
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Меланхоличный созерцатель": {
+        "id": "trait_aed62aa8a4bf",
+        "skills": {},
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Панически боится темноты": {
+        "id": "trait_11f3d2ec5b7a",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "darkness"
+        ],
+        "protection": []
+      },
+      "Умеет врать без эмоций": {
+        "id": "trait_2191d8480380",
+        "skills": {},
+        "traits": [
+          "negotiation"
+        ],
+        "risks": [
+          "trust"
+        ],
+        "protection": []
+      },
+      "Всегда ищет виноватого": {
+        "id": "trait_896b8f78e52e",
+        "skills": {},
+        "traits": [
+          "initiative"
+        ],
+        "risks": [
+          "conflict"
+        ],
+        "protection": []
+      },
+      "Гениальный, но ленивый": {
+        "id": "trait_0fbf976ef8d0",
+        "skills": {},
+        "traits": [
+          "resourceful"
+        ],
+        "risks": [
+          "discipline"
+        ],
+        "protection": []
+      },
+      "Коллекционировал странные вещи": {
+        "id": "trait_1e63a027b110",
+        "skills": {},
+        "traits": [
+          "resourceful"
+        ],
+        "risks": [
+          "trust"
+        ],
+        "protection": []
+      }
+    },
+    "phobia": {
+      "Клаустрофобия": {
+        "id": "phobia_b323d0abc254",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "confined"
+        ],
+        "protection": []
+      },
+      "Арахнофобия": {
+        "id": "phobia_7b581b1402be",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "pests"
+        ],
+        "protection": []
+      },
+      "Гермофобия (мизофобия)": {
+        "id": "phobia_765d7fbe4d4b",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "infection"
+        ],
+        "protection": []
+      },
+      "Пирофобия": {
+        "id": "phobia_4aafd80c2903",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "fire"
+        ],
+        "protection": []
+      },
+      "Никтофобия": {
+        "id": "phobia_d047f9997e73",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "darkness"
+        ],
+        "protection": []
+      },
+      "Некрофобия": {
+        "id": "phobia_b8c621889b3c",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "corpses"
+        ],
+        "protection": []
+      },
+      "Аквафобия": {
+        "id": "phobia_aa28a3f8ffe0",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "water"
+        ],
+        "protection": []
+      },
+      "Акустикофобия": {
+        "id": "phobia_3ff4140471f9",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "noise"
+        ],
+        "protection": []
+      },
+      "Агорафобия": {
+        "id": "phobia_d94d5f2ed5c9",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "open"
+        ],
+        "protection": []
+      },
+      "Танатофобия": {
+        "id": "phobia_9570548e90b0",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "combat"
+        ],
+        "protection": []
+      },
+      "Фасмофобия": {
+        "id": "phobia_6bb13f006cbd",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "darkness"
+        ],
+        "protection": []
+      },
+      "Барофобия": {
+        "id": "phobia_c92ad72c9089",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "height"
+        ],
+        "protection": []
+      },
+      "Гемофобия": {
+        "id": "phobia_fadedbfe394c",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "blood"
+        ],
+        "protection": []
+      },
+      "Монофобия (изолофобия)": {
+        "id": "phobia_a79514759350",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "alone"
+        ],
+        "protection": []
+      },
+      "Радиофобия": {
+        "id": "phobia_bd54437f7eb0",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "radiation"
+        ],
+        "protection": []
+      },
+      "Скопофобия": {
+        "id": "phobia_d43769ef3402",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "public"
+        ],
+        "protection": []
+      },
+      "Трипанофобия": {
+        "id": "phobia_4c60f667cd01",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "needles"
+        ],
+        "protection": []
+      },
+      "Фагофобия": {
+        "id": "phobia_44459e4a319a",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "food"
+        ],
+        "protection": []
+      },
+      "Вермифобия (гельминтофобия)": {
+        "id": "phobia_943734904b9c",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "pests"
+        ],
+        "protection": []
+      },
+      "Аутофобия": {
+        "id": "phobia_74619a1cce34",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "alone"
+        ],
+        "protection": []
+      },
+      "Ксенофобия патологическая": {
+        "id": "phobia_5626e1352dbe",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "stranger"
+        ],
+        "protection": []
+      },
+      "Электрофобия": {
+        "id": "phobia_16d2b207b176",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "electricity"
+        ],
+        "protection": []
+      },
+      "Акрибофобия": {
+        "id": "phobia_cda20661f746",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "precision"
+        ],
+        "protection": []
+      },
+      "Дромофобия": {
+        "id": "phobia_34003ea1d238",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "transport"
+        ],
+        "protection": []
+      },
+      "Гипенгиофобия": {
+        "id": "phobia_1966989a5dbc",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "responsibility"
+        ],
+        "protection": []
+      },
+      "Пнигофобия": {
+        "id": "phobia_bdb7b6c27be0",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "air"
+        ],
+        "protection": []
+      },
+      "Токсикофобия": {
+        "id": "phobia_ff757c84f814",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "chemical"
+        ],
+        "protection": []
+      },
+      "Аматофобия (кониофобия)": {
+        "id": "phobia_12a6c66afdde",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "dust"
+        ],
+        "protection": []
+      },
+      "Охлофобия": {
+        "id": "phobia_931ee65c919b",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "crowd"
+        ],
+        "protection": []
+      },
+      "Катагелофобия": {
+        "id": "phobia_38d129cc6b54",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "public"
+        ],
+        "protection": []
+      }
+    },
+    "hobby": {
+      "Охота и свежевание дичи": {
+        "id": "hobby_9eb80d7c0bc9",
+        "skills": {
+          "security": 1.0,
+          "agriculture": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Бушкрафт и выживание в тайге": {
+        "id": "hobby_b6961f4ee35c",
+        "skills": {
+          "craft": 1.0,
+          "agriculture": 1.0
+        },
+        "traits": [
+          "cold",
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Радиолюбитель и радиопеленгация": {
+        "id": "hobby_43ae0e8f9f3d",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Игра на акустической гитаре": {
+        "id": "hobby_8282908c8293",
+        "skills": {
+          "social": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Выращивание съедобных грибов": {
+        "id": "hobby_7a0a31868d18",
+        "skills": {
+          "agriculture": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Армейский рукопашный бой": {
+        "id": "hobby_6756f673e74a",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [
+          "strength"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Шахматы и логические этюды": {
+        "id": "hobby_d9f5bfeda238",
+        "skills": {
+          "education": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Столярное дело и резьба по дереву": {
+        "id": "hobby_4a72815940fd",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Травничество и народная медицина": {
+        "id": "hobby_3aa8b032fdb2",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Консервация и ферментация продуктов": {
+        "id": "hobby_deb4d4018377",
+        "skills": {
+          "food": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Дыхательные практики и йога": {
+        "id": "hobby_1258ab409b12",
+        "skills": {},
+        "traits": [
+          "calm"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Токарная металлообработка": {
+        "id": "hobby_ce8468ad19f4",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Стрельба из лука и арбалета": {
+        "id": "hobby_1f704e6600a1",
+        "skills": {
+          "security": 1.0,
+          "agriculture": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Самогоноварение и ректификация": {
+        "id": "hobby_38c55366bcff",
+        "skills": {
+          "food": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Пчеловодство и разведение насекомых": {
+        "id": "hobby_b25cb71b1611",
+        "skills": {
+          "agriculture": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Паркур и промышленный альпинизм": {
+        "id": "hobby_247f4f120c6c",
+        "skills": {},
+        "traits": [
+          "agility",
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Управление квадрокоптерами (FPV)": {
+        "id": "hobby_5f9fbb1c6436",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Кожевенное ремесло и ремонт обуви": {
+        "id": "hobby_582360487bab",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Пиромания (страсть к поджогам)": {
+        "id": "hobby_642d8ea60003",
+        "skills": {},
+        "traits": [
+          "initiative"
+        ],
+        "risks": [
+          "fire"
+        ],
+        "protection": []
+      },
+      "Теории плоской Земли и заговоров": {
+        "id": "hobby_f9c35d696c70",
+        "skills": {},
+        "traits": [
+          "morale"
+        ],
+        "risks": [
+          "precision"
+        ],
+        "protection": []
+      },
+      "Троллинг и травля в интернете": {
+        "id": "hobby_4fcd3e766d39",
+        "skills": {},
+        "traits": [
+          "negotiation"
+        ],
+        "risks": [
+          "conflict"
+        ],
+        "protection": []
+      },
+      "Клептомания (воровство мелких вещей)": {
+        "id": "hobby_a67491fa23ec",
+        "skills": {},
+        "traits": [
+          "resourceful"
+        ],
+        "risks": [
+          "trust"
+        ],
+        "protection": []
+      },
+      "Громкое пение шансона мимо нот": {
+        "id": "hobby_fad0423ff36e",
+        "skills": {},
+        "traits": [
+          "morale"
+        ],
+        "risks": [
+          "noise"
+        ],
+        "protection": []
+      },
+      "Вейпинг в закрытых помещениях": {
+        "id": "hobby_d2302ea5a7a0",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "air"
+        ],
+        "protection": []
+      },
+      "Азартные игры на вещи и еду": {
+        "id": "hobby_19bb763707ef",
+        "skills": {},
+        "traits": [
+          "initiative"
+        ],
+        "risks": [
+          "discipline"
+        ],
+        "protection": []
+      },
+      "Сбор сплетен и плетение интриг": {
+        "id": "hobby_ec2b352912e0",
+        "skills": {},
+        "traits": [
+          "negotiation"
+        ],
+        "risks": [
+          "conflict"
+        ],
+        "protection": []
+      },
+      "Пожирание мыла и штукатурки (пикацизм)": {
+        "id": "hobby_6f0a58b6ed94",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "infection"
+        ],
+        "protection": []
+      },
+      "Самогоноварение и дистилляция": {
+        "id": "hobby_59409e5935b1",
+        "skills": {
+          "food": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Радиолюбительство (диапазон 144/430 МГц)": {
+        "id": "hobby_2090005f701e",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Стендовая стрельба и обращение с ружьем": {
+        "id": "hobby_be9a44bc9b50",
+        "skills": {
+          "security": 1.0,
+          "agriculture": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Кожевенное ремесло": {
+        "id": "hobby_7c9fcdd18593",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Мыловарение из золы и жира": {
+        "id": "hobby_1767648ab76a",
+        "skills": {
+          "water": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Спортивное скалолазание": {
+        "id": "hobby_aef234a3c592",
+        "skills": {},
+        "traits": [
+          "agility",
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Ремонт мелкой бытовой электроники": {
+        "id": "hobby_6b3467f64181",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Игра на классической гитаре и вокал": {
+        "id": "hobby_e5976b7e2210",
+        "skills": {
+          "social": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Вязание теплых свитеров и носков": {
+        "id": "hobby_3877c6c516f5",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Ферментация и квашение овощей": {
+        "id": "hobby_ed84cdbc2f8d",
+        "skills": {
+          "food": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Судомоделизм и резьба по дереву": {
+        "id": "hobby_4cbcedd6fe56",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Хатха-йога и дыхательные практики пранаямы": {
+        "id": "hobby_4e5c53bf8441",
+        "skills": {},
+        "traits": [
+          "calm"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Любительская астрономия": {
+        "id": "hobby_7cd74c74da57",
+        "skills": {
+          "science": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Рыболовство на спиннинг и сети": {
+        "id": "hobby_04b88f2a924f",
+        "skills": {
+          "food": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Кулинария дичи на открытом огне": {
+        "id": "hobby_e75737ab7446",
+        "skills": {
+          "food": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Спидкубинг (сборка кубика Рубика за 9 секунд)": {
+        "id": "hobby_02824f284fde",
+        "skills": {
+          "education": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Практика осознанных сновидений": {
+        "id": "hobby_fb064a684c98",
+        "skills": {},
+        "traits": [
+          "calm"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Коллекционирование и заточка клинков": {
+        "id": "hobby_ab1f3756d944",
+        "skills": {
+          "security": 1.0,
+          "agriculture": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Игра в шахматы на уровне кандидата в мастера спорта": {
+        "id": "hobby_1a88b25fa704",
+        "skills": {
+          "education": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Сборка самодельных луков и стрел": {
+        "id": "hobby_8d55c7209038",
+        "skills": {
+          "security": 1.0,
+          "agriculture": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Мытье золота и промывка шлихов": {
+        "id": "hobby_5c62004c83cf",
+        "skills": {
+          "science": 1.0,
+          "water": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Любительская криптография и головоломки": {
+        "id": "hobby_b454b9baa65c",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Фокусы с картами и ловкость рук (микромагия)": {
+        "id": "hobby_a3b1d4c2a525",
+        "skills": {
+          "social": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Спортивное ориентирование по компасу и шагам": {
+        "id": "hobby_222e0f3cce7c",
+        "skills": {},
+        "traits": [
+          "agility",
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Реконструкция средневекового фехтования": {
+        "id": "hobby_356f2190a9e2",
+        "skills": {
+          "security": 1.0,
+          "agriculture": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Сбор макулатуры и переработка бумаги": {
+        "id": "hobby_813ad6266099",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [
+          "frugal"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Гончарное дело и обжиг глины": {
+        "id": "hobby_7ec40aa2522b",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Изготовление самодельных свечей": {
+        "id": "hobby_454cb3cc69e0",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [
+          "resourceful"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Стендовый моделизм военной техники": {
+        "id": "hobby_e64301913fb2",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Каллиграфия чернилами": {
+        "id": "hobby_e34879fde860",
+        "skills": {
+          "education": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Выращивание микрозелени на гидрогеле": {
+        "id": "hobby_772778749fea",
+        "skills": {
+          "agriculture": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Бисероплетение и тонкое шитье": {
+        "id": "hobby_56e08d4fd6df",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      }
+    },
+    "fact": {
+      "Имеет права на управление бронетехникой и трактором": {
+        "id": "fact_e222f6aad5ef",
+        "skills": {
+          "transport": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Спас троих детей из тонущего автобуса": {
+        "id": "fact_2ab401d4317a",
+        "skills": {
+          "water": 1.0
+        },
+        "traits": [
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Отсидел 4 года за промышленный кибершпионаж": {
+        "id": "fact_8da77063c248",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Победитель всероссийской олимпиады по биохимии": {
+        "id": "fact_ff405da6156d",
+        "skills": {
+          "science": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Ветеран миротворческих миссий в горячих точках": {
+        "id": "fact_b7784a12afc3",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Свободно говорит на 4 языках": {
+        "id": "fact_537c255cc8c4",
+        "skills": {
+          "social": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Пережил крушение самолета в тундре зимой": {
+        "id": "fact_7ca91843ddae",
+        "skills": {
+          "craft": 1.0,
+          "agriculture": 1.0
+        },
+        "traits": [
+          "cold",
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Обладает эйдетической (фотографической) памятью": {
+        "id": "fact_9bf6a1008333",
+        "skills": {
+          "education": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Кандидат в мастера спорта по пулевой стрельбе": {
+        "id": "fact_50caeb0ccc5e",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Прошел спецкурс военной полевой реанимации": {
+        "id": "fact_75df1378600e",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Вырос в семье таежных староверов-охотников": {
+        "id": "fact_9610bf34e052",
+        "skills": {
+          "craft": 1.0,
+          "agriculture": 1.0
+        },
+        "traits": [
+          "cold",
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Профессиональный переговорщик МВД по освобождению заложников": {
+        "id": "fact_c742d03db661",
+        "skills": {
+          "social": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Обладает врожденным иммунитетом к сибирской язве и тифу": {
+        "id": "fact_eddefedf8868",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "infection"
+        ]
+      },
+      "Окончил курсы водолаза-глубоководника": {
+        "id": "fact_aa9d47f016fb",
+        "skills": {
+          "water": 1.0
+        },
+        "traits": [
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Собрал собственный работающий ветрогенератор в гараже": {
+        "id": "fact_995dd2de1bcb",
+        "skills": {
+          "engineering": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Судимость за вооруженный разбой (отсидел 5 лет)": {
+        "id": "fact_e38c102f4270",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Огромный карточный долг криминальному авторитету": {
+        "id": "fact_f03ddeaaa3fd",
+        "skills": {},
+        "traits": [
+          "negotiation"
+        ],
+        "risks": [
+          "trust"
+        ],
+        "protection": []
+      },
+      "Был фанатиком деструктивной тоталитарной секты": {
+        "id": "fact_b75a7e625760",
+        "skills": {},
+        "traits": [
+          "organization"
+        ],
+        "risks": [
+          "conflict"
+        ],
+        "protection": []
+      },
+      "Панический неконтролируемый страх темноты": {
+        "id": "fact_886c19b6aaf3",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "darkness"
+        ],
+        "protection": []
+      },
+      "Сдал прошлую группу выживших мародерам ради своего спасения": {
+        "id": "fact_ff8daccf2e62",
+        "skills": {},
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [
+          "trust"
+        ],
+        "protection": []
+      },
+      "Патологический лжец": {
+        "id": "fact_9da95eb99369",
+        "skills": {},
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [
+          "trust"
+        ],
+        "protection": []
+      },
+      "Скрывает укус неизвестной твари на ноге": {
+        "id": "fact_81df4c10ab49",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "infection"
+        ],
+        "protection": []
+      },
+      "Уволен со всех прошлых работ за пьяные дебоши": {
+        "id": "fact_a4e857e618d3",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "discipline"
+        ],
+        "protection": []
+      },
+      "Спас 8 человек из затопленной шахты": {
+        "id": "fact_d92ff9f017df",
+        "skills": {
+          "water": 1.0
+        },
+        "traits": [
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Отсидел 6 лет за вооруженный налет на инкассаторов": {
+        "id": "fact_86a7bc0ac106",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Победитель всероссийской олимпиады по химии": {
+        "id": "fact_1359948a5c60",
+        "skills": {
+          "science": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Служил 3 года на антарктической станции «Восток»": {
+        "id": "fact_14646f18cc3f",
+        "skills": {
+          "craft": 1.0,
+          "agriculture": 1.0
+        },
+        "traits": [
+          "cold",
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Тайно болен неизлечимым генетическим синдромом": {
+        "id": "fact_62e1085c70c0",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "infection"
+        ],
+        "protection": []
+      },
+      "Владеет секретным кодом от армейского арсенала бункера": {
+        "id": "fact_05bae8d01877",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Был исключен из медвуза за незаконные опыты": {
+        "id": "fact_1070df07abc3",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Выиграл в лотерею 50 миллионов рублей за 2 дня до катастрофы": {
+        "id": "fact_3548ba439c78",
+        "skills": {},
+        "traits": [
+          "morale"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Бывший чемпион города по рукопашному бою": {
+        "id": "fact_2437390f0e46",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Занимался промышленным промышленным альпинизмом 10 лет": {
+        "id": "fact_69cf2e9c792c",
+        "skills": {},
+        "traits": [
+          "agility",
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Случайно застрелил напарника на ночной охоте": {
+        "id": "fact_3ad721be2a95",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "combat"
+        ],
+        "protection": []
+      },
+      "Имеет фальшивый диплом о высшем образовании": {
+        "id": "fact_b6e028b55bcd",
+        "skills": {},
+        "traits": [
+          "negotiation"
+        ],
+        "risks": [
+          "precision"
+        ],
+        "protection": []
+      },
+      "Завещал всё свое имущество благотворительному фонду": {
+        "id": "fact_1cd24e0be2e0",
+        "skills": {},
+        "traits": [
+          "morale"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Был личным телохранителем крупного криминального авторитета": {
+        "id": "fact_388e3f3bd1c6",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Пережил падение гражданского самолета в тайге": {
+        "id": "fact_ab26ffee557a",
+        "skills": {
+          "craft": 1.0,
+          "agriculture": 1.0
+        },
+        "traits": [
+          "cold",
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Потомственный пчеловод в четвертом поколении": {
+        "id": "fact_d5ed7908163e",
+        "skills": {
+          "agriculture": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Имеет черный пояс по бразильскому джиу-джитсу": {
+        "id": "fact_da8d80c690de",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Тайно вывез из лаборатории экспериментальный биостимулятор": {
+        "id": "fact_021cdc59d93c",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Служил военным переводчиком на Ближнем Востоке": {
+        "id": "fact_273330a8aeaf",
+        "skills": {
+          "social": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Пережил клиническую смерть длительностью 7 минут": {
+        "id": "fact_139552fe5832",
+        "skills": {},
+        "traits": [
+          "calm"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Был лидером радикальной секты выживальщиков": {
+        "id": "fact_acdfcc50e24a",
+        "skills": {},
+        "traits": [
+          "organization"
+        ],
+        "risks": [
+          "conflict"
+        ],
+        "protection": []
+      },
+      "Никогда в жизни не пробовал алкоголь и табак": {
+        "id": "fact_87363258ef1a",
+        "skills": {},
+        "traits": [
+          "discipline"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Занимался нелегальной раскопкой военных захоронений («черный копатель»)": {
+        "id": "fact_b8333765e0e2",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Работал дегустатором в НИИ токсикологии": {
+        "id": "fact_5213ac624c63",
+        "skills": {
+          "science": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Имеет водительские права всех существующих категорий (A, B, C, D, E)": {
+        "id": "fact_5633362bfefe",
+        "skills": {
+          "transport": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Тайно сотрудничал со спецслужбами в качестве осведомителя": {
+        "id": "fact_8d89344d4973",
+        "skills": {},
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [
+          "trust"
+        ],
+        "protection": []
+      },
+      "Усыновил и воспитал четверых приемных детей-сирот": {
+        "id": "fact_07d454bb413f",
+        "skills": {
+          "education": 1.0,
+          "social": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Работал инженером по технике безопасности на химкомбинате": {
+        "id": "fact_a45f92fe9c2b",
+        "skills": {
+          "engineering": 1.0,
+          "science": 1.0
+        },
+        "traits": [
+          "calm"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Был профессиональным покерным игроком": {
+        "id": "fact_eb1f19d3f65e",
+        "skills": {},
+        "traits": [
+          "negotiation",
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Спас музейные реликвии во время городского пожара": {
+        "id": "fact_09601abc794f",
+        "skills": {},
+        "traits": [
+          "calm"
+        ],
+        "risks": [
+          "fire"
+        ],
+        "protection": []
+      },
+      "Служил на атомном подводном крейсере 5 лет": {
+        "id": "fact_74ac97341b5b",
+        "skills": {
+          "engineering": 1.0
+        },
+        "traits": [
+          "calm"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Перенес укус смертоносной змеи благодаря редкой мутации антител": {
+        "id": "fact_f27c34712ba0",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "chemical"
+        ]
+      },
+      "Был волонтером в хосписе для безнадежно больных": {
+        "id": "fact_95335934a11c",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Имеет действующий сертификат пилота малой авиации": {
+        "id": "fact_a91d5a6d0b71",
+        "skills": {
+          "transport": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Тайно спрятал схрон с 50 кг сухпайков в 500 метрах от бункера": {
+        "id": "fact_00bca9561627",
+        "skills": {
+          "logistics": 1.0,
+          "food": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Был профессиональным каскадером киностудии": {
+        "id": "fact_42a4133075f4",
+        "skills": {},
+        "traits": [
+          "agility",
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Работал над закрытым проектом, о котором запрещено говорить": {
+        "id": "fact_92fa007ad511",
+        "skills": {
+          "education": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Однажды случайно устроил пожар на работе": {
+        "id": "fact_3a3fde09f85f",
+        "skills": {},
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [
+          "fire"
+        ],
+        "protection": []
+      },
+      "Имеет опыт жизни в экстремальных условиях": {
+        "id": "fact_931f891c2b45",
+        "skills": {
+          "craft": 1.0,
+          "agriculture": 1.0
+        },
+        "traits": [
+          "cold",
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Был заражён неизвестным вирусом, но выжил": {
+        "id": "fact_9eca8c1ef8db",
+        "skills": {},
+        "traits": [
+          "endurance"
+        ],
+        "risks": [],
+        "protection": [
+          "infection"
+        ]
+      },
+      "Имеет судимость за мелкое преступление": {
+        "id": "fact_516d967f7dd9",
+        "skills": {},
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [],
+        "protection": []
+      }
+    },
+    "big_inventory": {
+      "Портативный дизель-генератор 5 кВт": {
+        "id": "big_inventory_053912474858",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Хирургический комплекс полевого госпиталя": {
+        "id": "big_inventory_2abc0ff2bd29",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Сварочный инвертор с баллонами аргона": {
+        "id": "big_inventory_ff869743c7c4",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Снайперская винтовка Remington 700": {
+        "id": "big_inventory_08b19cdea8ac",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [],
+        "weapon": true
+      },
+      "Модульная гидропонная стойка «Урожай-4»": {
+        "id": "big_inventory_9f87f9dae165",
+        "skills": {
+          "agriculture": 1.0,
+          "water": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Промышленная станция обратного осмоса": {
+        "id": "big_inventory_7d5d6907c966",
+        "skills": {
+          "water": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Ящик армейских пайков ГОСТ (120 банок)": {
+        "id": "big_inventory_6617125b0916",
+        "skills": {
+          "food": 1.0,
+          "logistics": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Стационарная КВ/УКВ радиостанция с мачтой": {
+        "id": "big_inventory_a4feaa204341",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Тяжелый слесарный верстак с инструментами": {
+        "id": "big_inventory_2f3f3fae1313",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Комплект из 2 костюмов хим-радиационной защиты": {
+        "id": "big_inventory_b52445913d84",
+        "skills": {
+          "science": 0.4
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "chemical",
+          "infection",
+          "radiation"
+        ]
+      },
+      "Электрический грузовой трицикл с солнечной панелью": {
+        "id": "big_inventory_aa3802fe43d3",
+        "skills": {
+          "transport": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Сейф с охотничьим карабином Вепрь-12": {
+        "id": "big_inventory_a381f3ae7a85",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [],
+        "weapon": true
+      },
+      "Автономный 3D-принтер для полимеров и карбона": {
+        "id": "big_inventory_a119db0ee572",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Переносная кислородная станция с 4 баллонами": {
+        "id": "big_inventory_986edc9b5d25",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "air"
+        ]
+      },
+      "Гусеничный бронированный вездеход «Шерп-М»": {
+        "id": "big_inventory_8f6c43fbf1f3",
+        "skills": {
+          "transport": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Электрический багги с солнечной крышей": {
+        "id": "big_inventory_5d8a4074b27a",
+        "skills": {
+          "transport": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Снегоболотоход «Витязь» с утепленным кунгом": {
+        "id": "big_inventory_6168be9a504f",
+        "skills": {
+          "transport": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "cold"
+        ]
+      },
+      "Моторная бронелодка с водометным движителем": {
+        "id": "big_inventory_fb90c523bbbb",
+        "skills": {
+          "transport": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "water"
+        ]
+      },
+      "Тяжелый утилитарный квадроцикл 4х4 с прицепом": {
+        "id": "big_inventory_3213567f57b3",
+        "skills": {
+          "transport": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Разведывательный двухместный автожир (гироплан)": {
+        "id": "big_inventory_3de064a231c6",
+        "skills": {
+          "transport": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Грузовой электротрицикл с ветрогенератором": {
+        "id": "big_inventory_ec697aa25de1",
+        "skills": {
+          "transport": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Портативный ультразвуковой сканер (УЗИ) с монитором": {
+        "id": "big_inventory_b921e2fe6204",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Миниатюрный токарно-винторезный станок по металлу": {
+        "id": "big_inventory_4ae0ea96c82d",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Торакальный набор для полостных операций": {
+        "id": "big_inventory_98065fee55d5",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Мобильный биореактор микроводорослей Chlorella": {
+        "id": "big_inventory_0b9133950ff4",
+        "skills": {
+          "agriculture": 1.0,
+          "water": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Промышленный винтовой компрессор высокого давления": {
+        "id": "big_inventory_d17e14474d6e",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Станция регенерации и очистки машинного масла": {
+        "id": "big_inventory_72e91559e90d",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Лабораторный комплекс ПЦР и секвенатор ДНК": {
+        "id": "big_inventory_088cab0c9663",
+        "skills": {
+          "science": 1.0,
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Пневматический бетонолом с комплектом пик": {
+        "id": "big_inventory_e221f3b1c3a6",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Автономный соляной опреснитель испарительного типа": {
+        "id": "big_inventory_6ba06c073a6e",
+        "skills": {
+          "water": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Складной полевой шатер радиационной дезактивации": {
+        "id": "big_inventory_4af1d4da2808",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "radiation"
+        ]
+      },
+      "Мощная ультрафиолетовая пушка кварцевания 2 кВт": {
+        "id": "big_inventory_987106c390ca",
+        "skills": {
+          "medicine": 1.0,
+          "water": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "infection"
+        ]
+      },
+      "Комплект направленных антенн тропосферной связи": {
+        "id": "big_inventory_10df71a139c0",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Тяжелый гидравлический аварийный резак («челюсти»)": {
+        "id": "big_inventory_ddbe9663b54a",
+        "skills": {
+          "engineering": 1.0,
+          "craft": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Запечатанный стальной сейф с оружейным арсеналом": {
+        "id": "big_inventory_f6456520e6cd",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [],
+        "weapon": true
+      }
+    },
+    "backpack": {
+      "Тактическая аптечка первой помощи IFAK": {
+        "id": "backpack_c9992a693572",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "infection"
+        ]
+      },
+      "Профессиональный дозиметр-радиометр «Терра»": {
+        "id": "backpack_643127db72e0",
+        "skills": {
+          "science": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Швейцарский мультитул Victorinox (33 предмета)": {
+        "id": "backpack_58154a4ef48c",
+        "skills": {
+          "craft": 1.0,
+          "engineering": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Набор прецизионных отмычек и вороток": {
+        "id": "backpack_a863baed4de1",
+        "skills": {
+          "craft": 1.0,
+          "engineering": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Светодиодный фонарь с солнечной батареей и динамо": {
+        "id": "backpack_1eeaf76f2f50",
+        "skills": {},
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [],
+        "protection": [
+          "darkness"
+        ]
+      },
+      "Герметичный контейнер с семенами редких культур": {
+        "id": "backpack_03568044f795",
+        "skills": {
+          "agriculture": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Запас антибиотиков широкого спектра и анальгетиков": {
+        "id": "backpack_7091f69b825d",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "infection"
+        ]
+      },
+      "Фильтр-трубка LifeStraw для полевой воды": {
+        "id": "backpack_05f32dc16cc2",
+        "skills": {
+          "water": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "water"
+        ]
+      },
+      "Защищенный планшет с библиотекой выживания": {
+        "id": "backpack_417ae1d52613",
+        "skills": {
+          "education": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Сигнальный пистолет СП-81 с 10 ракетами": {
+        "id": "backpack_a45e39fa85a0",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [],
+        "weapon": true
+      },
+      "Цифровой монокуляр ночного видения": {
+        "id": "backpack_086b94371cff",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [],
+        "protection": [
+          "darkness"
+        ]
+      },
+      "Карманная двухдиапазонная рация Baofeng": {
+        "id": "backpack_49c7a54de449",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Набор для добывания огня и очистки воздуха": {
+        "id": "backpack_e2c7148c2b0a",
+        "skills": {
+          "craft": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "air",
+          "cold"
+        ]
+      },
+      "Флакон концентрированного антисептика и заживляющей мази": {
+        "id": "backpack_6bf63ee0b70c",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "infection"
+        ]
+      },
+      "Бинокуляр ночного видения Gen 3+ с ИК-подсветкой": {
+        "id": "backpack_46157b2792cd",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [],
+        "protection": [
+          "darkness"
+        ]
+      },
+      "Механический фильтр для воды Sawyer 0.01 микрон": {
+        "id": "backpack_2af90682e316",
+        "skills": {
+          "water": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "water"
+        ]
+      },
+      "Спутниковый коммуникатор Iridium Extreme": {
+        "id": "backpack_302f7bb01bf9",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Шифровальный блокнот одноразовых блокнотов (OTP)": {
+        "id": "backpack_44781e3107c8",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Контейнер с ампулами медицинского морфина и промедола": {
+        "id": "backpack_e5196c4c5736",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Набор титановых альпинистских ледобуров и жумаров": {
+        "id": "backpack_3c3122da71d5",
+        "skills": {},
+        "traits": [
+          "agility"
+        ],
+        "risks": [],
+        "protection": [
+          "height"
+        ]
+      },
+      "Портативный рамановский спектрометр химикатов": {
+        "id": "backpack_5afb3b8cc9bc",
+        "skills": {
+          "science": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Лазерный дальномер-угломер с баллистическим калькулятором": {
+        "id": "backpack_12d3ac1cc22f",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [
+          "vigilance"
+        ],
+        "risks": [],
+        "protection": [
+          "darkness"
+        ]
+      },
+      "Тактический глушитель калибра 5.45/7.62 с термочехлом": {
+        "id": "backpack_04141db24d75",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Ампулы бактериофагов против госпитальных инфекций": {
+        "id": "backpack_5c49fc91cc36",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "infection"
+        ]
+      },
+      "Охотничий арбалет с плечами на 84 кг и 15 стрелами": {
+        "id": "backpack_39b2fd615d4c",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [],
+        "weapon": true
+      },
+      "Эндоскопическая камера со светодиодным зондом 10 метров": {
+        "id": "backpack_e2869924bed4",
+        "skills": {
+          "craft": 1.0,
+          "engineering": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Термоэлектрический генератор на кружку с костром": {
+        "id": "backpack_5eebb12bbb54",
+        "skills": {
+          "engineering": 1.0,
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Запас сухого пайка космонавтов (20 упаковок сублиматов)": {
+        "id": "backpack_e1955e47160a",
+        "skills": {
+          "food": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Аварийный пневматический трахеотомический набор": {
+        "id": "backpack_4480ca52eea7",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Электронный стетоскоп с усилителем звука и записью": {
+        "id": "backpack_be45ce939fc7",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Компактная пила-струна с алмазным напылением (Джигли)": {
+        "id": "backpack_aac356dd79f3",
+        "skills": {
+          "craft": 1.0,
+          "engineering": 1.0
+        },
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Баллончик слезоточивого газа повышенной концентрации (CR)": {
+        "id": "backpack_420c6814f180",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [],
+        "weapon": true
+      },
+      "Запас литиевых аккумуляторов 18650 (30 штук)": {
+        "id": "backpack_94a884ba9836",
+        "skills": {
+          "engineering": 1.0,
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Комплект для наложения швов с саморассасывающимися нитями": {
+        "id": "backpack_98dcced6ddeb",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Ультракомпактная надувная спасательная лодка-пакрафт": {
+        "id": "backpack_0435929d353c",
+        "skills": {
+          "transport": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "water"
+        ]
+      }
+    },
+    "health": {
+      "Абсолютно здоров": {
+        "id": "health_1db11cf08a01",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Донор универсальной группы крови (I отрицательная)": {
+        "id": "health_af3f1dd543cb",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Марафонец: Спортивное сердце и легкие": {
+        "id": "health_588d8c232350",
+        "skills": {},
+        "traits": [
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Генетическая мутация: Устойчивость к радиации": {
+        "id": "health_da09cc6ee58e",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "radiation"
+        ]
+      },
+      "Идеальное зрение (1.2) и ночное видение": {
+        "id": "health_531aa88b4935",
+        "skills": {},
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": [
+          "darkness"
+        ]
+      },
+      "Сверхбыстрая регенерация тканей": {
+        "id": "health_0efd676f9351",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "injury"
+        ]
+      },
+      "Аллергия на пыль и сырость": {
+        "id": "health_e58237d346b9",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "dust"
+        ],
+        "protection": []
+      },
+      "Близорукость (-2.5, носит очки)": {
+        "id": "health_e3747924a1dd",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Плоскостопие 2 степени": {
+        "id": "health_638af7ada298",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Хронический гастрит": {
+        "id": "health_3693a7d83481",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Дальтонизм (дейтеранопия)": {
+        "id": "health_88c4d3aaff00",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Метеозависимость": {
+        "id": "health_df3aa4537f5f",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Аллергия на цитрусовые и шоколад": {
+        "id": "health_691ef9e5ef2e",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Шум в ушах (тиннитус)": {
+        "id": "health_0db3dd0176ec",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Инсулинозависимый диабет (1 тип)": {
+        "id": "health_5d3ee5cd229f",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Бронхиальная астма": {
+        "id": "health_5cffa4999c74",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "air"
+        ],
+        "protection": []
+      },
+      "Клаустрофобия средней тяжести": {
+        "id": "health_2269666242cf",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "confined"
+        ],
+        "protection": []
+      },
+      "Гипертония 2 стадии": {
+        "id": "health_57ab6148430e",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Титановый штифт в бедре": {
+        "id": "health_c52b1d5f9e30",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Хроническая бессонница": {
+        "id": "health_cd8cfa934646",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Удален желчный пузырь": {
+        "id": "health_6a555f88cd43",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Бесплодие (не способен иметь детей)": {
+        "id": "health_9e2b901da039",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": [],
+        "burden": 0,
+        "physical_penalty": 0
+      },
+      "Хроническая лучевая болезнь (1 стадия)": {
+        "id": "health_c443d3ca8dc5",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Тяжелая нарколепсия": {
+        "id": "health_3c8471868daa",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Шизоаффективное расстройство в ремиссии": {
+        "id": "health_a7a28db5bcaa",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Сердечная недостаточность": {
+        "id": "health_2bae7acff7c0",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Тяжелый хронический алкоголизм": {
+        "id": "health_158348da804e",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Слепота на один глаз и катаракта второго": {
+        "id": "health_5f24bffa8899",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Тяжелая поливалентная аллергия и отек Квинке": {
+        "id": "health_fc7ac8383068",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Эпилепсия (генерализованные припадки)": {
+        "id": "health_194fdb959af9",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Тяжелое морбидное ожирение (160 кг)": {
+        "id": "health_6b2cca059894",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Идеальное зрение 100% (ночное зрение)": {
+        "id": "health_3e8afd4070ad",
+        "skills": {},
+        "traits": [
+          "precision"
+        ],
+        "risks": [],
+        "protection": [
+          "darkness"
+        ]
+      },
+      "Мутация гена LRP5 (сверхплотные кости)": {
+        "id": "health_df4d37d7a667",
+        "skills": {},
+        "traits": [
+          "strength"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Высокий болевой порог": {
+        "id": "health_f93370e121ac",
+        "skills": {},
+        "traits": [
+          "strength"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Олимпийская кардиовыносливость": {
+        "id": "health_e32a91f855bf",
+        "skills": {},
+        "traits": [
+          "endurance"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Железный желудок": {
+        "id": "health_ff75cfb515c3",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Идеальная эластичность связок": {
+        "id": "health_fabd8d563c62",
+        "skills": {},
+        "traits": [
+          "agility"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Врожденная устойчивость к укачиванию": {
+        "id": "health_5ab511b7fcfd",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Ускоренная регенерация тканей": {
+        "id": "health_7015088aa5d3",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "injury"
+        ]
+      },
+      "Устойчивая нервная система": {
+        "id": "health_abe4d8dc8247",
+        "skills": {},
+        "traits": [
+          "calm"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Феноменальный вестибулярный аппарат": {
+        "id": "health_48b45a1b15c3",
+        "skills": {},
+        "traits": [
+          "agility"
+        ],
+        "risks": [],
+        "protection": []
+      },
+      "Крепкая зубная эмаль без кариеса": {
+        "id": "health_a519d5eb908e",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Плоскостопие III степени": {
+        "id": "health_a4b8285a54f5",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Сезонный поллиноз": {
+        "id": "health_0a355c1938b7",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "dust"
+        ],
+        "protection": []
+      },
+      "Хронический поверхностный гастрит": {
+        "id": "health_96f17e8a58cd",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Сколиоз II степени": {
+        "id": "health_9c19f5447c73",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Синдром дефицита внимания (СДВГ)": {
+        "id": "health_330f788f2388",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Хронический тонзиллит": {
+        "id": "health_d01aa1f69a6d",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Метеочувствительность": {
+        "id": "health_c510b94342c0",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Склонность к варикозному расширению вен": {
+        "id": "health_52191469b6dd",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Легкая близорукость (-2.0)": {
+        "id": "health_2285287d8634",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Аллергия на пенициллиновый ряд": {
+        "id": "health_4e870a04792a",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Ночной храп (легкое апноэ)": {
+        "id": "health_7b3da4ddc676",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Хронический сухой конъюнктивит": {
+        "id": "health_176ea379199b",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Бронхиальная астма средней тяжести": {
+        "id": "health_2d004338176b",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "air"
+        ],
+        "protection": []
+      },
+      "Сахарный диабет II типа": {
+        "id": "health_e27d414a71ce",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Удаленная селезенка (спленэктомия)": {
+        "id": "health_0b4eed9408ba",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Язвенная болезнь двенадцатиперстной кишки": {
+        "id": "health_f7001239d58a",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Кардиостимулятор с запасом батареи 6 лет": {
+        "id": "health_a5f05e91e625",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Хронический калькулезный холецистит": {
+        "id": "health_14bafc091a43",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Застарелый посттравматический артроз колена": {
+        "id": "health_e87b821a1618",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Болезнь Крона в стадии ремиссии": {
+        "id": "health_e0a3ec8c33ad",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Эпилепсия с редкими ночными приступами": {
+        "id": "health_761a7068de34",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Гипертоническая болезнь II стадии": {
+        "id": "health_976a06f90f0e",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Инсулинозависимый диабет I типа": {
+        "id": "health_8ba9d3ce4152",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Цирроз печени субкомпенсированный": {
+        "id": "health_e72c10d9942c",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Терминальная стадия ХОБЛ": {
+        "id": "health_cdb347198712",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "air"
+        ],
+        "protection": []
+      },
+      "Тяжелая сердечная недостаточность (ФК III)": {
+        "id": "health_8bb1a323343e",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Заразный туберкулёз": {
+        "id": "health_cdbe450448a8",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Латентная опасная инфекция": {
+        "id": "health_d39aa60e18e2",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Лучевая болезнь средней тяжести": {
+        "id": "health_06e56ed0dc43",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Тяжёлая аллергия на грибковые споры": {
+        "id": "health_4d037a05f6aa",
+        "skills": {},
+        "traits": [],
+        "risks": [
+          "dust"
+        ],
+        "protection": []
+      }
+    },
+    "baggage": {
+      "Тактическая армейская аптечка IFAK": {
+        "id": "baggage_20d7667dd88d",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Портативная рация с динамо-генератором": {
+        "id": "baggage_ce2ce457242e",
+        "skills": {
+          "engineering": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Насосный фильтр Katadyn Pocket": {
+        "id": "baggage_e45052e57cf9",
+        "skills": {
+          "water": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Герметичный кейс со всхожими семенами (100 упаковок)": {
+        "id": "baggage_09e90766698e",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Пистолет Glock 17 с 3 обоймами (51 патрон)": {
+        "id": "baggage_ca5c596db2ad",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [],
+        "weapon": true
+      },
+      "Охотничий мачете из кованой стали 65Г": {
+        "id": "baggage_049e116d66af",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [],
+        "weapon": true
+      },
+      "Профессиональный дозиметр-радиометр МКС-05 «Терра»": {
+        "id": "baggage_4cc66a6c430f",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Мощный кемпинговый прожектор с солнечной батареей": {
+        "id": "baggage_105382eff3a2",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Слесарный набор с аккумуляторным шуруповертом": {
+        "id": "baggage_1e84d3eaa85f",
+        "skills": {
+          "engineering": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Комплект химзащиты с панорамной маской и 4 фильтрами": {
+        "id": "baggage_e6304a5d93a3",
+        "skills": {
+          "water": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "chemical",
+          "radiation"
+        ]
+      },
+      "Ящик тушенки ГОСТ из оленины (36 банок)": {
+        "id": "baggage_f5d4d7d87b41",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Справочник «Полная энциклопедия прикладной инженерии и фермерства»": {
+        "id": "baggage_a79a45f3413a",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Акустическая гитара в жестком кофре": {
+        "id": "baggage_035d5a085c7b",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Набор отмычек и закаленный лом-гвоздодер": {
+        "id": "baggage_c1bcf5e62731",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Канистра медицинского спирта 96% (10 литров)": {
+        "id": "baggage_28fe3fcf40f3",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Курс антибиотиков резерва (Амоксиклав, Ципрофлоксацин, Цефтриаксон)": {
+        "id": "baggage_a86cfa9aa879",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Разведывательный квадрокоптер с тепловизором": {
+        "id": "baggage_49ab728c1139",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Швейцарский мультитул Victorinox (33 инструмента)": {
+        "id": "baggage_e9fac7b8b9b3",
+        "skills": {
+          "engineering": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Запас витаминов и микроэлементов на 10 человек на год": {
+        "id": "baggage_923d6903d9a8",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Заряженная ракетница-сигнальный пистолет СП-81 (8 ракет)": {
+        "id": "baggage_b3ab4657261d",
+        "skills": {
+          "security": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [],
+        "weapon": true
+      },
+      "Сломанный электрический тостер": {
+        "id": "baggage_03b892fad4b7",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Коллекция фантиков от жвачки 90-х (200 шт)": {
+        "id": "baggage_ea1b0008f130",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Надувной розовый фламинго": {
+        "id": "baggage_1fdd206b7410",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Пачка просроченных лотерейных билетов «Русское Лото»": {
+        "id": "baggage_dbc5cb5a1459",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Мешок плюшевых медведей": {
+        "id": "baggage_63e5a509f76d",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Пустой чугунный сейф без ключа и кода (80 кг)": {
+        "id": "baggage_715d6385c680",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Чемодан фальшивых долларов («Билеты банка приколов»)": {
+        "id": "baggage_b19d10ef7e71",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Коробка с дырявыми носками без пары": {
+        "id": "baggage_2ebe29fb4d7e",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Разбитый кинескопный телевизор «Рубин»": {
+        "id": "baggage_2ebb9a09065a",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Карнавальный костюм ростовой панды": {
+        "id": "baggage_36499c0a0368",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Свинцовый фартук врача-рентгенолога (эквивалент 0.5 мм Pb)": {
+        "id": "baggage_f92d57f3db00",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Мешок отборных зерен арабики 10 кг в вакуумной упаковке": {
+        "id": "baggage_4f4c589cd97e",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Запечатанный пчелиный улей с живой маткой и сотами": {
+        "id": "baggage_b3d0872b61a7",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Набор редких виниловых пластинок и механический граммофон": {
+        "id": "baggage_6838f5858fb8",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Ящик хозяйственного мыла 72% ГОСТ (50 брусков)": {
+        "id": "baggage_4ccf20493de2",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Коллекция старинных семян без ГМО (150 сортов)": {
+        "id": "baggage_b308bb8f9f54",
+        "skills": {
+          "agriculture": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Охотничий капкан №5 на крупного зверя с тросиком": {
+        "id": "baggage_3bc97566f659",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Канистра очищенного медицинского спирта 96% (10 литров)": {
+        "id": "baggage_d7326b2e65e2",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Профессиональный микроскоп с увеличением до 1600х": {
+        "id": "baggage_ee05d5d4b1cf",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Набор высококачественных художественных красок и холстов": {
+        "id": "baggage_f368fd80922c",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Флакон концентрированного яда кураре (тубокурарин)": {
+        "id": "baggage_c90cdd9bc751",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Комплект тяжелого защитного снаряжения сапера (шлем с забралом)": {
+        "id": "baggage_2663eb932cbc",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Упаковка соды и лимонной кислоты (25 кг)": {
+        "id": "baggage_433630806a24",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Карманный дозиметр-накопитель «ДКП-50» с зарядным устройством": {
+        "id": "baggage_45dcce190709",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Набор ювелирных алмазных надфилей и штихелей": {
+        "id": "baggage_bbdcddaff411",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Стальной термос Арктика на 3 литра с помпой": {
+        "id": "baggage_b07c4560e289",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Запас презервативов повышенной прочности (144 штуки)": {
+        "id": "baggage_2068c652ff1b",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Полимерная канистра антифриза-концентрата (20 литров)": {
+        "id": "baggage_0e3f447bdbed",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Тяжелый кузнечный молот 5 кг с фиберглассовой рукоятью": {
+        "id": "baggage_800001a8d7d8",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Запечатанный тубус с картами топографического генштаба 1:25000": {
+        "id": "baggage_dd66e4b87e0e",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Блок сигарет Marlboro Red (10 пачек в гермопакете)": {
+        "id": "baggage_e3ac0f751a16",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Сборник стихов и философских трактатов в кожаном переплете": {
+        "id": "baggage_886c10c0fafd",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Баллончик со светящейся флуоресцентной краской": {
+        "id": "baggage_a46d113b8bc8",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Складной походный душ с черным баком на 40 литров": {
+        "id": "baggage_288f47edc2f2",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Старинные механические карманные часы «Молния»": {
+        "id": "baggage_914d2d163657",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Ящик сухого спирта в таблетках (200 упаковок)": {
+        "id": "baggage_24b2746781ad",
+        "skills": {
+          "medicine": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Металлический свисток спасателя высокой громкости (120 дБ)": {
+        "id": "baggage_a0abfed668c0",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Набор стоматологических пломбировочных материалов светоотверждения": {
+        "id": "baggage_541f0894bca7",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Канистра машинного синтетического масла 5W-40 (10 литров)": {
+        "id": "baggage_78cd83f96f6f",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Шахматы ручной резьбы из мореного дуба": {
+        "id": "baggage_f85f573d5c24",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Упаковка промышленных химических источников света (ХИС, 30 шт)": {
+        "id": "baggage_f796cfe08fb6",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Ручной динамо-фонарь с радиоприемником и сиреной": {
+        "id": "baggage_fdf3f8853505",
+        "skills": {
+          "tech": 1.0
+        },
+        "traits": [],
+        "risks": [],
+        "protection": [
+          "darkness"
+        ]
+      },
+      "Брошюра-определитель съедобных и ядовитых растений и грибов": {
+        "id": "baggage_98543ecb198c",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Большой моток армированного сантехнического скотча Duct Tape": {
+        "id": "baggage_6d6a65cf19c9",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      },
+      "Запас дезинфицирующих хлорных таблеток Акватабс (500 шт)": {
+        "id": "baggage_cf5e7a643663",
+        "skills": {},
+        "traits": [],
+        "risks": [],
+        "protection": []
+      }
+    }
+  },
+  "events": {
+    "rat_infestation": {
+      "skills": [
+        "security",
+        "science",
+        "agriculture"
+      ],
+      "traits": [
+        "strength",
+        "agility",
+        "vigilance"
+      ],
+      "hazards": [
+        "pests",
+        "infection",
+        "noise",
+        "combat"
+      ],
+      "physical": true,
+      "base_chance": 40
+    },
+    "cable_fire": {
+      "skills": [
+        "engineering",
+        "craft",
+        "security"
+      ],
+      "traits": [
+        "calm",
+        "precision"
+      ],
+      "hazards": [
+        "fire",
+        "electricity",
+        "air"
+      ],
+      "physical": true,
+      "base_chance": 40
+    },
+    "pump_breakdown": {
+      "skills": [
+        "engineering",
+        "water",
+        "craft"
+      ],
+      "traits": [
+        "strength",
+        "precision"
+      ],
+      "hazards": [
+        "water",
+        "confined",
+        "darkness"
+      ],
+      "physical": true,
+      "base_chance": 40
+    },
+    "air_filter_clog": {
+      "skills": [
+        "engineering",
+        "craft",
+        "water"
+      ],
+      "traits": [
+        "precision",
+        "calm"
+      ],
+      "hazards": [
+        "air",
+        "dust",
+        "confined"
+      ],
+      "physical": true,
+      "base_chance": 40
+    },
+    "mold_outbreak": {
+      "skills": [
+        "agriculture",
+        "science",
+        "medicine"
+      ],
+      "traits": [
+        "precision"
+      ],
+      "hazards": [
+        "infection",
+        "food",
+        "chemical"
+      ],
+      "physical": false,
+      "base_chance": 40
+    },
+    "panic_mutiny": {
+      "skills": [
+        "social",
+        "education",
+        "medicine"
+      ],
+      "traits": [
+        "empathy",
+        "calm",
+        "morale",
+        "organization"
+      ],
+      "hazards": [
+        "panic",
+        "conflict",
+        "crowd",
+        "public"
+      ],
+      "physical": false,
+      "base_chance": 40
+    },
+    "frozen_air_intake": {
+      "skills": [
+        "engineering",
+        "craft"
+      ],
+      "traits": [
+        "strength",
+        "endurance",
+        "cold"
+      ],
+      "hazards": [
+        "cold",
+        "height",
+        "air"
+      ],
+      "physical": true,
+      "base_chance": 40
+    },
+    "polar_airdrop": {
+      "skills": [
+        "transport",
+        "logistics",
+        "security"
+      ],
+      "traits": [
+        "endurance",
+        "cold",
+        "vigilance"
+      ],
+      "hazards": [
+        "cold",
+        "open",
+        "alone",
+        "transport"
+      ],
+      "physical": true,
+      "base_chance": 42
+    },
+    "horde_at_gate": {
+      "skills": [
+        "security",
+        "medicine"
+      ],
+      "traits": [
+        "calm",
+        "vigilance",
+        "strength"
+      ],
+      "hazards": [
+        "combat",
+        "infection",
+        "corpses",
+        "noise"
+      ],
+      "physical": true,
+      "base_chance": 42
+    },
+    "vaccine_drop": {
+      "skills": [
+        "medicine",
+        "science",
+        "transport"
+      ],
+      "traits": [
+        "precision",
+        "endurance"
+      ],
+      "hazards": [
+        "infection",
+        "open",
+        "needles",
+        "alone"
+      ],
+      "physical": true,
+      "base_chance": 42
+    },
+    "killer_drone_scan": {
+      "skills": [
+        "tech",
+        "security"
+      ],
+      "traits": [
+        "vigilance",
+        "agility",
+        "calm"
+      ],
+      "hazards": [
+        "combat",
+        "open",
+        "noise"
+      ],
+      "physical": true,
+      "base_chance": 42
+    },
+    "downed_cargo_drone": {
+      "skills": [
+        "tech",
+        "engineering",
+        "transport"
+      ],
+      "traits": [
+        "precision",
+        "vigilance"
+      ],
+      "hazards": [
+        "electricity",
+        "open",
+        "transport"
+      ],
+      "physical": true,
+      "base_chance": 42
+    },
+    "hatch_pressure_breach": {
+      "skills": [
+        "engineering",
+        "craft",
+        "water"
+      ],
+      "traits": [
+        "strength",
+        "calm"
+      ],
+      "hazards": [
+        "water",
+        "confined",
+        "air"
+      ],
+      "physical": true,
+      "base_chance": 40
+    },
+    "drifting_lifeboat": {
+      "skills": [
+        "transport",
+        "water",
+        "logistics"
+      ],
+      "traits": [
+        "endurance",
+        "agility"
+      ],
+      "hazards": [
+        "water",
+        "open",
+        "alone"
+      ],
+      "physical": true,
+      "base_chance": 42
+    },
+    "solar_superstorm": {
+      "skills": [
+        "engineering",
+        "tech",
+        "science"
+      ],
+      "traits": [
+        "calm",
+        "precision"
+      ],
+      "hazards": [
+        "radiation",
+        "electricity",
+        "responsibility"
+      ],
+      "physical": false,
+      "base_chance": 40
+    },
+    "satellite_crash": {
+      "skills": [
+        "science",
+        "tech",
+        "engineering"
+      ],
+      "traits": [
+        "precision",
+        "vigilance"
+      ],
+      "hazards": [
+        "radiation",
+        "open",
+        "height"
+      ],
+      "physical": true,
+      "base_chance": 42
+    },
+    "acid_intake_damage": {
+      "skills": [
+        "engineering",
+        "craft",
+        "science"
+      ],
+      "traits": [
+        "precision"
+      ],
+      "hazards": [
+        "chemical",
+        "air",
+        "confined"
+      ],
+      "physical": true,
+      "base_chance": 40
+    },
+    "cooling_circuit_burst": {
+      "skills": [
+        "engineering",
+        "craft",
+        "water"
+      ],
+      "traits": [
+        "strength",
+        "calm"
+      ],
+      "hazards": [
+        "chemical",
+        "confined",
+        "air"
+      ],
+      "physical": true,
+      "base_chance": 40
+    },
+    "co2_scrubber_failure": {
+      "skills": [
+        "engineering",
+        "science",
+        "craft"
+      ],
+      "traits": [
+        "precision",
+        "calm"
+      ],
+      "hazards": [
+        "air",
+        "chemical",
+        "confined"
+      ],
+      "physical": true,
+      "base_chance": 40
+    },
+    "switchboard_short_circuit": {
+      "skills": [
+        "engineering",
+        "tech",
+        "craft"
+      ],
+      "traits": [
+        "precision",
+        "calm"
+      ],
+      "hazards": [
+        "electricity",
+        "fire",
+        "darkness"
+      ],
+      "physical": true,
+      "base_chance": 40
+    },
+    "potable_water_contamination": {
+      "skills": [
+        "medicine",
+        "science",
+        "water"
+      ],
+      "traits": [
+        "precision",
+        "discipline"
+      ],
+      "hazards": [
+        "infection",
+        "chemical",
+        "water"
+      ],
+      "physical": false,
+      "base_chance": 40
+    },
+    "food_weevil_infestation": {
+      "skills": [
+        "agriculture",
+        "food",
+        "science"
+      ],
+      "traits": [
+        "precision",
+        "vigilance"
+      ],
+      "hazards": [
+        "pests",
+        "food",
+        "infection"
+      ],
+      "physical": false,
+      "base_chance": 40
+    },
+    "hydroponic_pump_seizure": {
+      "skills": [
+        "engineering",
+        "agriculture",
+        "craft"
+      ],
+      "traits": [
+        "precision"
+      ],
+      "hazards": [
+        "electricity",
+        "water",
+        "confined"
+      ],
+      "physical": true,
+      "base_chance": 40
+    },
+    "subterranean_methane_leak": {
+      "skills": [
+        "engineering",
+        "science",
+        "security"
+      ],
+      "traits": [
+        "calm",
+        "vigilance"
+      ],
+      "hazards": [
+        "chemical",
+        "fire",
+        "air",
+        "confined"
+      ],
+      "physical": true,
+      "base_chance": 40
+    },
+    "bunker_fever_outbreak": {
+      "skills": [
+        "medicine",
+        "science",
+        "social"
+      ],
+      "traits": [
+        "empathy",
+        "calm"
+      ],
+      "hazards": [
+        "infection",
+        "blood",
+        "needles",
+        "panic"
+      ],
+      "physical": false,
+      "base_chance": 40
+    },
+    "abandoned_pharmacy_raid": {
+      "skills": [
+        "medicine",
+        "security",
+        "logistics"
+      ],
+      "traits": [
+        "vigilance",
+        "agility"
+      ],
+      "hazards": [
+        "infection",
+        "corpses",
+        "darkness",
+        "alone"
+      ],
+      "physical": true,
+      "base_chance": 42
+    },
+    "downed_cargo_plane": {
+      "skills": [
+        "transport",
+        "engineering",
+        "security"
+      ],
+      "traits": [
+        "strength",
+        "vigilance"
+      ],
+      "hazards": [
+        "height",
+        "open",
+        "transport"
+      ],
+      "physical": true,
+      "base_chance": 42
+    },
+    "distress_radio_beacon": {
+      "skills": [
+        "tech",
+        "transport",
+        "social"
+      ],
+      "traits": [
+        "vigilance",
+        "precision"
+      ],
+      "hazards": [
+        "alone",
+        "stranger",
+        "open"
+      ],
+      "physical": true,
+      "base_chance": 42
+    },
+    "fuel_tanker_discovery": {
+      "skills": [
+        "transport",
+        "engineering",
+        "craft"
+      ],
+      "traits": [
+        "precision",
+        "calm"
+      ],
+      "hazards": [
+        "fire",
+        "chemical",
+        "transport",
+        "open"
+      ],
+      "physical": true,
+      "base_chance": 42
+    },
+    "abandoned_military_convoy": {
+      "skills": [
+        "security",
+        "transport",
+        "tech"
+      ],
+      "traits": [
+        "vigilance",
+        "calm"
+      ],
+      "hazards": [
+        "combat",
+        "corpses",
+        "noise"
+      ],
+      "physical": true,
+      "base_chance": 42
+    },
+    "rooftop_weather_station": {
+      "skills": [
+        "science",
+        "tech",
+        "engineering"
+      ],
+      "traits": [
+        "precision",
+        "agility"
+      ],
+      "hazards": [
+        "height",
+        "open",
+        "cold"
+      ],
+      "physical": true,
+      "base_chance": 42
+    },
+    "collapsed_supermarket_basement": {
+      "skills": [
+        "craft",
+        "logistics",
+        "transport"
+      ],
+      "traits": [
+        "strength",
+        "endurance"
+      ],
+      "hazards": [
+        "confined",
+        "dust",
+        "darkness"
+      ],
+      "physical": true,
+      "base_chance": 42
+    },
+    "surface_stalker_trader": {
+      "skills": [
+        "social",
+        "logistics",
+        "education"
+      ],
+      "traits": [
+        "negotiation",
+        "empathy",
+        "vigilance"
+      ],
+      "hazards": [
+        "stranger",
+        "trust",
+        "public",
+        "responsibility"
+      ],
+      "physical": false,
+      "base_chance": 42
+    },
+    "radiation_vent_breach": {
+      "skills": [
+        "engineering",
+        "science",
+        "security"
+      ],
+      "traits": [
+        "precision",
+        "calm"
+      ],
+      "hazards": [
+        "radiation",
+        "air",
+        "confined"
+      ],
+      "physical": true,
+      "base_chance": 40
+    },
+    "drone_supply_parachute": {
+      "skills": [
+        "tech",
+        "transport",
+        "craft"
+      ],
+      "traits": [
+        "agility",
+        "precision"
+      ],
+      "hazards": [
+        "height",
+        "electricity",
+        "open"
+      ],
+      "physical": true,
+      "base_chance": 42
+    }
+  },
+  "facilities": {
+    "Командный пункт «Гранит»": {
+      "air_energy": 0.3,
+      "food_water": 0.2,
+      "medicine": 0.3,
+      "security": 0.25,
+      "social": 0.1
+    },
+    "Биосферный комплекс «Оазис»": {
+      "air_energy": 0.25,
+      "food_water": 0.3,
+      "medicine": 0.1,
+      "security": 0.1,
+      "social": 0.3
+    },
+    "Спецобъект метрополитена «Д-6»": {
+      "air_energy": 0.3,
+      "food_water": 0.2,
+      "medicine": 0.2,
+      "security": 0.15,
+      "social": 0.1
+    },
+    "Биохимлаборатория «Вектор-М»": {
+      "air_energy": 0.2,
+      "food_water": 0.25,
+      "medicine": 0.2,
+      "security": 0.1,
+      "social": 0.15
+    },
+    "Правительственный бункер «Ковчег»": {
+      "air_energy": 0.15,
+      "food_water": 0.2,
+      "medicine": 0.3,
+      "security": 0.25,
+      "social": 0.2
+    },
+    "Соляной рудник «Спелео»": {
+      "air_energy": 0.1,
+      "food_water": 0.3,
+      "medicine": 0.15,
+      "security": 0.15,
+      "social": 0.1
+    },
+    "Геотермальная станция «Борей»": {
+      "air_energy": 0.35,
+      "food_water": 0.25,
+      "medicine": 0.15,
+      "security": 0.1,
+      "social": 0.1
+    },
+    "Ракетная шахта «Щит-1»": {
+      "air_energy": 0.3,
+      "food_water": 0.1,
+      "medicine": 0.1,
+      "security": 0.3,
+      "social": 0.1
+    },
+    "Убежище братства «Наследие»": {
+      "air_energy": 0.15,
+      "food_water": 0.3,
+      "medicine": 0.1,
+      "security": 0.15,
+      "social": 0.3
+    },
+    "Глубоководная база «Атлант»": {
+      "air_energy": 0.2,
+      "food_water": 0.35,
+      "medicine": 0.15,
+      "security": 0.1,
+      "social": 0.1
+    },
+    "Орбитальный спускаемый модуль «Заря-4»": {
+      "air_energy": 0.3,
+      "food_water": 0.2,
+      "medicine": 0.2,
+      "security": 0.1,
+      "social": 0.1
+    },
+    "Всемирное семенохранилище «Шпицберген-2»": {
+      "air_energy": 0.2,
+      "food_water": 0.35,
+      "medicine": 0.1,
+      "security": 0.1,
+      "social": 0.2
+    },
+    "Винный погреб аббатства Сен-Мартен XVI века": {
+      "air_energy": 0.1,
+      "food_water": 0.3,
+      "medicine": 0.15,
+      "security": 0.15,
+      "social": 0.2
+    },
+    "Ядерный бункер миллиардера «Плутос»": {
+      "air_energy": 0.2,
+      "food_water": 0.3,
+      "medicine": 0.35,
+      "security": 0.15,
+      "social": 0.3
+    },
+    "Резервный командный пункт ПВО «Скала»": {
+      "air_energy": 0.35,
+      "food_water": 0.1,
+      "medicine": 0.1,
+      "security": 0.35,
+      "social": 0.1
+    },
+    "Подземное банковское хранилище Госбанка": {
+      "air_energy": 0.15,
+      "food_water": 0.2,
+      "medicine": 0.1,
+      "security": 0.35,
+      "social": 0.1
+    },
+    "Научная гидробиологическая станция «Нептун»": {
+      "air_energy": 0.3,
+      "food_water": 0.35,
+      "medicine": 0.1,
+      "security": 0.1,
+      "social": 0.1
+    },
+    "Законсервированный подземный спецгоспиталь МЧС": {
+      "air_energy": 0.1,
+      "food_water": 0.1,
+      "medicine": 0.45,
+      "security": 0.1,
+      "social": 0.15
+    },
+    "Спецпоезд-бункер в законсервированном туннеле": {
+      "air_energy": 0.35,
+      "food_water": 0.25,
+      "medicine": 0.2,
+      "security": 0.3,
+      "social": 0.1
+    },
+    "Геотермальная шахта «Вулкан-9»": {
+      "air_energy": 0.35,
+      "food_water": 0.3,
+      "medicine": 0.1,
+      "security": 0.1,
+      "social": 0.1
+    }
+  },
+  "scenarios": {
+    "nuclear_winter": {
+      "air_energy": 1.45,
+      "food_water": 1.2,
+      "medicine": 1.0,
+      "security": 1.0,
+      "social": 1.0
+    },
+    "zombie_outbreak": {
+      "air_energy": 1.0,
+      "food_water": 1.0,
+      "medicine": 1.6,
+      "security": 1.0,
+      "social": 1.2
+    },
+    "asteroid_impact": {
+      "air_energy": 1.0,
+      "food_water": 1.0,
+      "medicine": 1.0,
+      "security": 1.0,
+      "social": 1.0
+    },
+    "ai_rebellion": {
+      "air_energy": 1.2,
+      "food_water": 1.0,
+      "medicine": 1.0,
+      "security": 1.5,
+      "social": 1.0
+    },
+    "global_flood": {
+      "air_energy": 1.3,
+      "food_water": 1.5,
+      "medicine": 1.0,
+      "security": 1.0,
+      "social": 1.0
+    },
+    "super_virus": {
+      "air_energy": 1.0,
+      "food_water": 1.0,
+      "medicine": 1.6,
+      "security": 1.0,
+      "social": 1.2
+    },
+    "solar_flare": {
+      "air_energy": 1.45,
+      "food_water": 1.2,
+      "medicine": 1.0,
+      "security": 1.0,
+      "social": 1.0
+    },
+    "alien_invasion": {
+      "air_energy": 1.2,
+      "food_water": 1.0,
+      "medicine": 1.0,
+      "security": 1.5,
+      "social": 1.0
+    },
+    "ice_age": {
+      "air_energy": 1.45,
+      "food_water": 1.2,
+      "medicine": 1.0,
+      "security": 1.0,
+      "social": 1.0
+    },
+    "acid_rains": {
+      "air_energy": 1.3,
+      "food_water": 1.5,
+      "medicine": 1.0,
+      "security": 1.0,
+      "social": 1.0
+    },
+    "nanite_swarm": {
+      "air_energy": 1.2,
+      "food_water": 1.0,
+      "medicine": 1.0,
+      "security": 1.5,
+      "social": 1.0
+    },
+    "atmospheric_fire": {
+      "air_energy": 1.8,
+      "food_water": 1.0,
+      "medicine": 1.0,
+      "security": 1.0,
+      "social": 1.0
+    },
+    "cosmic_radiation": {
+      "air_energy": 1.45,
+      "food_water": 1.2,
+      "medicine": 1.0,
+      "security": 1.0,
+      "social": 1.0
+    },
+    "magnetic_flip": {
+      "air_energy": 1.45,
+      "food_water": 1.2,
+      "medicine": 1.0,
+      "security": 1.0,
+      "social": 1.0
+    },
+    "toxic_bloom": {
+      "air_energy": 1.0,
+      "food_water": 1.0,
+      "medicine": 1.6,
+      "security": 1.0,
+      "social": 1.2
+    },
+    "supervolcano": {
+      "air_energy": 1.45,
+      "food_water": 1.2,
+      "medicine": 1.0,
+      "security": 1.0,
+      "social": 1.0
+    },
+    "black_hole_approach": {
+      "air_energy": 1.2,
+      "food_water": 1.0,
+      "medicine": 1.0,
+      "security": 1.0,
+      "social": 1.5
+    },
+    "cyber_blackout": {
+      "air_energy": 1.2,
+      "food_water": 1.0,
+      "medicine": 1.0,
+      "security": 1.0,
+      "social": 1.5
+    },
+    "biological_mutation": {
+      "air_energy": 1.0,
+      "food_water": 1.0,
+      "medicine": 1.6,
+      "security": 1.0,
+      "social": 1.2
+    },
+    "dark_matter_storm": {
+      "air_energy": 1.2,
+      "food_water": 1.0,
+      "medicine": 1.0,
+      "security": 1.0,
+      "social": 1.5
+    },
+    "parasite_infestation": {
+      "air_energy": 1.2,
+      "food_water": 1.0,
+      "medicine": 1.0,
+      "security": 1.5,
+      "social": 1.0
+    },
+    "permafrost_thaw": {
+      "air_energy": 1.0,
+      "food_water": 1.0,
+      "medicine": 1.6,
+      "security": 1.0,
+      "social": 1.2
+    },
+    "orbital_debris": {
+      "air_energy": 1.45,
+      "food_water": 1.2,
+      "medicine": 1.0,
+      "security": 1.0,
+      "social": 1.0
+    },
+    "mirror_virus": {
+      "air_energy": 1.0,
+      "food_water": 1.0,
+      "medicine": 1.6,
+      "security": 1.0,
+      "social": 1.2
+    },
+    "synthetic_spores": {
+      "air_energy": 1.0,
+      "food_water": 1.0,
+      "medicine": 1.6,
+      "security": 1.0,
+      "social": 1.2
+    }
+  }
+}

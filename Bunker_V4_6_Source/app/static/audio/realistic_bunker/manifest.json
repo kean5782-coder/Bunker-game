@@ -1,0 +1,127 @@
+{
+  "version": "4.6.0",
+  "origin": "Original procedural sound design; not a Freesound recording",
+  "notes": "No speech, melody, heartbeat, gunshots or siren. All assets bundled offline.",
+  "assets": {
+    "ventilation": {
+      "duration": 36.0,
+      "sample_rate": 32000,
+      "channels": 2,
+      "peak_dbfs": -7.54,
+      "rms_dbfs": -20.54,
+      "urls": [
+        "ventilation.ogg",
+        "ventilation.mp3"
+      ],
+      "sha256": {
+        "ogg": "e03bf0848cf7a5c3687dae58a674a19d70a7a16ed9e0eedfde2c2bf813aa382a",
+        "mp3": "568ba4fa8f9d73622639705d555387390dc51fd16a3f9072d99a22a527151cc5"
+      }
+    },
+    "equipment": {
+      "duration": 43.0,
+      "sample_rate": 32000,
+      "channels": 2,
+      "peak_dbfs": -10.67,
+      "rms_dbfs": -23.74,
+      "urls": [
+        "equipment.ogg",
+        "equipment.mp3"
+      ],
+      "sha256": {
+        "ogg": "38b9c70c294f17feafdd2c77592c9b03f94f30e4497d42639fb4971af5612955",
+        "mp3": "eea5998d4a346415a825e23dc829ab03c926ac10ca0b5d0c99a3968c14b7e216"
+      }
+    },
+    "wind": {
+      "duration": 32.0,
+      "sample_rate": 32000,
+      "channels": 2,
+      "peak_dbfs": -8.87,
+      "rms_dbfs": -24.59,
+      "urls": [
+        "wind.ogg",
+        "wind.mp3"
+      ],
+      "sha256": {
+        "ogg": "7435970bda95c5c08ee2ed3843268fa86eb20732b57dd7e6c12def064d1919ae",
+        "mp3": "f5c817d41d9e316a049b4bb13312c1cc64d99de4b9890fc228ce95d1b6b3b7c8"
+      }
+    },
+    "rain": {
+      "duration": 31.0,
+      "sample_rate": 32000,
+      "channels": 2,
+      "peak_dbfs": -8.4,
+      "rms_dbfs": -22.49,
+      "urls": [
+        "rain.ogg",
+        "rain.mp3"
+      ],
+      "sha256": {
+        "ogg": "087536c3180b424314a5e1f25cfa3b4e7e7449bb5ae3195222dad052623c8668",
+        "mp3": "a9bdda90d72ab8b2af00c412d1677ce5e95cb708bc48c0227ffe9f2253d686f5"
+      }
+    },
+    "rumble": {
+      "duration": 37.0,
+      "sample_rate": 32000,
+      "channels": 2,
+      "peak_dbfs": -8.4,
+      "rms_dbfs": -20.67,
+      "urls": [
+        "rumble.ogg",
+        "rumble.mp3"
+      ],
+      "sha256": {
+        "ogg": "246e9517cfd4ff606fbb9b50b52fbf8be5d62c6a46929b00f154ea242ee3282f",
+        "mp3": "70d6127bbd4d112f8cbd96e3d9ea294241da9fdadb505f67450e24fcd4e9a2f3"
+      }
+    },
+    "relay": {
+      "duration": 0.45,
+      "sample_rate": 32000,
+      "channels": 2,
+      "peak_dbfs": -12.4,
+      "rms_dbfs": -34.86,
+      "urls": [
+        "relay.ogg",
+        "relay.mp3"
+      ],
+      "sha256": {
+        "ogg": "21ea0ac5236af1ae00df606534ecbaa21f3c94a01baec48f19909201cb922526",
+        "mp3": "524000f4bd526e460c7408ba64546901891a4520a9a459fb8b87aa7977fb7937"
+      }
+    },
+    "metal": {
+      "duration": 2.6,
+      "sample_rate": 32000,
+      "channels": 2,
+      "peak_dbfs": -12.4,
+      "rms_dbfs": -25.24,
+      "urls": [
+        "metal.ogg",
+        "metal.mp3"
+      ],
+      "sha256": {
+        "ogg": "ca2bb4c749aa5654a666db54c61fb50f68988d0c88f85516bbf85c9178d585ff",
+        "mp3": "a14b01de5f87226056bb7111d37c4ebdfa4b590ec5d2cb5f425545c8b8a8cb87"
+      }
+    },
+    "air_release": {
+      "duration": 4.2,
+      "sample_rate": 32000,
+      "channels": 2,
+      "peak_dbfs": -12.4,
+      "rms_dbfs": -28.08,
+      "urls": [
+        "air_release.ogg",
+        "air_release.mp3"
+      ],
+      "sha256": {
+        "ogg": "0383bd7a5459b1ddb815aa62d0ccfc65493dba41cc997a05b93296f63dd8124c",
+        "mp3": "09e6c180bbaf5c5de1bee7be938914059a4b8a1600e3a76a4a3c7a6c528344c7"
+      }
+    }
+  }
+}

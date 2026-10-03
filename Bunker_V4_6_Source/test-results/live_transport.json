@@ -1,0 +1,174 @@
+{
+  "environment": "Linux Go helper + private system-Python test runtime; real loopback TCP/HTTP/WebSocket. No actual Windows, router, Porthole, Hamachi, or external internet test.",
+  "checks": [
+    {
+      "name": "helper requires control secret",
+      "ok": true
+    },
+    {
+      "name": "foreign Origin rejected",
+      "ok": true
+    },
+    {
+      "name": "guest starts without Python download",
+      "ok": true
+    },
+    {
+      "name": "guest does not occupy game TCP port",
+      "ok": true
+    },
+    {
+      "name": "porthole: start accepted",
+      "ok": true
+    },
+    {
+      "name": "porthole: selected address and port",
+      "ok": true
+    },
+    {
+      "name": "porthole: offline guide available",
+      "ok": true
+    },
+    {
+      "name": "porthole: invitation contains room",
+      "ok": true
+    },
+    {
+      "name": "porthole: guest joins room",
+      "ok": true
+    },
+    {
+      "name": "porthole: real WebSocket initial state",
+      "ok": true
+    },
+    {
+      "name": "porthole: PONG",
+      "ok": true
+    },
+    {
+      "name": "porthole: host changes information mode",
+      "ok": true
+    },
+    {
+      "name": "porthole: stopped server releases port",
+      "ok": true
+    },
+    {
+      "name": "lan: start accepted",
+      "ok": true
+    },
+    {
+      "name": "lan: selected address and port",
+      "ok": true
+    },
+    {
+      "name": "lan: offline guide available",
+      "ok": true
+    },
+    {
+      "name": "lan: invitation contains room",
+      "ok": true
+    },
+    {
+      "name": "lan: guest joins room",
+      "ok": true
+    },
+    {
+      "name": "lan: real WebSocket initial state",
+      "ok": true
+    },
+    {
+      "name": "lan: PONG",
+      "ok": true
+    },
+    {
+      "name": "lan: host changes information mode",
+      "ok": true
+    },
+    {
+      "name": "lan: stopped server releases port",
+      "ok": true
+    },
+    {
+      "name": "vpn: start accepted",
+      "ok": true
+    },
+    {
+      "name": "vpn: selected address and port",
+      "ok": true
+    },
+    {
+      "name": "vpn: offline guide available",
+      "ok": true
+    },
+    {
+      "name": "vpn: invitation contains room",
+      "ok": true
+    },
+    {
+      "name": "vpn: guest joins room",
+      "ok": true
+    },
+    {
+      "name": "vpn: real WebSocket initial state",
+      "ok": true
+    },
+    {
+      "name": "vpn: PONG",
+      "ok": true
+    },
+    {
+      "name": "vpn: host changes information mode",
+      "ok": true
+    },
+    {
+      "name": "vpn: stopped server releases port",
+      "ok": true
+    },
+    {
+      "name": "public: start accepted",
+      "ok": true
+    },
+    {
+      "name": "public: selected address and port",
+      "ok": true
+    },
+    {
+      "name": "public: offline guide available",
+      "ok": true
+    },
+    {
+      "name": "public: invitation contains room",
+      "ok": true
+    },
+    {
+      "name": "public: guest joins room",
+      "ok": true
+    },
+    {
+      "name": "public: real WebSocket initial state",
+      "ok": true
+    },
+    {
+      "name": "public: PONG",
+      "ok": true
+    },
+    {
+      "name": "public: host changes information mode",
+      "ok": true
+    },
+    {
+      "name": "public: stopped server releases port",
+      "ok": true
+    },
+    {
+      "name": "occupied port reports explicit error",
+      "ok": true
+    },
+    {
+      "name": "occupied socket not killed",
+      "ok": true
+    }
+  ],
+  "passed": true
+}

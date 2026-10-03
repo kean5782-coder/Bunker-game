@@ -1,0 +1,255 @@
+{
+  "preserved": 50,
+  "assets": [
+    {
+      "path": "videos/catastrophes/biological_mutation.mp4",
+      "unchanged": true,
+      "sha256": "c765a5ae05e7413514a144fddeaadcae2b2821226e72677ffdf1675f2d10d101"
+    },
+    {
+      "path": "videos/catastrophes/super_virus.mp4",
+      "unchanged": true,
+      "sha256": "2bcb8d2ef22c42350fdd23bc3e64370fa761f955f57e73d94fa437619a1c9b93"
+    },
+    {
+      "path": "videos/catastrophes/alien_invasion.mp4",
+      "unchanged": true,
+      "sha256": "fe8dcc858a493a7817b7545ea3fce0e1e8785d93f21082013f973f06fb131c81"
+    },
+    {
+      "path": "videos/catastrophes/acid_rains.mp4",
+      "unchanged": true,
+      "sha256": "4e5500b407716e70dc7002cbc306526d8f83d86827244b2fae6c8e2266d90415"
+    },
+    {
+      "path": "videos/catastrophes/cyber_blackout.mp4",
+      "unchanged": true,
+      "sha256": "6b8339bb1d60333eccc85d7cb06715f6572720e8b7e2d58c92528dd823557218"
+    },
+    {
+      "path": "videos/catastrophes/parasite_infestation.mp4",
+      "unchanged": true,
+      "sha256": "87cf5840b0c39903d8162dba6ba78a66a67501f2def87cf3a63ba749a81602f6"
+    },
+    {
+      "path": "videos/catastrophes/ice_age.mp4",
+      "unchanged": true,
+      "sha256": "5f246d213607abbc2be04a27505730f7b21c3df6b0adfb936b4b5138837f8378"
+    },
+    {
+      "path": "videos/catastrophes/toxic_bloom.mp4",
+      "unchanged": true,
+      "sha256": "0eb90de37f3abdce4f0bd06b54eb18c7ce19face2127a3750f7e63359884eacf"
+    },
+    {
+      "path": "videos/catastrophes/global_flood.mp4",
+      "unchanged": true,
+      "sha256": "a4a1d6c0f426db612494f9856b70bf06f13f8b3cb24a25ab329eb63da7a07d65"
+    },
+    {
+      "path": "videos/catastrophes/cosmic_radiation.mp4",
+      "unchanged": true,
+      "sha256": "05a08d2596a4996b8542c2f260d06d70073e86a7d7489a9d566119c988cbd3f3"
+    },
+    {
+      "path": "videos/catastrophes/magnetic_flip.mp4",
+      "unchanged": true,
+      "sha256": "96f3fdbb3882265e93963751451f74ae519ce08d83e4c9d0cf056b8213020d50"
+    },
+    {
+      "path": "videos/catastrophes/mirror_virus.mp4",
+      "unchanged": true,
+      "sha256": "a9e71ae3880f6d3833bdffdd4324da5efa7086232ff9d8b25725aa22a4c3f4f6"
+    },
+    {
+      "path": "videos/catastrophes/black_hole_approach.mp4",
+      "unchanged": true,
+      "sha256": "26213d8dd5e59c96db46d354c19f39dbb7d5029c9fe84385bf896c991a36d902"
+    },
+    {
+      "path": "videos/catastrophes/nuclear_winter.mp4",
+      "unchanged": true,
+      "sha256": "14efb9c486e7c2d5690f48b6d54ef6b02ef7cfcb91a6a7c3b5618b95e76329fa"
+    },
+    {
+      "path": "videos/catastrophes/solar_flare.mp4",
+      "unchanged": true,
+      "sha256": "27aa76982900cfbf3d56e0dab8c97c4f56319a117a33bf2db76abddb5e981902"
+    },
+    {
+      "path": "videos/catastrophes/nanite_swarm.mp4",
+      "unchanged": true,
+      "sha256": "9ece53505f9523534fd3f28ceece43ff8aaf6c65bbcb651a21dd884f046109e2"
+    },
+    {
+      "path": "videos/catastrophes/asteroid_impact.mp4",
+      "unchanged": true,
+      "sha256": "f3b62debed88d0912b2b86f339d6b9d2f46eaa0191f0d77acf63ac18f9b70d64"
+    },
+    {
+      "path": "videos/catastrophes/orbital_debris.mp4",
+      "unchanged": true,
+      "sha256": "9461a7205f5890d7ef765d35992796a128185b7051a7a0e1fe8830517c584e3e"
+    },
+    {
+      "path": "videos/catastrophes/dark_matter_storm.mp4",
+      "unchanged": true,
+      "sha256": "0689397f17af0128202dcc1792628523190acfe0fb812b5998f4d1d1eb54340b"
+    },
+    {
+      "path": "videos/catastrophes/synthetic_spores.mp4",
+      "unchanged": true,
+      "sha256": "9860046d7ff81905901e513dc9d262ef22d2d452532e3a779d0c288429f2cddb"
+    },
+    {
+      "path": "videos/catastrophes/supervolcano.mp4",
+      "unchanged": true,
+      "sha256": "673e02e63a206a9eb47fb31a8cd82f9b9aee69de7d4b635f9ab825d5694552f1"
+    },
+    {
+      "path": "videos/catastrophes/ai_rebellion.mp4",
+      "unchanged": true,
+      "sha256": "0f97e22adb4bdb6928f3589061756c7e768ad4498251261f2d31d53c7b39b633"
+    },
+    {
+      "path": "videos/catastrophes/permafrost_thaw.mp4",
+      "unchanged": true,
+      "sha256": "5ba3f7e41c60c9d51071a00b694ff8d4af4cddfa1883bc7628c5a640d4d47f68"
+    },
+    {
+      "path": "videos/catastrophes/atmospheric_fire.mp4",
+      "unchanged": true,
+      "sha256": "0432b0ad314715c37507348886e6bace58f898ab012834d62d7e916a361881e3"
+    },
+    {
+      "path": "videos/catastrophes/zombie_outbreak.mp4",
+      "unchanged": true,
+      "sha256": "7c483c70ac1ef508a8e75b9cd5c24eaff34f1c065cf8e44425de6c458dadf14a"
+    },
+    {
+      "path": "images/catastrophes/mirror_virus.jpg",
+      "unchanged": true,
+      "sha256": "e84c461097a5a9d7b469990a05f66fc7b60e35fc11ea93b6f7ea92c3ad6df191"
+    },
+    {
+      "path": "images/catastrophes/dark_matter_storm.jpg",
+      "unchanged": true,
+      "sha256": "e9041a0b9f7fe174702816c3ff8c1b001e30ca9ae75fee7c742a8d616934dff4"
+    },
+    {
+      "path": "images/catastrophes/zombie_outbreak.jpg",
+      "unchanged": true,
+      "sha256": "c14aae3b35329902d0b207c73200eab03aa054854ee417ed2ea18233a01b386c"
+    },
+    {
+      "path": "images/catastrophes/permafrost_thaw.jpg",
+      "unchanged": true,
+      "sha256": "8876b6eae96df169544a5e617c97590548fad4a33713722bdedf00cc5b8030d6"
+    },
+    {
+      "path": "images/catastrophes/super_virus.jpg",
+      "unchanged": true,
+      "sha256": "81ea8c04614b2d73d4affcf9faf2ae25732448b7b2f980a2ebac0c30699da255"
+    },
+    {
+      "path": "images/catastrophes/acid_rains.jpg",
+      "unchanged": true,
+      "sha256": "f5fb22dd22b7add3c0bb007707b706504661849e0fec4bc2e71a0ed2dca46fc6"
+    },
+    {
+      "path": "images/catastrophes/toxic_bloom.jpg",
+      "unchanged": true,
+      "sha256": "80d74fe2e6cf999f473e0d8d90e014502b562b305fcdcb2de5290c2a8bb8aec3"
+    },
+    {
+      "path": "images/catastrophes/nuclear_winter.jpg",
+      "unchanged": true,
+      "sha256": "141aaa9ea1f73bd6f4b3be354435732a6432117d58f41e5fd28adba3ce1fb5ef"
+    },
+    {
+      "path": "images/catastrophes/black_hole_approach.jpg",
+      "unchanged": true,
+      "sha256": "16aaf2591a86deb6e3a0a32959abca44386b530452b1d71255e4ca225729f62d"
+    },
+    {
+      "path": "images/catastrophes/asteroid_impact.jpg",
+      "unchanged": true,
+      "sha256": "25ec4a23da77d83deee65c72c19a5bba2594e257e391d75c55892d12e864d958"
+    },
+    {
+      "path": "images/catastrophes/nanite_swarm.jpg",
+      "unchanged": true,
+      "sha256": "fbacf84d699c2e65db6bb9174d80edbd1b7e85df34c51784dc883150434e9acb"
+    },
+    {
+      "path": "images/catastrophes/atmospheric_fire.jpg",
+      "unchanged": true,
+      "sha256": "5a18d60a9f9babb1e1e0f0278b562bf265cb1f2075e2433b78e158458c2df9d0"
+    },
+    {
+      "path": "images/catastrophes/orbital_debris.jpg",
+      "unchanged": true,
+      "sha256": "6297fc01ea1d95cc885d42c456d1db77f28ebb28b82ad0e6fff65d49eb8556fe"
+    },
+    {
+      "path": "images/catastrophes/biological_mutation.jpg",
+      "unchanged": true,
+      "sha256": "b093de6808fdcaca284e427d372b6c01917670e540266662e98c58f86d3287cc"
+    },
+    {
+      "path": "images/catastrophes/alien_invasion.jpg",
+      "unchanged": true,
+      "sha256": "b73937c3bab82730889450bdbb2af94cd57508457da8db2e9b039c620738a05d"
+    },
+    {
+      "path": "images/catastrophes/supervolcano.jpg",
+      "unchanged": true,
+      "sha256": "535a2f3f7fd94db64791dd43210d51260a0001dfc99129f179e08d389527a8c1"
+    },
+    {
+      "path": "images/catastrophes/synthetic_spores.jpg",
+      "unchanged": true,
+      "sha256": "61484aa10f16cc0adbdd7134de44d562d5cac0ada1112ab9d92dd45270996c77"
+    },
+    {
+      "path": "images/catastrophes/ice_age.jpg",
+      "unchanged": true,
+      "sha256": "a84dcac99fa1be136fb72f5db2e8047c17177b1657b4582f6a4ff4a19cf3198b"
+    },
+    {
+      "path": "images/catastrophes/magnetic_flip.jpg",
+      "unchanged": true,
+      "sha256": "a83ed87ba22c17a57d5065207c8e616f386098a0151c671a9705b22c4c134613"
+    },
+    {
+      "path": "images/catastrophes/cyber_blackout.jpg",
+      "unchanged": true,
+      "sha256": "6f9e80aeb94e7391ee07bb4a768cb41eb02d25f15631d024569571ed1c370c76"
+    },
+    {
+      "path": "images/catastrophes/global_flood.jpg",
+      "unchanged": true,
+      "sha256": "15f5c0e9eb11f24c4ab62224e40688f42ded30e543c924877e0270ea278a0960"
+    },
+    {
+      "path": "images/catastrophes/solar_flare.jpg",
+      "unchanged": true,
+      "sha256": "0169f3787d523c546e94dd99cc8a611b31429779dd41206ef1dcdd3906fd5c64"
+    },
+    {
+      "path": "images/catastrophes/ai_rebellion.jpg",
+      "unchanged": true,
+      "sha256": "ed8d201cadffcc3701dc0ac35bdc4fa4c590ddecab182020ba7ab2f95ea9aaf6"
+    },
+    {
+      "path": "images/catastrophes/cosmic_radiation.jpg",
+      "unchanged": true,
+      "sha256": "a1fa18357cc2b67604ec6aadc589045bf8db0a3c21b7d78433d8b5fa8c06148e"
+    },
+    {
+      "path": "images/catastrophes/parasite_infestation.jpg",
+      "unchanged": true,
+      "sha256": "8ffd3252345988a03960f6af1cf0d67204ee0d76eead27f65ce52878c19b2118"
+    }
+  ]
+}

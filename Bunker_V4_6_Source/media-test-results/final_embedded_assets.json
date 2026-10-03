@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "checks": [
+    "Final helper accepts host start",
+    "Final embedded server reports version 4.6.0",
+    "Embedded HTTP asset equals source: /static/js/audio_settings.js",
+    "Embedded HTTP asset equals source: /static/js/sound_fx.js",
+    "Embedded HTTP asset equals source: /static/css/audio.css",
+    "Embedded HTTP asset equals source: /static/audio/realistic_bunker/ABOUT_AUDIO.html",
+    "Embedded HTTP asset equals source: /static/audio/realistic_bunker/manifest.json",
+    "Embedded HTTP asset equals source: /static/videos/catastrophes/media_manifest.json",
+    "Embedded HTTP asset equals source: /static/audio/realistic_bunker/ventilation.ogg",
+    "Embedded HTTP asset equals source: /static/audio/realistic_bunker/equipment.mp3",
+    "Embedded HTTP asset equals source: /static/videos/catastrophes/black_hole_approach.mp4",
+    "Video supports HTTP byte-range seek",
+    "Embedded help includes media guidance"
+  ],
+  "count": 13,
+  "method": "Final same-source Linux build: actual TCP/HTTP with embedded files. Not a Windows execution."
+}

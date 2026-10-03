@@ -1,0 +1,86 @@
+{
+  "transport": "explicit Python HTTP bridge into the live test helper; Chromium navigation is blocked by environment policy",
+  "checks": [
+    {
+      "name": "wizard opens",
+      "ok": true
+    },
+    {
+      "name": "four modes",
+      "ok": true
+    },
+    {
+      "name": "two roles",
+      "ok": true
+    },
+    {
+      "name": "no overflow desktop",
+      "ok": true
+    },
+    {
+      "name": "first-run consent visible",
+      "ok": true
+    },
+    {
+      "name": "guest skips runtime consent",
+      "ok": true
+    },
+    {
+      "name": "guest URL generated",
+      "ok": true
+    },
+    {
+      "name": "guest no game server",
+      "ok": true
+    },
+    {
+      "name": "guide lan",
+      "ok": true
+    },
+    {
+      "name": "guide vpn",
+      "ok": true
+    },
+    {
+      "name": "guide public",
+      "ok": true
+    },
+    {
+      "name": "guide porthole",
+      "ok": true
+    },
+    {
+      "name": "live helper starts real server",
+      "ok": true
+    },
+    {
+      "name": "host game URL",
+      "ok": true
+    },
+    {
+      "name": "settings locked while running",
+      "ok": true
+    },
+    {
+      "name": "stop confirmed",
+      "ok": true
+    },
+    {
+      "name": "room code rejected as address",
+      "ok": true
+    },
+    {
+      "name": "mobile no overflow",
+      "ok": true
+    },
+    {
+      "name": "all manual sections",
+      "ok": true
+    },
+    {
+      "name": "no JS exceptions",
+      "ok": true
+    }
+  ],
+  "errors": []
+}

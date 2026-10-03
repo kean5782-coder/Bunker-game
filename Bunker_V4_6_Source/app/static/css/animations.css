@@ -1,0 +1,14 @@
+/* Motion is event-bound, never a continuously flashing dashboard. */
+@keyframes panelEnter{from{opacity:.6;transform:translateY(3px)}to{opacity:1;transform:none}}
+@keyframes toastEnter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+body[data-motion=full] .modal-overlay .bunker-modal{animation:panelEnter 180ms ease-out}
+body[data-motion=full] .toast{animation:toastEnter 160ms ease-out}
+/* Age V4.2: "revealed" is a persistent visibility state, not an entrance event.
+   Reconnecting, changing availability or opening someone else's cards must not
+   translate/fade the owner's dossier. Keep modal/toast animation unchanged. */
+#myCardsList .dossier-item{animation:none}
+body[data-motion=minimal] .welcome-screen::before{display:none}
+body[data-motion=minimal] .lobby-hero{background:#192127}
+body[data-motion=minimal] .dash-focus-trait.locked{background:#1c2329}
+body[data-motion=calm] *,body[data-motion=minimal] *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

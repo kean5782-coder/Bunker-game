@@ -1,0 +1,76 @@
+{
+  "version": "2.1.0",
+  "weak_profession_fraction": 0.25,
+  "health_shares": {
+    "good": 0.2,
+    "minor": 0.4,
+    "medium": 0.25,
+    "critical": 0.15
+  },
+  "event_min": 10,
+  "event_max": 90,
+  "profession_event_cap": 20,
+  "hobby_event_cap": 8,
+  "fact_event_cap": 6,
+  "equipment_event_cap": 10,
+  "body_event_cap": 5,
+  "trait_event_cap": 5,
+  "phobia_event_penalty": 8,
+  "second_helper_weight": 0.5,
+  "event_special_cap": 25,
+  "exile_penalty_cap": 15,
+  "events_final_cap": 12,
+  "needs_base": 2.7,
+  "needs_size_exponent": 0.45,
+  "final_base": 18,
+  "final_range": 77,
+  "success_threshold": 55,
+  "age_care": {
+    "age_knots": [
+      [
+        55,
+        0
+      ],
+      [
+        60,
+        1.5
+      ],
+      [
+        65,
+        3
+      ],
+      [
+        70,
+        4.5
+      ],
+      [
+        75,
+        6
+      ],
+      [
+        80,
+        8
+      ],
+      [
+        90,
+        10
+      ]
+    ],
+    "final_penalty_cap": 12,
+    "team_size_exponent": 0.35,
+    "health_factors": {
+      "good": 0.8,
+      "minor": 0.9
+    },
+    "fitness_traits": [
+      "endurance"
+    ],
+    "fitness_factor": 0.9,
+    "medicine_relief": 0.45,
+    "social_relief": 0.15,
+    "support_reduction_cap": 0.6,
+    "duration_baseline_years": 5,
+    "duration_rate": 0.025,
+    "duration_multiplier_cap": 1.25
+  }
+}

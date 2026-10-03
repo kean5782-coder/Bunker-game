@@ -1,0 +1,60 @@
+=== RUN   TestJoinURL
+=== RUN   TestJoinURL/porthole
+=== RUN   TestJoinURL/192.168.1.20lan
+=== RUN   TestJoinURL/25.1.2.3:9001/?room=ABCDvpn
+=== RUN   TestJoinURL/http://example.com:8008/?room=ABCDpublic
+=== RUN   TestJoinURL/https://example.com/?room=ABCDpublic
+=== RUN   TestJoinURL/ABCDlan
+=== RUN   TestJoinURL/lan
+=== RUN   TestJoinURL/file:///etc/passwdlan
+=== RUN   TestJoinURL/http://user:pw@localhost:8008lan
+=== RUN   TestJoinURL/javascript:alert(1)lan
+=== RUN   TestJoinURL/127.0.0.1:99999lan
+--- PASS: TestJoinURL (0.00s)
+    --- PASS: TestJoinURL/porthole (0.00s)
+    --- PASS: TestJoinURL/192.168.1.20lan (0.00s)
+    --- PASS: TestJoinURL/25.1.2.3:9001/?room=ABCDvpn (0.00s)
+    --- PASS: TestJoinURL/http://example.com:8008/?room=ABCDpublic (0.00s)
+    --- PASS: TestJoinURL/https://example.com/?room=ABCDpublic (0.00s)
+    --- PASS: TestJoinURL/ABCDlan (0.00s)
+    --- PASS: TestJoinURL/lan (0.00s)
+    --- PASS: TestJoinURL/file:///etc/passwdlan (0.00s)
+    --- PASS: TestJoinURL/http://user:pw@localhost:8008lan (0.00s)
+    --- PASS: TestJoinURL/javascript:alert(1)lan (0.00s)
+    --- PASS: TestJoinURL/127.0.0.1:99999lan (0.00s)
+=== RUN   TestSettings
+--- PASS: TestSettings (0.00s)
+=== RUN   TestZIPTraversal
+=== RUN   TestZIPTraversal/../evil
+=== RUN   TestZIPTraversal//absolute
+=== RUN   TestZIPTraversal/C:/evil
+=== RUN   TestZIPTraversal/a/../../evil
+=== RUN   TestZIPTraversal/a\..\evil
+--- PASS: TestZIPTraversal (0.00s)
+    --- PASS: TestZIPTraversal/../evil (0.00s)
+    --- PASS: TestZIPTraversal//absolute (0.00s)
+    --- PASS: TestZIPTraversal/C:/evil (0.00s)
+    --- PASS: TestZIPTraversal/a/../../evil (0.00s)
+    --- PASS: TestZIPTraversal/a\..\evil (0.00s)
+=== RUN   TestZIPWheel
+--- PASS: TestZIPWheel (0.00s)
+=== RUN   TestDownloadWhitelist
+--- PASS: TestDownloadWhitelist (0.00s)
+=== RUN   TestSHA
+--- PASS: TestSHA (0.00s)
+=== RUN   TestWheelSelection
+--- PASS: TestWheelSelection (0.00s)
+=== RUN   TestControlAccess
+--- PASS: TestControlAccess (0.00s)
+=== RUN   TestGuestNeverStartsServer
+--- PASS: TestGuestNeverStartsServer (0.00s)
+=== RUN   TestNoDownloadWithoutConsent
+--- PASS: TestNoDownloadWithoutConsent (0.00s)
+=== RUN   TestReadyMarker
+--- PASS: TestReadyMarker (0.00s)
+=== RUN   TestRemoveEnv
+--- PASS: TestRemoveEnv (0.00s)
+=== RUN   TestExportZIPExcludesPrivateData
+--- PASS: TestExportZIPExcludesPrivateData (0.58s)
+PASS
+ok  	bunker/launcher	0.591s

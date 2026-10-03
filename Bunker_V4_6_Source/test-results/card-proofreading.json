@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-01",
+  "tests_passed": 652,
+  "card_counts": {
+    "PROFESSIONS": 157,
+    "HEALTH_CONDITIONS": 74,
+    "BODY_BUILDS": 30,
+    "HUMAN_TRAITS": 60,
+    "PHOBIAS": 40,
+    "BIG_INVENTORY": 65,
+    "BACKPACK_ITEMS": 65,
+    "HOBBIES": 65,
+    "FACTS": 75
+  },
+  "total_character_cards": 631,
+  "selected_wording_verified": true,
+  "guitar_unchanged": true,
+  "existing_effect_changes": [
+    [
+      "backpack",
+      "Дождевик"
+    ]
+  ],
+  "payload_matches_source": {
+    "age_balance.py": true,
+    "app.py": true,
+    "balance.py": true,
+    "bot_agent.py": true,
+    "bot_client.py": true,
+    "bot_turns.py": true,
+    "card_text.py": true,
+    "character_cards.py": true,
+    "clean_port.py": true,
+    "deck_data.py": true,
+    "game_engine.py": true,
+    "lobby.py": true,
+    "network_utils.py": true,
+    "presentation.py": true,
+    "results.py": true,
+    "special_cards.py": true,
+    "voting.py": true
+  },
+  "examples": {
+    "age": "Женщина, 24 года",
+    "profession": "Мясник (по собственным словам: двадцать лет опыта)"
+  },
+  "test_counts": {
+    "passed": 652
+  },
+  "test_runtime": {
+    "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "fastapi": "0.128.2",
+      "pydantic": "2.13.4",
+      "anyio": "4.13.0",
+      "pytest": "8.4.2",
+      "httpx": "0.28.1"
+    }
+  },
+  "build": {
+    "executable": "Bunker_Random.exe",
+    "sha256": "77575c2e748f2eb512c6258c9c2465a118655b4743b2e63715db9c4e5a10da58",
+    "size": 69193216,
+    "payload_sha256": "aa37ac54e937c2948d5f5ea523b93231355a6f8536bf9d921fffb8c3dabaf5f6",
+    "embedded_payload_matches": true,
+    "architecture": "Windows x64 GUI",
+    "launcher_launched": false
+  }
+}

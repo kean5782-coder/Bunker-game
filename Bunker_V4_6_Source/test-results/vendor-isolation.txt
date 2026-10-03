@@ -1,0 +1,2 @@
+Isolated pure-Python payload test; Linux native pydantic_core/Pillow substituted. NOT a Windows wheel/runtime test.
+PURE_VENDOR_IMPORT_AND_QR_OK 458

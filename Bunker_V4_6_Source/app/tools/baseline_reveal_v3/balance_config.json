@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "weak_profession_fraction": 0.25,
+  "health_shares": {
+    "good": 0.2,
+    "minor": 0.4,
+    "medium": 0.25,
+    "critical": 0.15
+  },
+  "event_min": 10,
+  "event_max": 90,
+  "profession_event_cap": 20,
+  "hobby_event_cap": 8,
+  "fact_event_cap": 6,
+  "equipment_event_cap": 10,
+  "body_event_cap": 5,
+  "trait_event_cap": 5,
+  "phobia_event_penalty": 8,
+  "second_helper_weight": 0.5,
+  "event_special_cap": 25,
+  "exile_penalty_cap": 15,
+  "events_final_cap": 12,
+  "needs_base": 2.7,
+  "needs_size_exponent": 0.45,
+  "final_base": 18,
+  "final_range": 77,
+  "success_threshold": 55
+}
